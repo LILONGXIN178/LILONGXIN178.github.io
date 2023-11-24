@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>小李的硬件工作站</title>
+  <title>小李工作站</title>
   
-  
+  <subtitle>基于小李努力的硬件工作站</subtitle>
   <link href="https://lilongxin178.github.io/atom.xml" rel="self"/>
   
   <link href="https://lilongxin178.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://lilongxin178.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>工程小李</name>
     
   </author>
   
