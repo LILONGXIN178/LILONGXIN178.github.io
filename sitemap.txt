@@ -1,8 +1,12 @@
+https://lilongxin178.github.io/2023/11/26/%E5%9F%BA%E4%BA%8ETypora%E7%9A%84Markdown%E4%BD%BF%E7%94%A8/
 https://lilongxin178.github.io/404.html
 https://lilongxin178.github.io/friends/index.html
 https://lilongxin178.github.io/contact/index.html
 https://lilongxin178.github.io/about/index.html
 https://lilongxin178.github.io/tags/index.html
 https://lilongxin178.github.io/categories/index.html
-https://lilongxin178.github.io/2023/11/23/hello-world/
 https://lilongxin178.github.io/
+https://lilongxin178.github.io/tags/%E5%B7%A5%E5%85%B7/
+https://lilongxin178.github.io/tags/Markdown/
+https://lilongxin178.github.io/tags/Typora/
+https://lilongxin178.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/
