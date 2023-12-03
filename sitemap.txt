@@ -1,4 +1,4 @@
-https://lilongxin178.github.io/2023/11/29/%E5%85%B3%E4%BA%8E%E8%B4%9F%E7%94%B5%E9%98%BB%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E7%9A%84%E6%8E%A2%E7%A9%B6/
+https://lilongxin178.github.io/2023/11/30/%E5%85%B3%E4%BA%8E%E8%B4%9F%E7%94%B5%E9%98%BB%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E7%9A%84%E6%8E%A2%E7%A9%B6/
 https://lilongxin178.github.io/2023/11/26/%E5%9F%BA%E4%BA%8ETypora%E7%9A%84Markdown%E4%BD%BF%E7%94%A8/
 https://lilongxin178.github.io/404.html
 https://lilongxin178.github.io/friends/index.html
@@ -7,9 +7,9 @@ https://lilongxin178.github.io/about/index.html
 https://lilongxin178.github.io/tags/index.html
 https://lilongxin178.github.io/categories/index.html
 https://lilongxin178.github.io/
-https://lilongxin178.github.io/tags/%E8%BF%90%E6%94%BE%E4%BD%BF%E7%94%A8/
+https://lilongxin178.github.io/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/
 https://lilongxin178.github.io/tags/%E5%B7%A5%E5%85%B7/
 https://lilongxin178.github.io/tags/Markdown/
 https://lilongxin178.github.io/tags/Typora/
-https://lilongxin178.github.io/categories/%E6%A8%A1%E6%8B%9F%E7%A1%AC%E4%BB%B6%E6%8E%A2%E7%B4%A2/
+https://lilongxin178.github.io/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/
 https://lilongxin178.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/
