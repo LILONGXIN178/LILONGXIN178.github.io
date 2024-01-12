@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 硬件 笔记">
-    <meta name="description" content="小李工作站">
+    <meta name="keywords" content="基于Typora的Markdown使用, 硬件 笔记">
+    <meta name="description" content="基于Typora的Markdown使用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 小李工作站</title>
+    <title>基于Typora的Markdown使用 | 小李工作站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -414,344 +414,299 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                小李工作站
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">基于Typora的Markdown使用</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-<script>
+
+
+<main class="post-container content">
+
     
-      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 24) + '.jpg';
-    
-    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
-
-</script>
-
-
-    </div>
-</div>
-<style>
-    .friends-container {
-        margin-top: -100px;
-        margin-bottom: 30px;
-    }
-
-    .friends-container .tag-title {
-        margin-bottom: 10px;
-        color: #3C4858;
-        font-size: 1.75rem;
-        font-weight: 400;
-    }
-
-    .frind-ship img {
-        border-radius: 50%;
-    }
-
-    /* 一下是按钮样式 */
-
-    .frind-ship {
-        padding: 10px 20px;
-    }
-
-    .frind-ship .title {
-        display: flex;
-        align-items: center;
-    }
-
-    .frind-ship .title div {
-        color: #fff;
-        padding-left: 10px;
-    }
-
-    .frind-ship .title img {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
-    }
-
-    .frind-ship .title h1 {
-        padding-bottom: 5px;
-        border-bottom: 2px solid #fff;
-        position: relative;
-        top:-15px;
-        left: 3px;
-    }
-
-    .friend-button {
-        display: flex;
-        justify-content: center;
-        margin-bottom: -27px;
-    }
-
-    .friend-button a {
-        border-radius: 40px;
-    }
-
-    .friend-all .tag-post {
-        margin-bottom: 30px;
-    }
-
-    .button-caution {
-        background-color: #FF4351;
-        border-color: #FF4351;
-        color: #FFF;
-    }
-
-    .button {
-        font-weight: 300;
-        font-size: 16px;
-        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        text-decoration: none;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 40px;
-        margin: 0;
-        display: inline-block;
-        appearance: none;
-        cursor: pointer;
-        border: none;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: .3s;
-        transition-duration: .3s;
-    }
-
-    .title {
-        margin-bottom: 0rem !important;
-    }
-
-    .card {
-        margin: 3rem 0 1rem 0 !important;
-    }
-
-    .button-glow.button-caution {
-        -webkit-animation-name: glowing-caution;
-        animation-name: glowing-caution;
-    }
-
-    @-webkit-keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    @keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    .button-caution:hover {
-        background-color: #ff7680;
-        border-color: #ff7680;
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    .frind-card1 {
-        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    }
-
-    .frind-card2 {
-        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .frind-card3 {
-        background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-    }
-
-    .frind-card4 {
-        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    }
-
-    .frind-card5 {
-        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
-    }
-
-    .frind-card6 {
-        background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-    }
-
-    .frind-card7 {
-        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    }
-
-    .frind-card8 {
-        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-    }
-
-    .frind-card9 {
-        background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
-    }
-
-    .frind-card10 {
-        background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-    }
-
-    article .card {
-        overflow: visible !important;
-    }
-</style>
-
-<main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
-                </div>
-                <article id="friends-link">
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
                     
-                    
-                    <div class="row tags-posts friend-all">
+                    <div class="article-tag">
                         
+                            <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                                <span class="chip bg-color">工具</span>
+                            </a>
                         
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card1">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="http://image.luokangyuan.com/1_qq_27922023.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">码酱</h1>
-                                            <p style="position: relative;top: -35px;">我不是大佬，只是在追寻大佬的脚步</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="http://luokangyuan.com/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            前去学习
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
+                            </a>
                         
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card2">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="http://image.luokangyuan.com/4027734.jpeg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">闪烁之狐</h1>
-                                            <p style="position: relative;top: -35px;">编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://blinkfox.github.io/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            前去学习
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card3">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="http://image.luokangyuan.com/avatar.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">ja_rome</h1>
-                                            <p style="position: relative;top: -35px;">平凡的脚步也可以走出伟大的行程</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://me.csdn.net/jlh912008548" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            前去学习
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="/tags/Typora/">
+                                <span class="chip bg-color">Typora</span>
+                            </a>
                         
                     </div>
                     
-                </article>
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
+                                工具使用
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
+        <hr class="clearfix">
 
         
 
-        <div class="card">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="基于Typora的Markdown使用"><a href="#基于Typora的Markdown使用" class="headerlink" title="基于Typora的Markdown使用"></a>基于Typora的Markdown使用</h1><hr>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><hr>
+<p>​	Word文件是目前我们日常生活中较为常用的文字文件，但我们会发现我们在使用中经常出现排版变化的问题。那为了将排版进行统一规范，我们可能需要一种统一的软件或者文件格式来进行规范。</p>
+<p>​	那我们会发现，有这样的一种标记语言——Markdown。</p>
+<p>​	那么既然我们想要去使用Markdown进行文件的书写，我们自然需要一个编辑器工具对其进行编辑使用。学习之初，有我的学长向我推荐了Typora这款编辑器，而我本人也对这款编辑器较为熟悉，所以，本篇博文将基于Typora对Markdown的使用进行探讨。</p>
+<h2 id="二、Typora的快捷键设置"><a href="#二、Typora的快捷键设置" class="headerlink" title="二、Typora的快捷键设置"></a>二、Typora的快捷键设置</h2><hr>
+<h3 id="2-1-常用快捷键"><a href="#2-1-常用快捷键" class="headerlink" title="2.1 常用快捷键"></a>2.1 常用快捷键</h3><ul>
+<li>加粗： <code>Ctrl + B</code></li>
+<li>撤销： <code>Ctrl + Z</code></li>
+<li>字体倾斜 ：<code>Ctrl+I</code></li>
+<li>下划线：<code>Ctrl+U</code></li>
+<li>多级标题： <code>Ctrl + 1~6</code></li>
+<li>有序列表：<code>Ctrl + Shift + [</code></li>
+<li>无序列表：<code>Ctrl + Shift + ]</code></li>
+<li>降级快捷键 ：<code>Tab</code></li>
+<li>升级快捷键：<code>Shift + Tab</code></li>
+<li>插入链接： <code>Ctrl + K</code></li>
+<li>插入公式： <code>Ctrl + Shift + M</code></li>
+<li>行内代码： <code>Ctrl + Shift + K</code></li>
+<li>插入图片： <code>Ctrl + Shift + I</code></li>
+<li>返回Typora顶部：<code>Ctrl+Home</code></li>
+<li>返回Typora底部 ：<code>Ctrl+End</code></li>
+<li>创建表格 ：<code>Ctrl+T</code></li>
+<li>选中某句话 ：<code>Ctrl+L</code></li>
+<li>选中某个单词 ：<code>Ctrl+D</code></li>
+<li>选中相同格式的文字 ：<code>Ctrl+E</code></li>
+<li>搜索: <code>Ctrl+F</code></li>
+<li>搜索并替换 ：<code>Ctrl+H</code></li>
+<li>删除线 ：<code>Alt+Shift+5</code></li>
+<li>引用 ：<code>Ctrl+Shift+Q</code></li>
+<li>生成目录：<code>[TOC]+Enter</code></li>
+</ul>
+<h3 id="2-2-部分功能演示-介绍"><a href="#2-2-部分功能演示-介绍" class="headerlink" title="2.2  部分功能演示&#x2F;介绍"></a>2.2  部分功能演示&#x2F;介绍</h3><h4 id="2-2-1-目录"><a href="#2-2-1-目录" class="headerlink" title="2.2.1 目录"></a>2.2.1 目录</h4><p>​	输入[TOC]加Enter生成目录。该目录可随用户使用时自动更新，并且具有跳转功能，使用较为简单。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126093735797.png"></p>
+<h4 id="2-2-2-段落"><a href="#2-2-2-段落" class="headerlink" title="2.2.2 段落"></a>2.2.2 段落</h4><p>​	使用换行键[Enter]可以建立新的一行,而使用<code>Shift</code>+<code>Enter</code>可以创建一个比段落间距更小的行间距。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126094245026.png"></p>
+<h4 id="2-2-3-代码块"><a href="#2-2-3-代码块" class="headerlink" title="2.2.3 代码块"></a>2.2.3 代码块</h4><p>​	使用快捷键Ctrl + Shift + K，创建代码块。示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello,python!&quot;&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2-4-数学公式"><a href="#2-2-4-数学公式" class="headerlink" title="2.2.4 数学公式"></a>2.2.4 数学公式</h4><p>打开Typora选择数学模块</p>
+<ul>
+<li>点击“段落”—&gt;“公式块”（不推荐）</li>
+<li>快捷键Ctrl+Shift+m       (快捷方式)</li>
+<li>“$$”+回车                     （Markdown语法）</li>
+</ul>
+<p> 以上三种方式都能打开数学公式的编辑栏。</p>
+<p>示例：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126094951006.png"></p>
+<h4 id="2-2-5-上下标及高亮使用"><a href="#2-2-5-上下标及高亮使用" class="headerlink" title="2.2.5 上下标及高亮使用"></a>2.2.5 上下标及高亮使用</h4><p>​	进入偏好设置：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126095114568.png"></p>
+<p>​	勾选以上的拓展语法，并进行使用。</p>
+<h2 id="三、Typora图床设置"><a href="#三、Typora图床设置" class="headerlink" title="三、Typora图床设置"></a>三、Typora图床设置</h2><hr>
+<p>​     使用Typora时如果不使用图床，我们插入的图片将会保存至本地，那么当我们发往博客或CSDN时就无法直接显示图片。因此我们需要设置一个图床，将图片上传至图床。这里我们可以使用<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">PicGo</a>+<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Gitee&spm=1001.2101.3001.7020">Gitee</a>的方式，无需任何费用且上传速度也不错，唯一缺点就是上传再Gitee上私密性不强。</p>
+<h3 id="3-1-Gitee使用及配置"><a href="#3-1-Gitee使用及配置" class="headerlink" title="3.1 Gitee使用及配置"></a>3.1 Gitee使用及配置</h3><p>​	Gitee和GitHub都是较为常用的代码托管平台，和GitHub相比最大的都是就是其访问速度在国内环境下相对较快。所以我们将我们的图床远程仓库设置在Gitee上。<br>​	Gitee地址：*<a href="https://link.zhihu.com/?target=https://gitee.com/">https://gitee.com/</a>*</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126125303689.png"></p>
+<p><strong>新建仓库：</strong></p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126125341324.png"></p>
+<p>​	此处仓库名自己可任意填写。下面两个标出的红色框中的信息直接按照图中所示配置。</p>
+<p><strong>创建私人令牌：</strong></p>
+<p>​	回到主页，然后点击自己的头像，选择账号设置。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126125434995.png"></p>
+<p>​	打开后，找到私人令牌</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126125528364.png"></p>
+<p>​	进入后点击生成新令牌<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126090555648.png"></p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126090632411.png"></p>
+<p>​	简单对项目进行简述，并勾选图中所勾选选项。并输入密码进行验证。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126091222223.png"></p>
+<p>​	将私人令牌的token进行复制保存。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126091351166.png"></p>
+<h3 id="3-2-Picgo安装下载及使用"><a href="#3-2-Picgo安装下载及使用" class="headerlink" title="3.2 Picgo安装下载及使用"></a>3.2 Picgo安装下载及使用</h3><p>​	PicGo是一款开源免费且支持多平台。</p>
+<p>​	下载并打开Picgo进行安装。安装完成后进入主界面。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126125604731.png"></p>
+<p>​	此处可以选择链接格式（markdown、HTML、URL、UBB、Custom等），另外也需要对图床进行设置，为了使用Gitee作为图床，我们应当先进入插件设置来添加Gitee。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126091909225.png"></p>
+<p>下面在图床设置中对Gitee进行配置。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126092257130.png"></p>
+<h3 id="3-3-Typora设置"><a href="#3-3-Typora设置" class="headerlink" title="3.3 Typora设置"></a>3.3 Typora设置</h3><p>​	进入Typora，打开“文件”进入“偏好设置”</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126125634886.png"></p>
+<p>​	在该设置中选择其用以下几种功能，并将上传服务选择为Picgo（app），并将应用程序地址填入绝对路径。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126125702215.png"></p>
+<p>​	现在只要我们在typora中粘贴任意一张图片，Gicgo就会自动将图片上传到我们的gitee仓库中，肥肠的方便好用。</p>
+
+                
+            </div>
+            <hr/>
 
             
 
-            
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">工程小李</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lilongxin178.github.io/2023/11/26/%E5%9F%BA%E4%BA%8ETypora%E7%9A%84Markdown%E4%BD%BF%E7%94%A8/">https://lilongxin178.github.io/2023/11/26/%E5%9F%BA%E4%BA%8ETypora%E7%9A%84Markdown%E4%BD%BF%E7%94%A8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">工程小李</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
 
-            
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
 
-            
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                                    <span class="chip bg-color">工具</span>
+                                </a>
+                            
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
+                                </a>
+                            
+                                <a href="/tags/Typora/">
+                                    <span class="chip bg-color">Typora</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
-            <style>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -1017,23 +972,282 @@
 <!--酷Q推送-->
 
 
-            
+    
 
-            
+    
 
-            
+    
 
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/11/30/%E5%85%B3%E4%BA%8E%E8%B4%9F%E7%94%B5%E9%98%BB%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E7%9A%84%E6%8E%A2%E7%A9%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="关于负电阻的原理及应用的探究">
+                        
+                        <span class="card-title">关于负电阻的原理及应用的探究</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Word文件是目前我们日常生活中较为常用的文字文件，但我们会发现我们在使用中经常出现排版变化的问题。那为了将排版进行统一规范，我们可能需要一种统一的软件或者文件格式来进行规范。 那我们会发现，有这样的一种标记语言——Markdown。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/">
+                        <span class="chip bg-color">运放的运用</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
         </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/26/%E5%9F%BA%E4%BA%8ETypora%E7%9A%84Markdown%E4%BD%BF%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="基于Typora的Markdown使用">
+                        
+                        <span class="card-title">基于Typora的Markdown使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            基于Typora的Markdown使用
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
+                                    工具使用
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
     </div>
-</main>
+</article>
+
+</div>
+
 
 <script>
-    $(function () {
-        $('#friends-link').masonry({
-            itemSelector: '.friend-div'
-        });
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 小李工作站<br />'
+            + '文章作者: 工程小李<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
     });
 </script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, 硬件 笔记">
-    <meta name="description" content="小李工作站">
+    <meta name="keywords" content="关于负电阻的原理及应用的探究, 硬件 笔记">
+    <meta name="description" content="Word文件是目前我们日常生活中较为常用的文字文件，但我们会发现我们在使用中经常出现排版变化的问题。那为了将排版进行统一规范，我们可能需要一种统一的软件或者文件格式来进行规范。 那我们会发现，有这样的一种标记语言——Markdown。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | 小李工作站</title>
+    <title>关于负电阻的原理及应用的探究 | 小李工作站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -414,344 +414,228 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                小李工作站
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">关于负电阻的原理及应用的探究</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-<script>
+
+
+<main class="post-container content">
+
     
-      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 24) + '.jpg';
-    
-    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
-
-</script>
-
-
-    </div>
-</div>
-<style>
-    .friends-container {
-        margin-top: -100px;
-        margin-bottom: 30px;
-    }
-
-    .friends-container .tag-title {
-        margin-bottom: 10px;
-        color: #3C4858;
-        font-size: 1.75rem;
-        font-weight: 400;
-    }
-
-    .frind-ship img {
-        border-radius: 50%;
-    }
-
-    /* 一下是按钮样式 */
-
-    .frind-ship {
-        padding: 10px 20px;
-    }
-
-    .frind-ship .title {
-        display: flex;
-        align-items: center;
-    }
-
-    .frind-ship .title div {
-        color: #fff;
-        padding-left: 10px;
-    }
-
-    .frind-ship .title img {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
-    }
-
-    .frind-ship .title h1 {
-        padding-bottom: 5px;
-        border-bottom: 2px solid #fff;
-        position: relative;
-        top:-15px;
-        left: 3px;
-    }
-
-    .friend-button {
-        display: flex;
-        justify-content: center;
-        margin-bottom: -27px;
-    }
-
-    .friend-button a {
-        border-radius: 40px;
-    }
-
-    .friend-all .tag-post {
-        margin-bottom: 30px;
-    }
-
-    .button-caution {
-        background-color: #FF4351;
-        border-color: #FF4351;
-        color: #FFF;
-    }
-
-    .button {
-        font-weight: 300;
-        font-size: 16px;
-        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        text-decoration: none;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 40px;
-        margin: 0;
-        display: inline-block;
-        appearance: none;
-        cursor: pointer;
-        border: none;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: .3s;
-        transition-duration: .3s;
-    }
-
-    .title {
-        margin-bottom: 0rem !important;
-    }
-
-    .card {
-        margin: 3rem 0 1rem 0 !important;
-    }
-
-    .button-glow.button-caution {
-        -webkit-animation-name: glowing-caution;
-        animation-name: glowing-caution;
-    }
-
-    @-webkit-keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    @keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    .button-caution:hover {
-        background-color: #ff7680;
-        border-color: #ff7680;
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    .frind-card1 {
-        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    }
-
-    .frind-card2 {
-        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .frind-card3 {
-        background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-    }
-
-    .frind-card4 {
-        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    }
-
-    .frind-card5 {
-        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
-    }
-
-    .frind-card6 {
-        background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-    }
-
-    .frind-card7 {
-        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    }
-
-    .frind-card8 {
-        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-    }
-
-    .frind-card9 {
-        background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
-    }
-
-    .frind-card10 {
-        background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-    }
-
-    article .card {
-        overflow: visible !important;
-    }
-</style>
-
-<main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
-                </div>
-                <article id="friends-link">
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
                     
-                    
-                    <div class="row tags-posts friend-all">
+                    <div class="article-tag">
                         
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card1">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="http://image.luokangyuan.com/1_qq_27922023.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">码酱</h1>
-                                            <p style="position: relative;top: -35px;">我不是大佬，只是在追寻大佬的脚步</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="http://luokangyuan.com/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            前去学习
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card2">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="http://image.luokangyuan.com/4027734.jpeg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">闪烁之狐</h1>
-                                            <p style="position: relative;top: -35px;">编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://blinkfox.github.io/" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            前去学习
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card3">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="http://image.luokangyuan.com/avatar.jpg" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">ja_rome</h1>
-                                            <p style="position: relative;top: -35px;">平凡的脚步也可以走出伟大的行程</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://me.csdn.net/jlh912008548" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            前去学习
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/">
+                                <span class="chip bg-color">运放的运用</span>
+                            </a>
                         
                     </div>
                     
-                </article>
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                硬件探讨
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
+        <hr class="clearfix">
 
         
 
-        <div class="card">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="关于负电阻的原理及应用的探究"><a href="#关于负电阻的原理及应用的探究" class="headerlink" title="关于负电阻的原理及应用的探究"></a>关于负电阻的原理及应用的探究</h1><h2 id="一、负电阻是什么"><a href="#一、负电阻是什么" class="headerlink" title="一、负电阻是什么"></a>一、负电阻是什么</h2><hr>
+<p>一般来说，电压随电流变化的情形在纯电阻电路中可使用微分电阻R进行表示：<br>$$<br>R&#x3D;{dV\over dI<br>}<br>$$<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231122133945287.png" alt="图一  隧道二极管伏安特性曲线"></p>
+<p>​	由该图可看出，隧道二极管在A-B的阶段是符合前文所说的负微分效应的，但由于隧道二极管的该区域伏安特性并非线性所以该区域并不能称之为负电阻。</p>
+<p>​	接下来，我们再对负电阻做更加细致的定义：</p>
+<p>​	根据欧姆定律可知电阻二端的电压和电流成正比，其电流-电压关系的图形斜率为正，且会通过原点。</p>
+<p>​	那么就可推导理想负电阻其电流-电压关系的图形斜率为负，且会通过原点，因此只在图中的第二和第四象限出现。</p>
+<p>​	故可对该理想负电阻进行绘制伏安特性曲线：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231122135127231.png" alt="图二  理想负阻抗伏安特性曲线"></p>
+<p>​	由以上推论及实际现象定义负电阻，即可简单定义为理想的负电阻应该为<strong>伏安特性曲线为线性且为斜率为负并经过原点</strong>的一种元件。</p>
+<p>​	历史以往研究时有注意到气体放电元件及一些真空管（例如负耗阻性管）会有负阻效应。不过实用且有经济效益的元件一直到固态电子技术普及后才出现。典型的负阻抗电路—负阻抗变换器—是由约翰·林维尔在1953年发明。而典型差动电阻为负值的元件—隧道二极管—则是由江崎玲于奈在1958年发明。</p>
+<h2 id="二、实际负电阻元件构建"><a href="#二、实际负电阻元件构建" class="headerlink" title="二、实际负电阻元件构建"></a>二、实际负电阻元件构建</h2><hr>
+<p>​	集成电路兴起后，运算放大器由于其”虚短“”虚断“的特性，为构建一些理论中的器提供了巨大帮助，负电阻也在此应运而生。</p>
+<h3 id="负电阻实际元件"><a href="#负电阻实际元件" class="headerlink" title="负电阻实际元件"></a>负电阻实际元件</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126135548211.png" alt="图三  负阻抗电路"></p>
+<p>​	</p>
+<p>该图像为较为典型的负阻抗电路，其阻抗为：<br>$$<br>Z_i &#x3D; {V\over A} &#x3D;-Z<br>$$<br>​	现在规定图中电流电压方向为正，由于运算放大器“虚断“的性质，我们可知该电路输入阻抗的绝对值为：</p>
+<p>$$<br>|Z|&#x3D;R_3<br>$$<br>​	那再由运放的”虚短“性质可知，可以看出该电路形成了一个放大倍数为两倍的同向放大器，所以当输入端设置电压为V时，输出端电压为2V所以此时R3上的电流在我们设定的状态下应该为-A。所以此时有：<br>$$<br>-A&#x3D;{V\over R}<br>$$<br>​	该公式可直接推出该电路阻抗为<br>$$<br>Z_i &#x3D; {V\over A} &#x3D;-Z<br>$$<br>​	从本质上来看，我们会发现这里是通过改变电流方向实现的一种模拟负电阻的电路。那我们该如何验证其是否是负电阻呢？接下来进行仿真。</p>
+<h2 id="三、仿真验证"><a href="#三、仿真验证" class="headerlink" title="三、仿真验证"></a>三、仿真验证</h2><hr>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126174749265.png" alt="图四 正负电阻并联仿真"></p>
+<p>​	使用 LTspice的直流扫描分析，设置V2从0V开始到2.5V步进0.1V，并给负电阻并联一个正电阻，那么由叠加定理可知，在理想电流源的情况下，正电阻与负电阻上所经过的电流应当相反。那么，开始仿真，测量两个电阻上所经过的电流。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231126175748739.png" alt="图五 正负电阻仿真结果"></p>
+<p>​	由测试直流分析可以看出，正电阻与负电阻的电流相反，且电流绝对值都为线性上升，所以，在该理想状态下，负电阻能够完美符合我们在前文中的标准。</p>
+<h2 id="四、负电阻应用场景"><a href="#四、负电阻应用场景" class="headerlink" title="四、负电阻应用场景"></a>四、负电阻应用场景</h2><h3 id="4-1-负阻抗缓冲器"><a href="#4-1-负阻抗缓冲器" class="headerlink" title="4.1 负阻抗缓冲器"></a>4.1 负阻抗缓冲器</h3><p>​	实际使用运算放大器时，我们往往会遇到运放驱动能力不足的情况，这种情况下，我们总是达不到我们所期望的电路效果。通常，当我们遇到这种情况时，我们通常使用一级跟随器（单位增益缓冲）。在这里我们可以尝试使用另外一种方式，即负阻抗缓冲器。当负载阻抗较小时，我们可以通过计算在输出端并联一负阻抗，此时输出阻抗趋于∞，且电路输出信号不会出现衰减的情况。<br>​	与传统跟随器方案相比，该方案具有一重要优点，其使负载阻抗变得很大，几乎消除了负载电阻对电路的影响。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231129202122417.png" alt="图六 负阻抗缓冲器演示"></p>
+<h3 id="4-2-高输入阻抗放大电路"><a href="#4-2-高输入阻抗放大电路" class="headerlink" title="4.2 高输入阻抗放大电路"></a>4.2 高输入阻抗放大电路</h3><p>​	在进行运放电路的使用时，我们知道同相放大器具有输入阻抗高的特点，而反相放大器具有运放输入端虚地，电路工作稳定的特定。所以，我们是否能通过负阻抗缓冲器的原理类比出高阻抗的反向放大电路呢？答案是可以实现的，通过反向在输入端并联负阻抗电路，即可有效提高输入阻抗。设计方案如下：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231129203142058.png" alt="图七 高输入阻抗放大电路"></p>
+<h3 id="4-3-负电阻在LC振荡电路中的应用"><a href="#4-3-负电阻在LC振荡电路中的应用" class="headerlink" title="4.3 负电阻在LC振荡电路中的应用"></a>4.3 负电阻在LC振荡电路中的应用</h3><p>​	RLC二阶电路的响应具有振荡的特性,特别地,当R &#x3D; 0 时,电路的响应为无阻尼振荡。为了得到无阻尼振荡特性,可用负电阻来“中和”电路中的正电阻。</p>
+<p>​	通过修改R4，可观察输出端波形幅值的衰减、稳定、增长的现象。	<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20231129205756423.png" alt="图八 LC振荡电路"></p>
+<p>​	仿真文件地址：<a target="_blank" rel="noopener" href="https://github.com/LILONGXIN178/img/blob/master/%E8%B4%9F%E9%98%BB%E6%8A%97LC%E6%8C%AF%E8%8D%A1%E4%BB%BF%E7%9C%9F.ms14">img&#x2F;负阻抗LC振荡仿真.ms14 at master · LILONGXIN178&#x2F;img (github.com)</a></p>
+
+                
+            </div>
+            <hr/>
 
             
 
-            
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">工程小李</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lilongxin178.github.io/2023/11/30/%E5%85%B3%E4%BA%8E%E8%B4%9F%E7%94%B5%E9%98%BB%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E7%9A%84%E6%8E%A2%E7%A9%B6/">https://lilongxin178.github.io/2023/11/30/%E5%85%B3%E4%BA%8E%E8%B4%9F%E7%94%B5%E9%98%BB%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E7%9A%84%E6%8E%A2%E7%A9%B6/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">工程小李</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
 
-            
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
 
-            
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/">
+                                    <span class="chip bg-color">运放的运用</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
-            <style>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -1017,23 +901,285 @@
 <!--酷Q推送-->
 
 
-            
+    
 
-            
+    
 
-            
+    
 
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/12/01/TMS320F280049C%E4%B8%BB%E6%8E%A7%E7%9A%84DSP%E5%85%A5%E9%97%A8%E8%AE%BE%E8%AE%A1%EF%BC%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%89%20%20%E6%90%AD%E5%BB%BA%E5%8F%AF%E7%A7%BB%E6%A4%8D%E7%9A%84CCS%E5%B7%A5%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="TMS320F280049C主控的DSP入门设计（学习笔记一）  搭建可移植的CCS工程">
+                        
+                        <span class="card-title">TMS320F280049C主控的DSP入门设计（学习笔记一）  搭建可移植的CCS工程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本篇笔记将介绍如何搭建可移植的CCS工程，以便于开发TMS320F280049C主控的DSP入门设计。本篇笔记将详细介绍如何创建CCS工程、添加源文件和库文件、配置编译选项等步骤。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DSP%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    DSP设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DSP%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">DSP设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
         </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/26/%E5%9F%BA%E4%BA%8ETypora%E7%9A%84Markdown%E4%BD%BF%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="基于Typora的Markdown使用">
+                        
+                        <span class="card-title">基于Typora的Markdown使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            基于Typora的Markdown使用
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
+                                    工具使用
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
     </div>
-</main>
+</article>
+
+</div>
+
 
 <script>
-    $(function () {
-        $('#friends-link').masonry({
-            itemSelector: '.friend-div'
-        });
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 小李工作站<br />'
+            + '文章作者: 工程小李<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
     });
 </script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
