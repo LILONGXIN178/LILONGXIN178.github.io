@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="TMS320F280049C主控的DSP入门设计（学习笔记二）  TMS280049C评估板下载设置及流程, 硬件 笔记">
-    <meta name="description" content="本篇笔记将介绍如何进行下载以及烧录的配置流程，以便于开发TMS320F280049C主控的DSP入门设计。">
+    <meta name="keywords" content="Matlab2022a离线安装Embedded Coder Support Package TI C2000, 硬件 笔记">
+    <meta name="description" content="本篇笔记将介绍Embedded Coder Support Package TI C2000 以及C2000代码的生成。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>TMS320F280049C主控的DSP入门设计（学习笔记二）  TMS280049C评估板下载设置及流程 | 小李工作站</title>
+    <title>Matlab2022a离线安装Embedded Coder Support Package TI C2000 | 小李工作站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -418,12 +418,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">TMS320F280049C主控的DSP入门设计（学习笔记二）  TMS280049C评估板下载设置及流程</h1>
+                    <h1 class="description center-align post-title">Matlab2022a离线安装Embedded Coder Support Package TI C2000</h1>
                 </div>
             </div>
         </div>
@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-02
+                    2023-12-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-13
+                    2024-01-31
                 </div>
                 
 
@@ -512,69 +512,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="TMS320F280049C主控的DSP入门设计（学习笔记二）-TMS280049C评估板下载设置及流程"><a href="#TMS320F280049C主控的DSP入门设计（学习笔记二）-TMS280049C评估板下载设置及流程" class="headerlink" title="TMS320F280049C主控的DSP入门设计（学习笔记二）  TMS280049C评估板下载设置及流程"></a>TMS320F280049C主控的DSP入门设计（学习笔记二）  TMS280049C评估板下载设置及流程</h1><h2 id="一、仿真器配置"><a href="#一、仿真器配置" class="headerlink" title="一、仿真器配置"></a>一、仿真器配置</h2><p>​	对于280049C，其官方的LaunchPad开发板使用了XDS110仿真器的两线调试模式，而官方的ControlCard使用的是XDS100V2仿真器，开发时需要注意区分，并分别设置。本文以采用两线制调试的XDS110仿真器为例进行设置。<br>​	右键点击工程名，选择New—&gt;TargetConfiguration File，File name取名任意，这里可取名为LaunchPad.ccxml，点击Finish。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113192342226.png"></p>
-<p>​	点击第三步的操作，进入如下图界面，选择JTAG_2_PIN调试模式。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113192419400.png"></p>
-<h2 id="二、配置FLASH执行"><a href="#二、配置FLASH执行" class="headerlink" title="二、配置FLASH执行"></a>二、配置FLASH执行</h2><p>​	当代码调试完毕后，需将代码烧录到FLASH中进行固化，使其掉电程序依旧储存在FLASH中。使DSP可以脱离仿真器运行。</p>
-<h3 id="1-修改至FLASH模式"><a href="#1-修改至FLASH模式" class="headerlink" title="1.修改至FLASH模式"></a>1.修改至FLASH模式</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113193121668.png"></p>
-<p>然后<strong>重复与RAM中执行类似的配置</strong>，具体包括以下几步：</p>
+                <h1 id="Matlab2022a离线安装Embedded-Coder-Support-Package-TI-C2000"><a href="#Matlab2022a离线安装Embedded-Coder-Support-Package-TI-C2000" class="headerlink" title="Matlab2022a离线安装Embedded Coder Support Package TI C2000"></a>Matlab2022a离线安装Embedded Coder Support Package TI C2000</h1><h2 id="一、了解Embedded-Coder-Support-Package-TI-C2000"><a href="#一、了解Embedded-Coder-Support-Package-TI-C2000" class="headerlink" title="一、了解Embedded Coder Support Package TI C2000"></a>一、了解Embedded Coder Support Package TI C2000</h2><p>​	德州仪器 （TI） C2000 处理器的嵌入式编码器®支持包使您能够在 TI C2000™ MCU 上运行 Simulink® 模型。Embedded Coder 会自动为您的算法和设备驱动程序模块生成 C 代码，这些代码可直接在目标硬件上运行。该支持包可用于不同控制应用（包括电机控制和电源转换）的快速原型制作和生产工作流程。</p>
+<p>​	<strong>内容</strong></p>
 <ul>
-<li>添加索引路径</li>
-<li>添加数学库文件路径</li>
-<li>启用FPU和TMU</li>
-<li>定义_LAUNCHXL_F280049C</li>
-<li>文件管理</li>
+<li>从 Simulink 模型生成代码并部署到 TI C2000 硬件</li>
+<li>用于 ADC、PWM、SPI、I2C、串行、SDFM、CAN、硬件中断、eCAP、QEP、比较器、DAC 等的设备驱动程序模块。</li>
+<li>支持多核处理器</li>
+<li>支持控制律加速器 （CLA）</li>
+<li>具有处理器在环 （PIL）、监控和调谐（外部模式）、SD 卡记录和实时分析的验证功能</li>
+<li>IQMath 的代码替换库</li>
+<li>电机控制和功率转换应用实例</li>
 </ul>
-<h3 id="2-声明-FLASH和code-start"><a href="#2-声明-FLASH和code-start" class="headerlink" title="2.声明_FLASH和code_start"></a>2.声明_FLASH和code_start</h3><p>为了使程序正确的从flash启动，编程时通常有一些特殊的代码需要运行(通常TI都已经在库函数中提供)。为了确保这些代码能够正确编译，执行本步骤。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113193234093.png"></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113193306714.png"></p>
-<h3 id="3-添加cmd文件"><a href="#3-添加cmd文件" class="headerlink" title="3.添加cmd文件"></a>3.添加cmd文件</h3><p>​	将FLASH相关的cmd加进来。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113194459856.png"></p>
-<h2 id="三、程序烧写与仿真"><a href="#三、程序烧写与仿真" class="headerlink" title="三、程序烧写与仿真"></a>三、程序烧写与仿真</h2><h3 id="1-连接仿真器（对于TMS280049C直接使用电脑供电即可）"><a href="#1-连接仿真器（对于TMS280049C直接使用电脑供电即可）" class="headerlink" title="1.连接仿真器（对于TMS280049C直接使用电脑供电即可）"></a>1.连接仿真器（对于TMS280049C直接使用电脑供电即可）</h3><ul>
-<li><strong>点击View—&gt;Target Configurations,进入以下界面：</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113202338478.png"></p>
-<ul>
-<li><strong>右键单击Target Configurations窗口中工程目录下的“TMS320F28035.ccxml”文件（名称是你刚才新建.ccxml文件时的名称)，并选择“Launch Selected Configuration”</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113204158990.png">、</p>
-<ul>
-<li><strong>这时CCS会自动进入Debug模式</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113204310199.png"></p>
-<ul>
-<li><strong>点击快捷菜单栏的“Connect Target”按下</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113204401245.png"></p>
-<ul>
-<li><strong>按钮呈现为按下状态，并且调试按钮都点亮，则仿真器连接成功</strong></li>
-</ul>
-<h3 id="2-程序烧写"><a href="#2-程序烧写" class="headerlink" title="2.程序烧写"></a>2.程序烧写</h3><ul>
-<li><strong>在仿真器连接成功后，点击快捷菜单栏的“Load”按钮，装载程序</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113204509070.png"></p>
-<ul>
-<li><p><strong>在弹出的“Load Program”对话框中，点击“Browse project”</strong></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113204709163.png"></p>
-</li>
-<li><p><strong>在弹出的对话框中，展开你的工程文件夹，选择“Debug”文件夹下的“xxxx.out”文件，点击“OK”</strong></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113204807398.png"></p>
-</li>
-<li><p><strong>点击“Load Program”对话框的“OK”</strong></p>
-</li>
-<li><p><strong>这时出现擦写进度条，等进度条完成就烧写成功啦！</strong></p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113204831512.png"></p>
-<h3 id="3-在线仿真"><a href="#3-在线仿真" class="headerlink" title="3.在线仿真"></a>3.在线仿真</h3><ul>
-<li><strong>程序烧写完成后，点击“Resume”按钮可在线运行程序</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113205258457.png"></p>
-<ul>
-<li><strong>若要添加断点（即让程序运行到某处停下），在对应程序行的左侧列双击，出现小圆点即可。</strong></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240113205549773.png"></p>
+<p>​	我们可以看到该工具性能十分强大，下面我们来对其进行离线安装。</p>
+<h2 id="二、离线安装Embedded-Coder-Support-Package-TI-C2000"><a href="#二、离线安装Embedded-Coder-Support-Package-TI-C2000" class="headerlink" title="二、离线安装Embedded Coder Support Package TI C2000"></a>二、离线安装Embedded Coder Support Package TI C2000</h2><h3 id="1、首先安装好R2022a，安装目录不要空格（当然别的版本使用应该也没有问题）。"><a href="#1、首先安装好R2022a，安装目录不要空格（当然别的版本使用应该也没有问题）。" class="headerlink" title="1、首先安装好R2022a，安装目录不要空格（当然别的版本使用应该也没有问题）。"></a>1、首先安装好R2022a，安装目录不要空格（当然别的版本使用应该也没有问题）。</h3><h3 id="2、安装TI开发套件及SDK"><a href="#2、安装TI开发套件及SDK" class="headerlink" title="2、安装TI开发套件及SDK"></a>2、安装TI开发套件及SDK</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131103837453.png"></p>
+<h3 id="3-下载supportsoftwaredownloader-r2022b-win64-exe"><a href="#3-下载supportsoftwaredownloader-r2022b-win64-exe" class="headerlink" title="3.下载supportsoftwaredownloader_r2022b_win64.exe"></a>3.下载<a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/supportfiles/downloads/R2022b/ssi_downloader/win64/SupportSoftwareDownloader_R2022b_win64.exe">supportsoftwaredownloader_r2022b_win64.exe</a></h3><h3 id="4-安装并进入登录界面登录（没有的话直接去Matlab官网申请）"><a href="#4-安装并进入登录界面登录（没有的话直接去Matlab官网申请）" class="headerlink" title="4.安装并进入登录界面登录（没有的话直接去Matlab官网申请）"></a>4.安装并进入登录界面登录（没有的话直接去Matlab官网申请）</h3><h3 id="5-选择自己安装的Matlab版本"><a href="#5-选择自己安装的Matlab版本" class="headerlink" title="5.选择自己安装的Matlab版本"></a>5.选择自己安装的Matlab版本</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131104306723.png"></p>
+<h3 id="6-选择自己需要安装的支持包"><a href="#6-选择自己需要安装的支持包" class="headerlink" title="6.选择自己需要安装的支持包"></a>6.选择自己需要安装的支持包</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131104655371.png"></p>
+<h3 id="7-选择默认安装路径"><a href="#7-选择默认安装路径" class="headerlink" title="7.选择默认安装路径"></a>7.选择默认安装路径</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131104727988.png"></p>
+<h3 id="8-下载完成后会自动打开以下文件夹"><a href="#8-下载完成后会自动打开以下文件夹" class="headerlink" title="8.下载完成后会自动打开以下文件夹"></a>8.下载完成后会自动打开以下文件夹</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131104859096.png"></p>
+<h3 id="9-打开readme，并复制当前文件夹路径"><a href="#9-打开readme，并复制当前文件夹路径" class="headerlink" title="9.打开readme，并复制当前文件夹路径"></a>9.打开readme，并复制当前文件夹路径</h3><p>​	readme此处为Windows系统安装方式。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131105001248.png"></p>
+<h3 id="10-按照readme的方式进行安装"><a href="#10-按照readme的方式进行安装" class="headerlink" title="10.按照readme的方式进行安装"></a>10.按照readme的方式进行安装</h3><p>​	win+r打开cmd命令行</p>
+<p>​	先进入自己matlab默认安装文件夹–&gt;例如D:\MATLAB\R2022a\bin\win64</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131105313360.png"></p>
+<p>​	再使用readme中的名令打开supportsoftware.exe，进入安装。</p>
+<h3 id="11-跟着系统提示安装即可。"><a href="#11-跟着系统提示安装即可。" class="headerlink" title="11.跟着系统提示安装即可。"></a>11.跟着系统提示安装即可。</h3><h3 id="12-安装完成后，找到MATLAB附加功能管理器，"><a href="#12-安装完成后，找到MATLAB附加功能管理器，" class="headerlink" title="12.安装完成后，找到MATLAB附加功能管理器，"></a>12.安装完成后，找到MATLAB附加功能管理器，</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131105817667.png"></p>
+<p>13.选择自己需要的支持包</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131105844752.png"></p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131105936834.png"></p>
+<p>逐步安装即可</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131110313408.png"></p>
+<h3 id="13-打开一个示例并生成代码"><a href="#13-打开一个示例并生成代码" class="headerlink" title="13.打开一个示例并生成代码"></a>13.打开一个示例并生成代码</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131142824990.png"></p>
+<h3 id="14-打开CCS进行编译"><a href="#14-打开CCS进行编译" class="headerlink" title="14.打开CCS进行编译"></a>14.打开CCS进行编译</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240131142926617.png"></p>
+<p>​	编译成功</p>
 
                 
             </div>
@@ -601,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lilongxin178.github.io/2023/12/02/TMS320F280049C%E4%B8%BB%E6%8E%A7%E7%9A%84DSP%E5%85%A5%E9%97%A8%E8%AE%BE%E8%AE%A1%EF%BC%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C%EF%BC%89%20%20TMS280049C%E8%AF%84%E4%BC%B0%E6%9D%BF%E4%B8%8B%E8%BD%BD%E8%AE%BE%E7%BD%AE%E5%8F%8A%E6%B5%81%E7%A8%8B/">https://lilongxin178.github.io/2023/12/02/TMS320F280049C%E4%B8%BB%E6%8E%A7%E7%9A%84DSP%E5%85%A5%E9%97%A8%E8%AE%BE%E8%AE%A1%EF%BC%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C%EF%BC%89%20%20TMS280049C%E8%AF%84%E4%BC%B0%E6%9D%BF%E4%B8%8B%E8%BD%BD%E8%AE%BE%E7%BD%AE%E5%8F%8A%E6%B5%81%E7%A8%8B/</a>
+                    <a href="https://lilongxin178.github.io/2023/12/10/Matlab2022a%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85Embedded%20Coder%20Support%20Package%20TI%20C2000/">https://lilongxin178.github.io/2023/12/10/Matlab2022a%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85Embedded%20Coder%20Support%20Package%20TI%20C2000/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -957,9 +926,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/12/10/Matlab2022a%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85Embedded%20Coder%20Support%20Package%20TI%20C2000/">
                     <div class="card-image">
@@ -977,9 +947,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -992,6 +962,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1014,24 +985,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/01/TMS320F280049C%E4%B8%BB%E6%8E%A7%E7%9A%84DSP%E5%85%A5%E9%97%A8%E8%AE%BE%E8%AE%A1%EF%BC%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%89%20%20%E6%90%AD%E5%BB%BA%E5%8F%AF%E7%A7%BB%E6%A4%8D%E7%9A%84CCS%E5%B7%A5%E7%A8%8B/">
+                <a href="/2023/12/02/TMS320F280049C%E4%B8%BB%E6%8E%A7%E7%9A%84DSP%E5%85%A5%E9%97%A8%E8%AE%BE%E8%AE%A1%EF%BC%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C%EF%BC%89%20%20TMS280049C%E8%AF%84%E4%BC%B0%E6%9D%BF%E4%B8%8B%E8%BD%BD%E8%AE%BE%E7%BD%AE%E5%8F%8A%E6%B5%81%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="TMS320F280049C主控的DSP入门设计（学习笔记一）  搭建可移植的CCS工程">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="TMS320F280049C主控的DSP入门设计（学习笔记二）  TMS280049C评估板下载设置及流程">
                         
-                        <span class="card-title">TMS320F280049C主控的DSP入门设计（学习笔记一）  搭建可移植的CCS工程</span>
+                        <span class="card-title">TMS320F280049C主控的DSP入门设计（学习笔记二）  TMS280049C评估板下载设置及流程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本篇笔记将介绍如何搭建可移植的CCS工程，以便于开发TMS320F280049C主控的DSP入门设计。本篇笔记将详细介绍如何创建CCS工程、添加源文件和库文件、配置编译选项等步骤。
+                            本篇笔记将介绍如何进行下载以及烧录的配置流程，以便于开发TMS320F280049C主控的DSP入门设计。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-02
                             </span>
                         <span class="publish-author">
                             
