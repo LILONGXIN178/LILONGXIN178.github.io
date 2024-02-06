@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Simulink建模基础（1）</title>
+      <link href="/2023/12/11/Simulink%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/"/>
+      <url>/2023/12/11/Simulink%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Simulink建模基础（1）"><a href="#Simulink建模基础（1）" class="headerlink" title="Simulink建模基础（1）"></a>Simulink建模基础（1）</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>​Simulink是动态和嵌人式等系统的建模与仿真工具，也是模型设计的基础。对于机电航空航天、信号处理、自动控制、通信、音视频处理等众多领域，Simulink 提供了交互式可视化开发环境和可定制的模块库，对系统进行建模、仿真与调试等;并可实现与 Stateflow有限状态机的无缝连接，扩展对复杂系统的建模能力。<br>​通过Simulink模块库自带的1000多个预定义模块基本上可快速地创建基于MCU器件应用的系统模型。运用层次化建模、数据管理、子系统定制等手段，即使是复杂的嵌入式MCU应用系统，也能轻松地完成简明精确的模型描述。</p><p>​<strong>主要内容：</strong></p><ul><li>​Simulink基本操作</li><li>Simulink模块库简介</li><li>Simulink建模新方法介绍</li><li>物理建模简介</li></ul><h2 id="二、Simulink基本操作"><a href="#二、Simulink基本操作" class="headerlink" title="二、Simulink基本操作"></a>二、Simulink基本操作</h2><h3 id="2-1模块库和编辑窗口"><a href="#2-1模块库和编辑窗口" class="headerlink" title="2.1模块库和编辑窗口"></a>2.1模块库和编辑窗口</h3><h4 id="2-1-1-打开Simulink的起始页"><a href="#2-1-1-打开Simulink的起始页" class="headerlink" title="2.1.1  打开Simulink的起始页"></a>2.1.1  打开Simulink的起始页</h4><p>​在MATLAB的命令行窗口中输人Simulink指令或单击MATLAB工具栏上的Simulink图标，可打开Simulink的起始页。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240205140320152.png"></p><h4 id="2-1-2-打开模型编辑窗口"><a href="#2-1-2-打开模型编辑窗口" class="headerlink" title="2.1.2  打开模型编辑窗口"></a>2.1.2  打开模型编辑窗口</h4><p>​创建一个新的模型，首先要打开一个模型编辑窗口。可以通过单击“Simulink的起始页”上所需要的模板，这里选择空白模型(Blank Model)来打开编辑窗口。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240205140640287.png"></p><h4 id="2-1-3-打开Simulink库浏览器查看Simulink模块库中包含的子库"><a href="#2-1-3-打开Simulink库浏览器查看Simulink模块库中包含的子库" class="headerlink" title="2.1.3  打开Simulink库浏览器查看Simulink模块库中包含的子库"></a>2.1.3  打开Simulink库浏览器查看Simulink模块库中包含的子库</h4><p>​单击图3.2工具栏上的“库浏览器”图标，可查看Simulink 模块库所包含的子库。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240205141038552.png"></p><h3 id="2-2-建模示例"><a href="#2-2-建模示例" class="headerlink" title="2.2 建模示例"></a>2.2 建模示例</h3><h4 id="2-2-1-有物理含义或微分方程创建模型"><a href="#2-2-1-有物理含义或微分方程创建模型" class="headerlink" title="2.2.1  有物理含义或微分方程创建模型"></a>2.2.1  有物理含义或微分方程创建模型</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206132011400.png"></p><h5 id="1-求解负载电阻R上消耗功率的数学表达式"><a href="#1-求解负载电阻R上消耗功率的数学表达式" class="headerlink" title="1.求解负载电阻R上消耗功率的数学表达式"></a>1.求解负载电阻R上消耗功率的数学表达式</h5><p>​根据欧姆定律，该电路的电流i可表示为：<br>$$<br>i&#x3D;{V_S\over R_s+R_L}<br>$$<br>​则负载电阻R上消耗的功率为<br>$$<br>P&#x3D;i^2*R_L<br>$$</p><h5 id="2-搭建Simulink-模型"><a href="#2-搭建Simulink-模型" class="headerlink" title="2.搭建Simulink 模型"></a>2.搭建Simulink 模型</h5><h6 id="1-模型所需模块分析"><a href="#1-模型所需模块分析" class="headerlink" title="(1)模型所需模块分析"></a>(1)模型所需模块分析</h6><p>​该模型可由3个 Constant 常数模块、1个Add 加法模块、1个 Divide 除法模块1个Product乘法模块1个Math Function 数学函数模块和1个Display 显示模块来表达。</p><h6 id="2-创建一个Simulink模型。"><a href="#2-创建一个Simulink模型。" class="headerlink" title="(2)创建一个Simulink模型。"></a>(2)创建一个Simulink模型。</h6><p>​D单击工具栏上的图标打开Simulink起始页新建一个空白的Simulink模型并另存为自己的工作文件夹中。<br>​从Simulink 模块库(Commonly Used Blocks、Math Operations 和 Sinks)中添加Constant模块、Add模块、Divide模块、Math Function模块、Product 模块和 Display模块等。</p><h6 id="3-搭建好的模型"><a href="#3-搭建好的模型" class="headerlink" title="(3)搭建好的模型"></a>(3)搭建好的模型</h6><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206134135298.png"></p><h3 id="2-3参数设置"><a href="#2-3参数设置" class="headerlink" title="2.3参数设置"></a>2.3参数设置</h3><h4 id="1-在“建模”中选择“模型数据编辑器”，此时界面下方出现如下编辑器："><a href="#1-在“建模”中选择“模型数据编辑器”，此时界面下方出现如下编辑器：" class="headerlink" title="1.在“建模”中选择“模型数据编辑器”，此时界面下方出现如下编辑器："></a>1.在“建模”中选择“模型数据编辑器”，此时界面下方出现如下编辑器：</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206134644517.png"></p><h4 id="2-选择Parameters-选中你要定义的变量位置，点击┇按钮"><a href="#2-选择Parameters-选中你要定义的变量位置，点击┇按钮" class="headerlink" title="2.选择Parameters,选中你要定义的变量位置，点击┇按钮"></a>2.选择Parameters,选中你要定义的变量位置，点击┇按钮</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206134818400.png"></p><h4 id="3-按照下图进行数据的创建："><a href="#3-按照下图进行数据的创建：" class="headerlink" title="3.按照下图进行数据的创建："></a>3.按照下图进行数据的创建：</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206134955118.png"></p><h4 id="4-在该界面进行参数的设置"><a href="#4-在该界面进行参数的设置" class="headerlink" title="4.在该界面进行参数的设置"></a>4.在该界面进行参数的设置</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206135126261.png"></p><h4 id="5-回到matlab中的工作区，发现新增了添加的变量，将他们全部选中，右键，另存为Matlab格式文件，保存"><a href="#5-回到matlab中的工作区，发现新增了添加的变量，将他们全部选中，右键，另存为Matlab格式文件，保存" class="headerlink" title="5.回到matlab中的工作区，发现新增了添加的变量，将他们全部选中，右键，另存为Matlab格式文件，保存"></a>5.回到matlab中的工作区，发现新增了添加的变量，将他们全部选中，右键，另存为Matlab格式文件，保存</h4><h4 id="6-进入保存好的Matlab文件，得到如图所示的配置文件。"><a href="#6-进入保存好的Matlab文件，得到如图所示的配置文件。" class="headerlink" title="6.进入保存好的Matlab文件，得到如图所示的配置文件。"></a>6.进入保存好的Matlab文件，得到如图所示的配置文件。</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206135433216.png"></p><p>​在这里可以对每个参数的值，类型等进行修改。</p><h4 id="7-在文件的最前方，定义每一个变量的值，然后将值赋给每一个对应变量-Value，如图所示。"><a href="#7-在文件的最前方，定义每一个变量的值，然后将值赋给每一个对应变量-Value，如图所示。" class="headerlink" title="7.在文件的最前方，定义每一个变量的值，然后将值赋给每一个对应变量.Value，如图所示。"></a>7.在文件的最前方，定义每一个变量的值，然后将值赋给每一个对应变量.Value，如图所示。</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206135946132.png"></p><h4 id="8-点击运行，这样就把sumlink中的值就同步修改了，以后再修改就可以直接使用文件来修改相应变量的值了"><a href="#8-点击运行，这样就把sumlink中的值就同步修改了，以后再修改就可以直接使用文件来修改相应变量的值了" class="headerlink" title="8.点击运行，这样就把sumlink中的值就同步修改了，以后再修改就可以直接使用文件来修改相应变量的值了"></a>8.点击运行，这样就把sumlink中的值就同步修改了，以后再修改就可以直接使用文件来修改相应变量的值了</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206140109850.png"></p><h4 id="9-选择模型属性，在回调选项中的PreLoadFcn的模型预加载中输入-m文件名-这样每次直接运行simlink文件时，会自动加载一次-m文件"><a href="#9-选择模型属性，在回调选项中的PreLoadFcn的模型预加载中输入-m文件名-这样每次直接运行simlink文件时，会自动加载一次-m文件" class="headerlink" title="9.选择模型属性，在回调选项中的PreLoadFcn的模型预加载中输入.m文件名,这样每次直接运行simlink文件时，会自动加载一次.m文件"></a>9.选择模型属性，在回调选项中的PreLoadFcn的模型预加载中输入.m文件名,这样每次直接运行simlink文件时，会自动加载一次.m文件</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206140230252.png"></p><h3 id="2-4-模型仿真"><a href="#2-4-模型仿真" class="headerlink" title="2.4 模型仿真"></a>2.4 模型仿真</h3><p>​先对模型中各参数进行赋值，赋值后在simulink中，点击工具栏中的开始图标进行仿真。结果如下：</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240206141323480.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MATLAB学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB学习 </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Matlab2022a离线安装Embedded Coder Support Package TI C2000</title>
       <link href="/2023/12/10/Matlab2022a%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85Embedded%20Coder%20Support%20Package%20TI%20C2000/"/>
       <url>/2023/12/10/Matlab2022a%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85Embedded%20Coder%20Support%20Package%20TI%20C2000/</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
@@ -47,9 +74,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
@@ -74,9 +101,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
