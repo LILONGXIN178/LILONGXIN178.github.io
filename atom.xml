@@ -6,7 +6,7 @@
   <link href="https://lilongxin178.github.io/atom.xml" rel="self"/>
   
   <link href="https://lilongxin178.github.io/"/>
-  <updated>2024-02-08T05:55:51.657Z</updated>
+  <updated>2024-02-13T04:20:32.278Z</updated>
   <id>https://lilongxin178.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Stateflow 建模基础（1）</title>
+    <link href="https://lilongxin178.github.io/2023/12/14/Stateflow%20%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/"/>
+    <id>https://lilongxin178.github.io/2023/12/14/Stateflow%20%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/</id>
+    <published>2023-12-14T06:00:00.000Z</published>
+    <updated>2024-02-13T04:20:32.278Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Stateflow基础（1）"><a href="#Stateflow基础（1）" class="headerlink" title="Stateflow基础（1）"></a>Stateflow基础（1）</h1><h2 id="一、简介及Stateflow的特点"><a href="#一、简介及Stateflow的特点" class="headerlink" title="一、简介及Stateflow的特点"></a>一、简介及Stateflow的特点</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>​Stateflow是有限状态机(Finite State Machine，FSM)的图形实现工具，它可以用于解决事件驱动系统中复杂的逻辑问题。Stateflow 通过开发 FSM 和流程图的设计环境扩展Simulink的功能，在系统中可以用图形化的工具来实现各个状态之间的迁移。<br>​Stateflow 图表采用图形建模的方式构建层次化的、并行工作的状态和它们之间由事件驱动的逻辑迁移关系。Stateflow 在传统状态图的基础上扩展了控制流、MATLAB 函数、图形函数、真值表、临时运算符、直接事件广播，并可以集成用户自编 C 代码，而且通过Stateflow Coder 可以为 Stateflow 状态图模型自动生成C代码。</p><h3 id="2-特点"><a href="#2-特点" class="headerlink" title="2.特点"></a>2.特点</h3><p>Stateflow的主要特点如下:<br>    (1)提供层次化、可并行的、具有明确执行语义的建模语言元素，并以自然易懂的形式来描述复杂逻辑系统。<br>    (2)使用流程图定义图形化函数，使用 MATLAB 函数进行编程操作，使用真值表完成表格形式的处理。<br>    (3)采用临时逻辑调度状态迁移与事件<br>    (4)支持Mealy和Moore有限状态机。<br>    (5)可集成用户自定义输人输出变量的C代码<br>    (6)支持向量、矩阵、总线信号和定点数据类型。<br>    (7)可进行静态模型检查，包括病态定义的真值表。<br>    (8)可动态检测迁移冲突、死循环、状态不一致、数据范围错误和溢出问题(9)仿真进行中以动画显示状态图的运行并记录数据，以便于对系统的理解和调试。<br>    (10)集成了一个调试器，采用图形化断点进行单步调试，在调试时浏览其中的数据</p><h2 id="二、构造并运行Stateflow图（设计过零比较器）"><a href="#二、构造并运行Stateflow图（设计过零比较器）" class="headerlink" title="二、构造并运行Stateflow图（设计过零比较器）"></a>二、构造并运行Stateflow图（设计过零比较器）</h2><h3 id="1-打开-Stateflow-编辑器"><a href="#1-打开-Stateflow-编辑器" class="headerlink" title="1.打开 Stateflow 编辑器"></a>1.打开 Stateflow 编辑器</h3><p>​Stateflow 编辑器是一个图形环境，用于设计状态转移图、流程图、状态转移表和真值表。</p><ul><li><p>要建立周期性或连续时间 Simulink 算法的条件、基于事件和基于时间的逻辑模型，请使用 [<strong>sfnew</strong>] 函数创建一个可在 Simulink 模型中作为模块进行仿真的 Stateflow 图。在 MATLAB 命令提示符处，输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfnew rectify     % 在simulink中创建一个仿真图表</span><br></pre></td></tr></table></figure><p>Simulink 创建一个名为 <code>rectify</code> 的模型，其中包含一个空的 Stateflow Chart 模块。要打开 Stateflow 编辑器，请双击图模块。</p></li><li><p>要为 MATLAB 应用程序设计可重用的状态机和时序逻辑，请使用 <a href="https://ww2.mathworks.cn/help/matlab/ref/edit.html"><code>edit</code></a> 函数创建可作为 MATLAB 对象执行的独立 Stateflow 图。在 MATLAB 命令提示符处，输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edit rectify.sfx  % 创建图表执行作为Matlab对象</span><br></pre></td></tr></table></figure><p>如果文件 <code>rectify.sfx</code> 不存在，Stateflow 编辑器将创建名为 <code>rectify</code> 的空图。</p></li></ul><p>​Stateflow 编辑器的主要组件是图画布、对象选项板和<strong>符号</strong>窗格。</p><ul><li>图画布是一个绘图区域，可以在其中通过组合状态、转移和其他图形元素来创建图。</li><li>在画布的左侧有一个对象选项板，其中显示了一组可向图中添加图形元素的工具。</li><li>在画布的右侧有一个<strong>符号</strong>窗格，您可以用它向图添加新的数据、事件和消息并解析任何未定义或未使用的符号。</li></ul><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240211150325306.png"></p><p>PS:在构造 Stateflow 图后，您可以将其内容复制到另一个具有不同执行模式的图中。例如，您可以构造在 MATLAB 中执行的图，并将其内容复制到在 Simulink 中进行仿真的图中。</p><h3 id="2-添加状态和转移"><a href="#2-添加状态和转移" class="headerlink" title="2.添加状态和转移"></a>2.添加状态和转移</h3><ol><li><p>在对象选项板中，点击状态图标并将指针移至图画布。将出现具有默认转移的状态。要放置该状态，请点击画布上的某个位置。在文本提示中，输入状态名称 <code>On</code> 和状态动作 <code>y = x</code>。</p><p><img src="/C:/Users/LLX/AppData/Roaming/Typora/typora-user-images/image-20240213114415574.png"></p></li><li><p>添加另一个状态。右键点击并拖动 <code>On</code> 状态。蓝色图形提示可以帮助您水平或垂直对齐状态。新状态的名称变为 <code>Off</code>。双击该状态并将状态动作修改为 <code>y = 0</code>。</p></li><li><p>重新对齐两个状态并在两个状态之间的空白处停留片刻出现蓝色转移提示指示进行连接。</p></li><li><p>双击每个转移并输入适当的转移条件 <code>x&lt;t0</code> 或 <code>x&gt;=t0</code>。条件出现在方括号内。（选择添加转移表达式）</p><p><img src="/C:/Users/LLX/AppData/Roaming/Typora/typora-user-images/image-20240213114517613.png"></p><p>5.结果如下图：</p><p><img src="/C:/Users/LLX/AppData/Roaming/Typora/typora-user-images/image-20240213114549731.png"></p></li></ol><h3 id="3-解析未定义的符号"><a href="#3-解析未定义的符号" class="headerlink" title="3.解析未定义的符号"></a>3.解析未定义的符号</h3><p>​在执行图之前，必须定义图中使用的每个符号并指定其作用域（例如，输入数据、输出数据或局部数据）。</p><p>​（1）打开<strong>符号</strong>窗格。<br>​（2）在<strong>符号</strong>窗格中，点击<strong>解析未定义的符号</strong></p><p><img src="/C:/Users/LLX/AppData/Roaming/Typora/typora-user-images/image-20240213114810053.png"></p><p>​（3）由于阈值 <code>t0</code> 在仿真过程中不会更改，因此将其作用域更改为常量数据。在<strong>类型</strong>列中，点击 <code>t0</code> 旁边的数据类型图标，然后选择<strong>常量数据</strong>。<br>​（4）设置阈值 <code>t0</code> 的值。在<strong>值</strong>列中，点击 <code>t0</code> 旁边的空白输入框，并输入值 0。<br>​（5）保存Stateflow 图。</p><h3 id="4-进行仿真"><a href="#4-进行仿真" class="headerlink" title="4.进行仿真"></a>4.进行仿真</h3><p>​（1）要返回到 Simulink 编辑器，请在画布顶部的浏览器栏中点击 Simulink 模型的名称：<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/simulink-model.png"><strong>rectify</strong>。如果浏览器栏不可见，请点击对象选项板顶部的<strong>隐藏&#x2F;显示资源管理器栏</strong>图标 <img src="https://ww2.mathworks.cn/help/stateflow/gs/palette-explorer-bar.png">。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240213115108954.png"></p><p>​（2）执行以下操作以将信源添加到模型中：</p><ul><li>从 Simulink Sources 库中，添加一个 Sine Wave (Simulink) 模块。</li><li>双击 Sine Wave 模块并将<strong>采样时间</strong>设置为 0.2。</li><li>将 Sine Wave 模块的输出连接到 Stateflow 图的输入。</li><li>将信号标记为 <code>x</code>。</li></ul><p>​（3）添加一个示波器。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240213115412488.png"></p><p>​（4）保存 Simulink 模型。</p><p>​（5）开始仿真。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240213115521711.png"></p><p>​可以看到此处小于0的数据被滤除了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Stateflow基础（1）&quot;&gt;&lt;a href=&quot;#Stateflow基础（1）&quot; class=&quot;headerlink&quot; title=&quot;Stateflow基础（1）&quot;&gt;&lt;/a&gt;Stateflow基础（1）&lt;/h1&gt;&lt;h2 id=&quot;一、简介及Stateflow的特点</summary>
+      
+    
+    
+    
+    <category term="MATLAB学习" scheme="https://lilongxin178.github.io/categories/MATLAB%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="工具" scheme="https://lilongxin178.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="MATLAB学习" scheme="https://lilongxin178.github.io/tags/MATLAB%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Simulink建模基础（2）</title>
