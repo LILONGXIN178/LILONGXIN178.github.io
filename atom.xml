@@ -6,7 +6,7 @@
   <link href="https://lilongxin178.github.io/atom.xml" rel="self"/>
   
   <link href="https://lilongxin178.github.io/"/>
-  <updated>2024-02-13T04:20:32.278Z</updated>
+  <updated>2024-02-18T07:54:26.122Z</updated>
   <id>https://lilongxin178.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TI——C2000芯片自动代码生成及示例（一）</title>
+    <link href="https://lilongxin178.github.io/2023/12/23/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://lilongxin178.github.io/2023/12/23/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+    <published>2023-12-23T06:00:00.000Z</published>
+    <updated>2024-02-18T07:54:26.122Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TI——C2000芯片自动代码生成及示例（一）"><a href="#TI——C2000芯片自动代码生成及示例（一）" class="headerlink" title="TI——C2000芯片自动代码生成及示例（一）"></a>TI——C2000芯片自动代码生成及示例（一）</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>​本文在配置完代码生成环境的基础上，以TI——TMS320F280049芯片为例，介绍建立模型、生成C代码，最后将代码烧写到芯片当中的详细操作过程，以及在使用中的常见问题解决方案。</p><h2 id="二、操作流程及配置使用"><a href="#二、操作流程及配置使用" class="headerlink" title="二、操作流程及配置使用"></a>二、操作流程及配置使用</h2><h3 id="（1）新建工程及模型参数设置"><a href="#（1）新建工程及模型参数设置" class="headerlink" title="（1）新建工程及模型参数设置"></a>（1）新建工程及模型参数设置</h3><p>1.打开Simulink进行新建工程。</p><p>2.点击MODELING（建模）下的Model Settings（或快捷键Ctrl+E）打开模型参数配置页面：</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218144417820.png"></p><p>3.由于芯片中运行的程序为离散信号，故将求解器中的步长类型设置为定步长，求解算法为离散模式，此处可设置步长时间为0.01s。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218144528205.png"></p><p>4.在Hardware Implementation（硬件实现）当中选择硬件型号。下拉可见在C2000系列各芯片型号，此处选择280049作为配置的芯片系列。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218144713966.png"></p><p>5.在Code Generation（代码生成）的Report（报告）处勾选Create Code generation report（创建代码生成报告）和 Open report automatically（自动生成报告），代码生成的过程中将自动生成报告。（其余选项非必选项，可依据需要进行勾选）</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218145003013.png"></p><h3 id="（2）搭建F280049的GPIO点灯程序"><a href="#（2）搭建F280049的GPIO点灯程序" class="headerlink" title="（2）搭建F280049的GPIO点灯程序"></a>（2）搭建F280049的GPIO点灯程序</h3><p>​1.打开库浏览器</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218145233528.png"></p><p>2.搜索C2000，并寻找F280049型号芯片（或者你所使用的芯片型号）</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218145412487.png"></p><p>3.双击打开该模块库，可以对其外设进行图形化设计。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218145603930.png"></p><p>4.在这里我们使用的是GPIO对LED进行控制，所以，可选择GPIO将其拖至Simulink的图纸上。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218145934181.png"></p><p>5.对GPIO配置完成后，给其一不断变换的常数，使其GPIO输出电平反转。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218150247290.png"></p><p>6.保存至工作文件夹</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218150323755.png"></p><h3 id="（3）代码生成（CCS下载和Simulink直接下载）"><a href="#（3）代码生成（CCS下载和Simulink直接下载）" class="headerlink" title="（3）代码生成（CCS下载和Simulink直接下载）"></a>（3）代码生成（CCS下载和Simulink直接下载）</h3><p>1.在模型搭建完成后，在HARDWARE界面点击Build（快捷键Ctrl+B），自动生成C代码</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218152937916.png"></p><p>2.在Diagnostic Viewer中出现Build process completed successfully证明代码已自动生成。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218153007404.png"></p><p>且此时，代码生成的报告也将出现。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218153035481.png"></p><p>3.此时，如果需要进行下载，可使用两种方式（MATLAB直接下载或者CCS进行下载）<br>    先对此处进行检查，确认该处下载器配置文件存在（若没有可以进入CCS重新配置保存，并导入此处）。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218153423368.png"></p><p>4.然后依旧在刚才的界面进行下载，使用这个按键<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218153607154.png" alt="image-20240218153607154">进行下载（Simulink直接下载)</p><p>4.打开CCS导入你所在的工作文件夹为CCS工程。（CCS下载）</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218153815072.png"></p><p>导入工程后，使用CCXML文件进行下载。</p><h2 id="三、过程中遇到的问题及注意事项"><a href="#三、过程中遇到的问题及注意事项" class="headerlink" title="三、过程中遇到的问题及注意事项"></a>三、过程中遇到的问题及注意事项</h2><h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><p>​1.MATLAB所有文件夹不要放置在存在中文的路径中。</p><p>​2.工作文件夹尽可能不要选择C盘，可能会存在某些文件由于权限不足无法打开的情况。</p><p>​3.Powershell的环境变量配置。（如果在编译时出现<strong>“代码生成文件不存在”</strong>的错误，且报错信息中存在<strong>“Powershell不是内部命令也不是外部命令”</strong>的话，极大可能为此处报错）</p><p>​4.也可能遇到CCS导入工程失败的问题。</p><h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>​1、2：改变工作文件夹的位置</p><p>​3.在环境变量path后添加powershell的路径（C:\Windows\System32\WindowsPowerShell\v1.0）</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218155004593.png"></p><p>.4.CCS无法导入遇到下图情况：</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240218155111409.png"></p><p>​（1）找到工程文件下面给的.cproject文件。<br>​（2）利用记事本或者能打开的工具打开，有一行文字格式为这样的注释</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;tool id=<span class="string">&quot;xxxx&quot;</span> name=<span class="string">&quot;xxx&quot;</span> superClass=<span class="string">&quot;xxxxx&quot;</span>/&gt;</span><br></pre></td></tr></table></figure><p>删除此行。<br>    （3)重新启动软件在此导入即可导入成功。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;TI——C2000芯片自动代码生成及示例（一）&quot;&gt;&lt;a href=&quot;#TI——C2000芯片自动代码生成及示例（一）&quot; class=&quot;headerlink&quot; title=&quot;TI——C2000芯片自动代码生成及示例（一）&quot;&gt;&lt;/a&gt;TI——C2000芯片自动代码生成</summary>
+      
+    
+    
+    
+    <category term="DSP设计" scheme="https://lilongxin178.github.io/categories/DSP%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="DSP设计" scheme="https://lilongxin178.github.io/tags/DSP%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="工具" scheme="https://lilongxin178.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Stateflow 建模基础（1）</title>
