@@ -6,7 +6,7 @@
   <link href="https://lilongxin178.github.io/atom.xml" rel="self"/>
   
   <link href="https://lilongxin178.github.io/"/>
-  <updated>2024-02-18T07:54:26.122Z</updated>
+  <updated>2024-02-25T12:55:24.100Z</updated>
   <id>https://lilongxin178.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集</title>
+    <link href="https://lilongxin178.github.io/2024/01/10/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BB%8E%E6%9C%BAADC%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E6%9C%BA%E4%B8%B2%E5%8F%A3%E9%87%87%E9%9B%86/"/>
+    <id>https://lilongxin178.github.io/2024/01/10/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BB%8E%E6%9C%BAADC%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E6%9C%BA%E4%B8%B2%E5%8F%A3%E9%87%87%E9%9B%86/</id>
+    <published>2024-01-10T06:00:00.000Z</published>
+    <updated>2024-02-25T12:55:24.100Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集"><a href="#TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集" class="headerlink" title="TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集"></a>TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集</h1><h2 id="一、搭建从机向主机发送ADC采集数据的代码模型"><a href="#一、搭建从机向主机发送ADC采集数据的代码模型" class="headerlink" title="一、搭建从机向主机发送ADC采集数据的代码模型"></a>一、搭建从机向主机发送ADC采集数据的代码模型</h2><h3 id="（1）代码模型功能"><a href="#（1）代码模型功能" class="headerlink" title="（1）代码模型功能"></a>（1）代码模型功能</h3><p>​该代码模型先由ADC进行电压采集，再进行数据的判断。在1.65V及以上，闪烁F280049评估版上的LED5，反之闪烁LED4。</p><h3 id="（2）添加所需模块，以及部分模块设置"><a href="#（2）添加所需模块，以及部分模块设置" class="headerlink" title="（2）添加所需模块，以及部分模块设置"></a>（2）添加所需模块，以及部分模块设置</h3><h4 id="1-添加一个ADC模块，其参数按默认设置"><a href="#1-添加一个ADC模块，其参数按默认设置" class="headerlink" title="1.添加一个ADC模块，其参数按默认设置"></a>1.添加一个ADC模块，其参数按默认设置</h4><h4 id="2-添加一个SCITransmit模块，其参数按默认设置"><a href="#2-添加一个SCITransmit模块，其参数按默认设置" class="headerlink" title="2.添加一个SCITransmit模块，其参数按默认设置"></a>2.添加一个SCITransmit模块，其参数按默认设置</h4><h4 id="3-添加两个CompareToConstant模块-按照下图的参数进行配置"><a href="#3-添加两个CompareToConstant模块-按照下图的参数进行配置" class="headerlink" title="3.添加两个CompareToConstant模块,按照下图的参数进行配置"></a>3.添加两个CompareToConstant模块,按照下图的参数进行配置</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225201345884.png"></p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225201353863.png"></p><h4 id="4-添加一个Rate-Transition模块"><a href="#4-添加一个Rate-Transition模块" class="headerlink" title="4.添加一个Rate Transition模块"></a>4.添加一个Rate Transition模块</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225202117277.png"></p><h4 id="5-添加两个-Digital-Output-模块（配置LED所在的GPIO进行翻转）"><a href="#5-添加两个-Digital-Output-模块（配置LED所在的GPIO进行翻转）" class="headerlink" title="5.添加两个 Digital Output 模块（配置LED所在的GPIO进行翻转）"></a>5.添加两个 Digital Output 模块（配置LED所在的GPIO进行翻转）</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225202238625.png"></p><h4 id="6-完成从机（F280049）板载程序的代码模型"><a href="#6-完成从机（F280049）板载程序的代码模型" class="headerlink" title="6.完成从机（F280049）板载程序的代码模型"></a>6.完成从机（F280049）板载程序的代码模型</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225202356536.png"></p><p>​最后进行下载即可。</p><h2 id="二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据"><a href="#二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据" class="headerlink" title="二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据"></a>二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据</h2><h3 id="（1）主机模型功能"><a href="#（1）主机模型功能" class="headerlink" title="（1）主机模型功能"></a>（1）主机模型功能</h3><p>​该代码模型由SCI Setup模块和SCI Receive模块进行数据的采集，并对采集回的数据进行处理对电压进行计算并输出在Scope模块上。</p><h3 id="（2）搭建主机模型"><a href="#（2）搭建主机模型" class="headerlink" title="（2）搭建主机模型"></a>（2）搭建主机模型</h3><h4 id="1-添加模块与参数设置"><a href="#1-添加模块与参数设置" class="headerlink" title="1.添加模块与参数设置"></a>1.添加模块与参数设置</h4><h5 id="1-添加一个-Host-SCI-Setup-模块（由于从机SCI未进行设置，此处可直接使用默认设置）。"><a href="#1-添加一个-Host-SCI-Setup-模块（由于从机SCI未进行设置，此处可直接使用默认设置）。" class="headerlink" title="(1)添加一个 Host&#x2F;SCI Setup 模块（由于从机SCI未进行设置，此处可直接使用默认设置）。"></a>(1)添加一个 Host&#x2F;SCI Setup 模块（由于从机SCI未进行设置，此处可直接使用默认设置）。</h5><p><strong>PS:如果用户的C2000 LaunchPad XL实验板的串口号不是1-4，请先行将串口号修改为1-4，然后才能进行下面的工作。</strong></p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225203046915.png"></p><h5 id="2-添加一个-Host-SCI-Receive-模块。"><a href="#2-添加一个-Host-SCI-Receive-模块。" class="headerlink" title="(2)添加一个 Host&#x2F;SCI Receive 模块。"></a>(2)添加一个 Host&#x2F;SCI Receive 模块。</h5><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225204758006.png"></p><h5 id="3-添加一个-Gain-模块（因为电压轨为3-3V，ADC为12位为4096，故参数设为3-3-4096）"><a href="#3-添加一个-Gain-模块（因为电压轨为3-3V，ADC为12位为4096，故参数设为3-3-4096）" class="headerlink" title="(3)添加一个 Gain 模块（因为电压轨为3.3V，ADC为12位为4096，故参数设为3.3&#x2F;4096）"></a>(3)添加一个 Gain 模块（因为电压轨为3.3V，ADC为12位为4096，故参数设为3.3&#x2F;4096）</h5><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225203817740.png"></p><h4 id="（4）主机模型"><a href="#（4）主机模型" class="headerlink" title="（4）主机模型"></a>（4）主机模型</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225203900878.png"></p><h4 id="（5）进行保存，点击运行"><a href="#（5）进行保存，点击运行" class="headerlink" title="（5）进行保存，点击运行"></a>（5）进行保存，点击运行</h4><p>​可以看到开发板在接入3.3V时，LED5闪烁。当ADC引脚接入GND时，LED4闪烁。</p><p>​使用上位机进行数据检测，当接入3.3V时</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225204828589.png"></p><p>​从结果看，SCI通信与ADC检测均无误。</p><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="串口号修改"><a href="#串口号修改" class="headerlink" title="串口号修改"></a>串口号修改</h3><h4 id="1-打开设备管理器"><a href="#1-打开设备管理器" class="headerlink" title="1.打开设备管理器"></a>1.打开设备管理器</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205058683.png"></p><h4 id="2-右击你需要修改串口号的设备，点击属性"><a href="#2-右击你需要修改串口号的设备，点击属性" class="headerlink" title="2.右击你需要修改串口号的设备，点击属性"></a>2.右击你需要修改串口号的设备，点击属性</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205206033.png"></p><h4 id="3-在“端口设置”中选择“高级”"><a href="#3-在“端口设置”中选择“高级”" class="headerlink" title="3.在“端口设置”中选择“高级”"></a>3.在“端口设置”中选择“高级”</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205234677.png"></p><h4 id="4-进行修改并确认"><a href="#4-进行修改并确认" class="headerlink" title="4.进行修改并确认"></a>4.进行修改并确认</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205303342.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集&quot;&gt;&lt;a href=&quot;#TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集&quot; class=&quot;headerlink&quot; title=&quot;TI——C2000芯</summary>
+      
+    
+    
+    
+    <category term="DSP设计" scheme="https://lilongxin178.github.io/categories/DSP%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="DSP设计" scheme="https://lilongxin178.github.io/tags/DSP%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="工具" scheme="https://lilongxin178.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>TI——C2000芯片自动代码生成及示例（一）</title>
