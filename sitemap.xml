@@ -192,13 +192,6 @@
   </url>
   
   <url>
-    <loc>https://lilongxin178.github.io/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/</loc>
-    <lastmod>2024-02-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lilongxin178.github.io/tags/Markdown/</loc>
     <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -207,6 +200,13 @@
   
   <url>
     <loc>https://lilongxin178.github.io/tags/Typora/</loc>
+    <lastmod>2024-02-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lilongxin178.github.io/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/</loc>
     <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
