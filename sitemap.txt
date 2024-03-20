@@ -1,3 +1,4 @@
+https://lilongxin178.github.io/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/
 https://lilongxin178.github.io/2024/01/03/ADC%E3%80%81DAC%E7%9A%84%E7%90%86%E8%AE%BA%E4%BF%A1%E5%99%AA%E6%AF%94%E8%AE%A1%E7%AE%97/
 https://lilongxin178.github.io/2024/01/10/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BB%8E%E6%9C%BAADC%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E6%9C%BA%E4%B8%B2%E5%8F%A3%E9%87%87%E9%9B%86/
 https://lilongxin178.github.io/2023/12/23/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%B8%80%EF%BC%89/
@@ -16,14 +17,14 @@ https://lilongxin178.github.io/about/index.html
 https://lilongxin178.github.io/tags/index.html
 https://lilongxin178.github.io/categories/index.html
 https://lilongxin178.github.io/
+https://lilongxin178.github.io/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/
 https://lilongxin178.github.io/tags/DSP%E8%AE%BE%E8%AE%A1/
 https://lilongxin178.github.io/tags/%E5%B7%A5%E5%85%B7/
-https://lilongxin178.github.io/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/
 https://lilongxin178.github.io/tags/MATLAB%E5%AD%A6%E4%B9%A0/
+https://lilongxin178.github.io/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/
 https://lilongxin178.github.io/tags/Markdown/
 https://lilongxin178.github.io/tags/Typora/
-https://lilongxin178.github.io/tags/%E8%BF%90%E6%94%BE%E7%9A%84%E8%BF%90%E7%94%A8/
-https://lilongxin178.github.io/categories/DSP%E8%AE%BE%E8%AE%A1/
 https://lilongxin178.github.io/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/
+https://lilongxin178.github.io/categories/DSP%E8%AE%BE%E8%AE%A1/
 https://lilongxin178.github.io/categories/MATLAB%E5%AD%A6%E4%B9%A0/
 https://lilongxin178.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/

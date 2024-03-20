@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集, 硬件 笔记">
-    <meta name="description" content="对从机ADC采集配置及主机串口采集进行配置">
+    <meta name="keywords" content="LDO工作原理简单探讨, 硬件 笔记">
+    <meta name="description" content="low dropout regulator，低压差线性稳压器。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集 | 小李工作站</title>
+    <title>LDO工作原理简单探讨 | 小李工作站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -418,12 +418,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集</h1>
+                    <h1 class="description center-align post-title">LDO工作原理简单探讨</h1>
                 </div>
             </div>
         </div>
@@ -447,12 +447,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/DSP%E8%AE%BE%E8%AE%A1/">
-                                <span class="chip bg-color">DSP设计</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                <span class="chip bg-color">工具</span>
+                            <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">小知识</span>
                             </a>
                         
                     </div>
@@ -463,8 +459,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/DSP%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                DSP设计
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                硬件探讨
                             </a>
                         
                     </div>
@@ -476,14 +472,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-01-10
+                    2024-01-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-25
+                    2024-03-20
                 </div>
                 
 
@@ -492,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    8 分
                 </div>
                 
 
@@ -512,27 +508,39 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集"><a href="#TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集" class="headerlink" title="TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集"></a>TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集</h1><h2 id="一、搭建从机向主机发送ADC采集数据的代码模型"><a href="#一、搭建从机向主机发送ADC采集数据的代码模型" class="headerlink" title="一、搭建从机向主机发送ADC采集数据的代码模型"></a>一、搭建从机向主机发送ADC采集数据的代码模型</h2><h3 id="（1）代码模型功能"><a href="#（1）代码模型功能" class="headerlink" title="（1）代码模型功能"></a>（1）代码模型功能</h3><p>​	该代码模型先由ADC进行电压采集，再进行数据的判断。在1.65V及以上，闪烁F280049评估版上的LED5，反之闪烁LED4。</p>
-<h3 id="（2）添加所需模块，以及部分模块设置"><a href="#（2）添加所需模块，以及部分模块设置" class="headerlink" title="（2）添加所需模块，以及部分模块设置"></a>（2）添加所需模块，以及部分模块设置</h3><h4 id="1-添加一个ADC模块，其参数按默认设置"><a href="#1-添加一个ADC模块，其参数按默认设置" class="headerlink" title="1.添加一个ADC模块，其参数按默认设置"></a>1.添加一个ADC模块，其参数按默认设置</h4><h4 id="2-添加一个SCITransmit模块，其参数按默认设置"><a href="#2-添加一个SCITransmit模块，其参数按默认设置" class="headerlink" title="2.添加一个SCITransmit模块，其参数按默认设置"></a>2.添加一个SCITransmit模块，其参数按默认设置</h4><h4 id="3-添加两个CompareToConstant模块-按照下图的参数进行配置"><a href="#3-添加两个CompareToConstant模块-按照下图的参数进行配置" class="headerlink" title="3.添加两个CompareToConstant模块,按照下图的参数进行配置"></a>3.添加两个CompareToConstant模块,按照下图的参数进行配置</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225201345884.png"></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225201353863.png"></p>
-<h4 id="4-添加一个Rate-Transition模块"><a href="#4-添加一个Rate-Transition模块" class="headerlink" title="4.添加一个Rate Transition模块"></a>4.添加一个Rate Transition模块</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225202117277.png"></p>
-<h4 id="5-添加两个-Digital-Output-模块（配置LED所在的GPIO进行翻转）"><a href="#5-添加两个-Digital-Output-模块（配置LED所在的GPIO进行翻转）" class="headerlink" title="5.添加两个 Digital Output 模块（配置LED所在的GPIO进行翻转）"></a>5.添加两个 Digital Output 模块（配置LED所在的GPIO进行翻转）</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225202238625.png"></p>
-<h4 id="6-完成从机（F280049）板载程序的代码模型"><a href="#6-完成从机（F280049）板载程序的代码模型" class="headerlink" title="6.完成从机（F280049）板载程序的代码模型"></a>6.完成从机（F280049）板载程序的代码模型</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225202356536.png"></p>
-<p>​	最后进行下载即可。</p>
-<h2 id="二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据"><a href="#二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据" class="headerlink" title="二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据"></a>二、通过使用SCI模块在主机（Simulink）上显示ADC模块所采集到的数据</h2><h3 id="（1）主机模型功能"><a href="#（1）主机模型功能" class="headerlink" title="（1）主机模型功能"></a>（1）主机模型功能</h3><p>​	该代码模型由SCI Setup模块和SCI Receive模块进行数据的采集，并对采集回的数据进行处理对电压进行计算并输出在Scope模块上。</p>
-<h3 id="（2）搭建主机模型"><a href="#（2）搭建主机模型" class="headerlink" title="（2）搭建主机模型"></a>（2）搭建主机模型</h3><h4 id="1-添加模块与参数设置"><a href="#1-添加模块与参数设置" class="headerlink" title="1.添加模块与参数设置"></a>1.添加模块与参数设置</h4><h5 id="1-添加一个-Host-SCI-Setup-模块（由于从机SCI未进行设置，此处可直接使用默认设置）。"><a href="#1-添加一个-Host-SCI-Setup-模块（由于从机SCI未进行设置，此处可直接使用默认设置）。" class="headerlink" title="(1)添加一个 Host&#x2F;SCI Setup 模块（由于从机SCI未进行设置，此处可直接使用默认设置）。"></a>(1)添加一个 Host&#x2F;SCI Setup 模块（由于从机SCI未进行设置，此处可直接使用默认设置）。</h5><p><strong>PS:如果用户的C2000 LaunchPad XL实验板的串口号不是1-4，请先行将串口号修改为1-4，然后才能进行下面的工作。</strong></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225203046915.png"></p>
-<h5 id="2-添加一个-Host-SCI-Receive-模块。"><a href="#2-添加一个-Host-SCI-Receive-模块。" class="headerlink" title="(2)添加一个 Host&#x2F;SCI Receive 模块。"></a>(2)添加一个 Host&#x2F;SCI Receive 模块。</h5><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225204758006.png"></p>
-<h5 id="3-添加一个-Gain-模块（因为电压轨为3-3V，ADC为12位为4096，故参数设为3-3-4096）"><a href="#3-添加一个-Gain-模块（因为电压轨为3-3V，ADC为12位为4096，故参数设为3-3-4096）" class="headerlink" title="(3)添加一个 Gain 模块（因为电压轨为3.3V，ADC为12位为4096，故参数设为3.3&#x2F;4096）"></a>(3)添加一个 Gain 模块（因为电压轨为3.3V，ADC为12位为4096，故参数设为3.3&#x2F;4096）</h5><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225203817740.png"></p>
-<h4 id="（4）主机模型"><a href="#（4）主机模型" class="headerlink" title="（4）主机模型"></a>（4）主机模型</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225203900878.png"></p>
-<h4 id="（5）进行保存，点击运行"><a href="#（5）进行保存，点击运行" class="headerlink" title="（5）进行保存，点击运行"></a>（5）进行保存，点击运行</h4><p>​	可以看到开发板在接入3.3V时，LED5闪烁。当ADC引脚接入GND时，LED4闪烁。</p>
-<p>​	使用上位机进行数据检测，当接入3.3V时</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225204828589.png"></p>
-<p>​	从结果看，SCI通信与ADC检测均无误。</p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="串口号修改"><a href="#串口号修改" class="headerlink" title="串口号修改"></a>串口号修改</h3><h4 id="1-打开设备管理器"><a href="#1-打开设备管理器" class="headerlink" title="1.打开设备管理器"></a>1.打开设备管理器</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205058683.png"></p>
-<h4 id="2-右击你需要修改串口号的设备，点击属性"><a href="#2-右击你需要修改串口号的设备，点击属性" class="headerlink" title="2.右击你需要修改串口号的设备，点击属性"></a>2.右击你需要修改串口号的设备，点击属性</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205206033.png"></p>
-<h4 id="3-在“端口设置”中选择“高级”"><a href="#3-在“端口设置”中选择“高级”" class="headerlink" title="3.在“端口设置”中选择“高级”"></a>3.在“端口设置”中选择“高级”</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205234677.png"></p>
-<h4 id="4-进行修改并确认"><a href="#4-进行修改并确认" class="headerlink" title="4.进行修改并确认"></a>4.进行修改并确认</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240225205303342.png"></p>
+                <h1 id="LDO工作原理简单探讨"><a href="#LDO工作原理简单探讨" class="headerlink" title="LDO工作原理简单探讨"></a>LDO工作原理简单探讨</h1><h2 id="一、LDO介绍"><a href="#一、LDO介绍" class="headerlink" title="一、LDO介绍"></a>一、LDO介绍</h2><p>​	LDO英文名：low dropout regulator，低压差线性稳压器。<br>​	电源的分类有很多种，比如<strong>开关电源</strong>、<strong>逆变电源</strong>、<strong>交流电源</strong>等等。在移动端消费类电子产品中，常用的有<strong>DCDC电源</strong>和<strong>LDO电源</strong>两种，DCDC的优点是效率高，但是噪声大；LDO正相反，它是效率低，噪声小。<br>​	这两种电源具体在什么场景下使用不能一概而论，通常而言，对于噪声不太敏感的数字电路多可以优先考虑DCDC，而对于模拟电路，由于对噪声比较敏感，可以优先考虑LDO，但在大部分系统中，我们为了获得较好的电源效率以及稳定的电源系统，在进行设计时我们常常将两款电源系统进行混合使用。</p>
+<h2 id="二、LDO模型及工作原理探讨"><a href="#二、LDO模型及工作原理探讨" class="headerlink" title="二、LDO模型及工作原理探讨"></a>二、LDO模型及工作原理探讨</h2><h3 id="先列举出我们可能较为常见的一些LDO模型"><a href="#先列举出我们可能较为常见的一些LDO模型" class="headerlink" title="先列举出我们可能较为常见的一些LDO模型"></a>先列举出我们可能较为常见的一些LDO模型</h3><p><strong>三极管型LDO：</strong><br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319163743031.png" alt="三极管型LDO"></p>
+<p><strong>PMOS型LDO：</strong><br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/bccbaed39a891cee1fa2c4675802d51d.jpg" alt="NMOS型LDO"></p>
+<p><strong>NMOS型LDO：</strong></p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/8ec246cee8ebb24437b130ac68e7a7ef.jpg" alt="PMOS型LDO"></p>
+<p>​	此时，我们发现三种结构大同小异，只有在管子的选择上略有不同，那么我们就将其分成两种结构（<strong>三极管结构、MOS管结构</strong>）进行分析。</p>
+<h3 id="三极管型原理推导："><a href="#三极管型原理推导：" class="headerlink" title="三极管型原理推导："></a>三极管型原理推导：</h3><p>​	我们对三极管型的结构进行剖析，首先，我们能看到由电阻R和二极管Dz组成的稳定电压源（Vref），以及R1、R2、R3组成的分压网络，以及RL所代表的输出负载电阻。那么此时三级管以及运放所组成的应该是什么呢？<br>​	我们回到LDO的名字上，为什么要叫<strong>低压线性稳压器</strong>，那我在此先进行简单的猜测，暂且认为<strong>LDO</strong>是<strong>线性</strong>的一种元件（暂定）。<br>​	那么运放在此处又是什么作用呢？有正有负，又没有反馈用的电阻，那么它是不是<strong>比较器</strong>呢，我们都知道运放开环使用就是比较器嘛。但是仔细想想，好像无法将此处的运放当作比较器来使用。运算放大器的开环增益普遍在80dB以上，并且我们在实际使用LDO时都知道我们的输出会有“纹波”，假设纹波5mV，经过分压网络后有2mV，此时运算放大器以80dB的开环增益计算，输出最高都可以达到20V。一般来说，哪怕运放输出电压轨足够高，可以令输出最高达到20V，但此时三极管或者MOS管在大部分时间是处于导通状态的，那导通了就与我们上面的假设背道而驰了，并且我们知道开关电源正因为管子做开关使用，在导通和截止两个状态变换，那此时这种状态显然也不是LDO该有的工作状态，那我就只能将运放用法进行变换。<br>​	那我们给它加上反馈呢?加上反馈后，我们可以得到以下结构：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319162945677.png" alt="LDO误差放大器结构"></p>
+<p>​	此处反馈所使用的是复阻抗，具体为何下文在进行解释。<br>​	当加入反馈后，运放便由比较器变成了误差放大器，那么此时我们就可以更简单的去分析LDO的原理了。再上一张图：</p>
+<p>​	<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319163637437.png" alt="三极管型LDO内部电流电压关系"></p>
+<p>​	由于运算放大器在开环增益足够大且具有负反馈电路的工作条件下，会具有虚短的特性，所以当误差放大器在系统稳定时，有：<br>$$<br>VFB&#x3D;Vref<br>$$<br>​	此时，误差放大器有一稳定输出Vc&#x2F;Vb，此时三极管在Vb的作用下，有：<br>$$<br>Ie&#x3D;Ib*β<br>$$</p>
+<h4 id="负载变化时，有两种情况："><a href="#负载变化时，有两种情况：" class="headerlink" title="负载变化时，有两种情况："></a>负载变化时，有两种情况：</h4><h5 id="1-当负载变大时"><a href="#1-当负载变大时" class="headerlink" title="1.当负载变大时"></a>1.当负载变大时</h5><p>​	负载变大时，RL变小，此时由于电流IL不变，Vout随之下降，误差放大器同相反相之间产生误差，输出Vc+∆Vc,此时三极管基极电压增加，Ib增加，Ie增加，电流增加后，由于<br>$$<br>Vout&#x3D;RL*IL<br>$$<br>​	所以，Vout会逐渐上升直到稳定到输出值</p>
+<h5 id="2-当负载变小时"><a href="#2-当负载变小时" class="headerlink" title="2.当负载变小时"></a>2.当负载变小时</h5><p>​		负载变小时，RL变大，此时由于电流IL不变，Vout随之上升，误差放大器同相反相之间产生误差，输出Vc-∆Vc,此时三极管基极电压下降，Ib减小，Ie减小，电流减小后，由于<br>$$<br>Vout&#x3D;RL*IL<br>$$<br>​	所以，Vout会逐渐下降直到稳定到输出值</p>
+<p>​	<strong>负载变化调整输出的过程，也可以看作电路系统反馈稳定的过程，通过反馈环路的设计以达到一个稳定的输出环境。</strong></p>
+<h4 id="三极管型LDO中三极管的工作区"><a href="#三极管型LDO中三极管的工作区" class="headerlink" title="三极管型LDO中三极管的工作区"></a>三极管型LDO中三极管的工作区</h4><p>​	可以看到，在上述推导中进行了合理假设，并验证了假设的理论可能性。<br>​	三极管在上述的探讨中，Ib与Ie始终具有着倍数关系，我们知道这种状态是三极管的放大区。<br>​	以下是三极管的工作区特点，以及输出特性曲线，以便理解对比。</p>
+<p><strong>(1)截止区：三极管工作在截止状态，当发射结电压Ube小于0.6—0.7V的导通电压，发射结没有导通集电结处于反向偏置，没有放大作用。</strong><br><strong>(2)放大区：三极管的发射极加正向电压，集电极加反向电压导通后，Ib控制Ic，Ic与Ib近似于线性关系，在基极加上一个小信号电流，引起集电极大的信号电流输出。</strong><br><strong>(3)饱和区：当三极管的集电结电流IC增大到一定程度时，再增大Ib，Ic也不会增大，超出了放大区，进入了饱和区。饱和时，Ic最大，集电极和发射之间的内阻最小，电压Uce只有0.1V~0.3V，Uce&lt;ube，发射结和集电结均处于正向电压。三极管没有放大作用，集电极和发射极相当于短路，常与截止配合于开关电路。</strong></p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319212529344.png" alt="三极管输出特性曲线"></p>
+<h4 id="三级管型LDO简单仿真"><a href="#三级管型LDO简单仿真" class="headerlink" title="三级管型LDO简单仿真"></a>三级管型LDO简单仿真</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319213629802.png" alt="三极管型LDO仿真"></p>
+<h3 id="MOS管型LDO原理推导："><a href="#MOS管型LDO原理推导：" class="headerlink" title="MOS管型LDO原理推导："></a>MOS管型LDO原理推导：</h3><p>​	MOS管型LDO与三极管型LDO的差别在于它所使用的管子不同。在结构相同的条件下，可直接替换管子进行分析。</p>
+<h4 id="MOS管的漏源电流工作区特性"><a href="#MOS管的漏源电流工作区特性" class="headerlink" title="MOS管的漏源电流工作区特性"></a>MOS管的漏源电流工作区特性</h4><p>​	在拉扎维中，对MOS管的讨论在三极管区和饱和区。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319215652655.png" alt="MOS管的三极管区"></p>
+<p>​	<strong>此时电流公式为：</strong><br>$$<br>I_D&#x3D;\mu\cdot\frac{\epsilon_{ox}}{t_{ox}}\cdot\frac WL\cdot\left[(V_{GS}-V_{TH})\cdot V_{DS}-\frac12V_{DS}^2\right]<br>$$<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319215527746.png" alt="MOS管的饱和区"></p>
+<p>​	<strong>此时电流公式为：</strong><br>$$<br>I_D&#x3D;\frac12\beta\frac W{L^{\prime}}(V_{GS}-V_{TH})^2<br>$$<br>​	由上图可以发现两个工作区的漏源电流公式只有VGS一个变量，那么从这里就可以看出MOS管的LDO原理依旧是依靠误差放大器所带来的<strong>电压变化</strong>引起功率输出级的<strong>电流变化</strong>。</p>
+<h4 id="MOS管型LDO中MOS管的工作区"><a href="#MOS管型LDO中MOS管的工作区" class="headerlink" title="MOS管型LDO中MOS管的工作区"></a>MOS管型LDO中MOS管的工作区</h4><p>​	从上文中的MOS管漏源电流公式以及电流输出图像，可以看出MOS管的漏源电流输出并不像三极管的电流输出机制。<br>​	MOS管的工作区需要从VGS和VDS两个方面进行分析，MOS管型的LDO可能会工作在三极管区或者饱和区。但为了达到一个较为良好的工作环境（低压降）设计师常常将工作区设置在饱和区中，只有在特殊条件下LDO才会工作在三极管区。<br>​	压降小时工作在线性区，损耗由导通电阻和电流决定；压降大时工作在饱和区，损耗由压降和电流决定，工作在饱和区时，环路性能比线性区好，但压降损耗增大。<br>​	线性区由于其增益比饱和区小，所以环路相对较差。但在补偿的条件下现在的确已经可以控制，并正常使用。</p>
+<h4 id="MOS管型LDO简单仿真"><a href="#MOS管型LDO简单仿真" class="headerlink" title="MOS管型LDO简单仿真"></a>MOS管型LDO简单仿真</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319223126591.png" alt="MOS管型LDO仿真"></p>
+<h2 id="三、LDO输出公式推导"><a href="#三、LDO输出公式推导" class="headerlink" title="三、LDO输出公式推导"></a>三、LDO输出公式推导</h2><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320102813834.png" alt="环路控制"></p>
+<p>​	如图，将mos管到输出负载电阻部分的传递函数设为H(S),再将误差放大器的反馈环的传递函数设为G(s)，那么，此时系统整体传递函数流程图为：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320102625921.png" alt="传递函数流程图"></p>
+<p>​	但在该系统中，当Vin为定值时，可以暂且不以Vin为系统输入。那么我们可以看到此时Q1处MOS管三个引脚，D为Vin(定值)，S为Vout（输出），那么我们只能从G级看起，将Vc作为新的输入。<br>​	那么此时有新的传递函数，为：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320103406712.png" alt="功率级传递函数"></p>
+<p>​	又已知：<br>$$<br>Vc(s)&#x3D;Verr(s)×G(s)<br>$$<br>​	<br>$$<br>Verr(s)&#x3D;Vref(s)-\alpha Vout(s) 此处\alpha为电阻分压系数<br>$$<br>​	那么加以转换，可得到新的系统传递函数为（此处Zout可看作MOS管漏源电阻）：</p>
+<p>​	<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320103530327.png"></p>
+<p>​	那么，此时的闭环输出公式为：<br>$$<br>V_{\mathrm{out}}(s)&#x3D;\frac{V_{\mathrm{ref}}(s)}{\alpha}\frac{G(s)H(s)}{1+G(s)H(s)}-\frac{Z_{\mathrm{out},0\mathrm{l}}(s)}{1+G(s)H(s)}I_{\mathrm{out}}(s)<br>$$<br>​	显然可得，当开环增益G(s)H(s)足够大时，有公式为：<br>$$<br>V_{\mathrm{out}}&#x3D;\frac{V_{\mathrm{ref}}}\alpha<br>$$</p>
 
                 
             </div>
@@ -559,7 +567,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lilongxin178.github.io/2024/01/10/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BB%8E%E6%9C%BAADC%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E6%9C%BA%E4%B8%B2%E5%8F%A3%E9%87%87%E9%9B%86/">https://lilongxin178.github.io/2024/01/10/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BB%8E%E6%9C%BAADC%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E6%9C%BA%E4%B8%B2%E5%8F%A3%E9%87%87%E9%9B%86/</a>
+                    <a href="https://lilongxin178.github.io/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/">https://lilongxin178.github.io/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -597,12 +605,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/DSP%E8%AE%BE%E8%AE%A1/">
-                                    <span class="chip bg-color">DSP设计</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                    <span class="chip bg-color">工具</span>
+                                <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">小知识</span>
                                 </a>
                             
                         </div>
@@ -915,9 +919,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/">
                     <div class="card-image">
@@ -935,9 +940,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -950,6 +955,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -968,31 +974,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/01/03/ADC%E3%80%81DAC%E7%9A%84%E7%90%86%E8%AE%BA%E4%BF%A1%E5%99%AA%E6%AF%94%E8%AE%A1%E7%AE%97/">
+                <a href="/2024/01/10/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BB%8E%E6%9C%BAADC%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E6%9C%BA%E4%B8%B2%E5%8F%A3%E9%87%87%E9%9B%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ADC、DAC的理论信噪比计算">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集">
                         
-                        <span class="card-title">ADC、DAC的理论信噪比计算</span>
+                        <span class="card-title">TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用公式(SNR = 6.02N + 1.76dB)，用于计算转换器理论信噪比
+                            对从机ADC采集配置及主机串口采集进行配置
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
-                                    硬件探讨
+                            <a href="/categories/DSP%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    DSP设计
                                 </a>
                             
                             
@@ -1002,8 +1008,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">小知识</span>
+                    <a href="/tags/DSP%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">DSP设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
                     </a>
                     
                 </div>
