@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Simulink建模基础（2）, 硬件 笔记">
-    <meta name="description" content="本篇笔记为Simulink建模基础的实验及仿真。">
+    <meta name="keywords" content="硬件 笔记">
+    <meta name="description" content="title: 锁相环结构及原理探究date: 2024-4-13 14:00:00author: 工程小李top: truehide: falsecover: truetoc: truemathjax: truesummary: 锁相环基本">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Simulink建模基础（2） | 小李工作站</title>
+    <title>小李工作站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -418,12 +418,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Simulink建模基础（2）</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -445,29 +445,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/MATLAB%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">MATLAB学习</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                <span class="chip bg-color">工具</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/MATLAB%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                MATLAB学习
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -476,14 +459,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-12
+                    2024-10-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-08
+                    2024-10-22
                 </div>
                 
 
@@ -492,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    12 分
                 </div>
                 
 
@@ -512,62 +495,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Simulink建模基础（2）"><a href="#Simulink建模基础（2）" class="headerlink" title="Simulink建模基础（2）"></a>Simulink建模基础（2）</h1><h2 id="三、数学表达式模型搭建技巧"><a href="#三、数学表达式模型搭建技巧" class="headerlink" title="三、数学表达式模型搭建技巧"></a>三、数学表达式模型搭建技巧</h2><p>​	本节对公式：<br>$$<br>y(t)&#x3D;A*e^{-t\over a}+{K\over\alpha}e^{-t\over a}\int_0^tx(\tau)e^{t\over a}d\tau+{\beta\over\alpha}e^{-t\over a}\int_0^tx(\tau^2)e^{t\over a}d\tau<br>$$<br>的数学表达式进行建模。</p>
-<h3 id="1-先将结构进行剖析分解"><a href="#1-先将结构进行剖析分解" class="headerlink" title="1.先将结构进行剖析分解"></a>1.先将结构进行剖析分解</h3><h4 id="（1）将系统划分为几个子系统"><a href="#（1）将系统划分为几个子系统" class="headerlink" title="（1）将系统划分为几个子系统"></a>（1）将系统划分为几个子系统</h4><p>$$<br>y(t)&#x3D;Function1+Function2+Function3<br>$$</p>
-<p>​		所以，有<br>$$<br>Function1&#x3D;A*e^{-t\over a}<br>$$</p>
-<p>$$<br>Function2&#x3D;{K\over\alpha}e^{-t\over a}\int_0^tx(\tau)e^{t\over a}d\tau<br>$$</p>
-<p>$$<br>Function3&#x3D;{\beta\over\alpha}e^{-t\over a}\int_0^tx(\tau^2)e^{t\over a}d\tau<br>$$</p>
-<h4 id="（2）此时再将子系统划分为各个小块。如："><a href="#（2）此时再将子系统划分为各个小块。如：" class="headerlink" title="（2）此时再将子系统划分为各个小块。如："></a>（2）此时再将子系统划分为各个小块。如：</h4><p>$$<br>Function1&#x3D;block1+block2<br>$$</p>
-<p>$$<br>Function2 &#x3D; block2 * block3 * block4<br>$$</p>
-<p>$$<br>Function3&#x3D; block2 *block5 *block6<br>$$</p>
-<p>​	所以可得出<br>$$<br>block1&#x3D;A<br>$$</p>
-<p>$$<br>block2&#x3D;e^{-t\over a}<br>$$</p>
-<p>$$<br>block3&#x3D;{K\over\alpha}<br>$$</p>
-<p>$$<br>block4&#x3D;\int_0^tx(\tau)e^{t\over a}d\tau<br>$$</p>
-<p>$$<br>block5&#x3D;{\beta\over\alpha}<br>$$</p>
-<p>$$<br>block6&#x3D;e^{-t\over a}\int_0^tx(\tau^2)e^{t\over a}d\tau<br>$$</p>
-<h3 id="2-开始进行建模"><a href="#2-开始进行建模" class="headerlink" title="2.开始进行建模"></a>2.开始进行建模</h3><h4 id="（1）创建上文所使用的六个模块"><a href="#（1）创建上文所使用的六个模块" class="headerlink" title="（1）创建上文所使用的六个模块"></a>（1）创建上文所使用的六个模块</h4><p>​	如图，先创建Function1：</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208120031353.png"></p>
-<p>​	再创建Function2，以及Function3</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208121909088.png"></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208122525137.png"></p>
-<h4 id="（2）建立子系统"><a href="#（2）建立子系统" class="headerlink" title="（2）建立子系统"></a>（2）建立子系统</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208123003149.png"></p>
-<p>​	将三个子系统建立完成后：</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208123129427.png"></p>
-<p>​	（3）进行三个子系统的连接</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208123604094.png"></p>
-<h3 id="3-模型仿真及测试"><a href="#3-模型仿真及测试" class="headerlink" title="3.模型仿真及测试"></a>3.模型仿真及测试</h3><h4 id="（1）添加测试用例及显示设备"><a href="#（1）添加测试用例及显示设备" class="headerlink" title="（1）添加测试用例及显示设备"></a>（1）添加测试用例及显示设备</h4><p>​	添加一个正弦信号模块作为测试用例并按默认设置。</p>
-<p>​	添加一个示波器模块作为显示设备。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208125608784.png"></p>
-<p>​	双击该模块，在打开后界面的左上角，点击“视图”-&gt;”配置属性”，打开下图界面。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208125805465.png"></p>
-<p>​	设置完成后，为下图样式：</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208125855458.png"></p>
-<h4 id="（2）对参数进行设置"><a href="#（2）对参数进行设置" class="headerlink" title="（2）对参数进行设置"></a>（2）对参数进行设置</h4><p>​	1.按照上文参数设置，对该建模内未定义的参数进行定义并赋值。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208130036883.png"></p>
-<p>​	2.设置仿真停止时间</p>
-<p>​	3.设置求解器类型（变步长）；并选择ode23的求解器。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208130153287.png"></p>
-<p>​	4.进行仿真</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208130647616.png" alt="、"></p>
-<h2 id="四、Simulink仿真的各种波形显示方式"><a href="#四、Simulink仿真的各种波形显示方式" class="headerlink" title="四、Simulink仿真的各种波形显示方式"></a>四、Simulink仿真的各种波形显示方式</h2><h3 id="1-普通示波器Scope"><a href="#1-普通示波器Scope" class="headerlink" title="1.普通示波器Scope"></a>1.普通示波器Scope</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208132733862.png"></p>
-<p>​	调用方式：库浏览器中搜索Scope，拖出使用即可。</p>
-<h3 id="2-Dashboard-Scope示波器"><a href="#2-Dashboard-Scope示波器" class="headerlink" title="2.Dashboard Scope示波器"></a>2.Dashboard Scope示波器</h3><p>（1）添加Dashboard Scope模块,即在模型的空白处单击选中该模型然后键人“dash”接着选中Dashboard Scope</p>
-<p>（2）连接Dashboard Scope模块即双击 Dashboard Scope模块，打开模块参数对话框接着选中需要显示的信号，这些信号将出现在模块参数对话框中。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208133427148.png"></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208133443871.png"></p>
-<h3 id="3-仿真数据检查器（Data-Inspector）"><a href="#3-仿真数据检查器（Data-Inspector）" class="headerlink" title="3.仿真数据检查器（Data Inspector）"></a>3.仿真数据检查器（Data Inspector）</h3><p>​	为了在一个页面中显示多个信号的波形，或对某个&#x2F;多个信号的多次测试进行记录，以优化模型中的参数等可使用 Data Inspector。如同时观察x(t)、y(t)、Functionl、Function2和Function3等信号。</p>
-<p>​	（1）右击需要的信号选择“记录所选信号”</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208133804426.png"></p>
-<p>​	（2）将所需信号全部按上述操作进行处理</p>
-<p>​	（3）找到已经选择的信号，再次右击打开仿真数据检查器。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208134009254.png"></p>
-<p>​	（4）对信号在此进行简单的归位排序，以便查看。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208134100578.png" alt="image-20240208134100578"></p>
-<p>​	（5）记录多次仿真结果。利用该记录功能可对比在不同参数条件下的输出波形，从而选择模型中更符合实际的参数。</p>
-<h3 id="4-逻辑分析仪-Logic-Analyzer-。"><a href="#4-逻辑分析仪-Logic-Analyzer-。" class="headerlink" title="4.逻辑分析仪(Logic Analyzer)。"></a>4.逻辑分析仪(Logic Analyzer)。</h3><p>​	对于选中的信号可以一次性将其波形显示出来，特别适用于逻辑关系比较明显的系统其操作方法为:选择 Logic Analyzer 选项即可打开逻辑分析仪对话框。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208134924139.png"></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240208134958742.png"></p>
+                <p>title: 锁相环结构及原理探究<br>date: 2024-4-13 14:00:00<br>author: 工程小李<br>top: true<br>hide: false<br>cover: true<br>toc: true<br>mathjax: true<br>summary: 锁相环基本工作原理及常见PLL<br>categories: 硬件探讨<br>tags:</p>
+<ul>
+<li>小知识</li>
+</ul>
+<h1 id="锁相环结构及原理探究"><a href="#锁相环结构及原理探究" class="headerlink" title="锁相环结构及原理探究"></a>锁相环结构及原理探究</h1><h2 id="一、锁相环基本工作原理及常见PLL"><a href="#一、锁相环基本工作原理及常见PLL" class="headerlink" title="一、锁相环基本工作原理及常见PLL"></a>一、锁相环基本工作原理及常见PLL</h2><h3 id="1-1锁相环基本工作原理"><a href="#1-1锁相环基本工作原理" class="headerlink" title="1.1锁相环基本工作原理"></a>1.1锁相环基本工作原理</h3><p>PLL 的起始部分是稳定晶体参考频率， XTAL。它被 R 计数器分频到较低频率。这一经分频后的频率被称为比较频率（Fcomp），并输入到鉴相器。鉴频鉴相器输出电流，其直流均值与比较频率和经 N 分频器后的输出频率的相位差成比例。这个比例常数为 KФ，它就是电荷泵能流出或吸入电流的幅度。理论上，这一项除以 2π 是正确的，但没有必要在本书所有公式中这样做，因为它会被 VCO 中带来的 2π 所抵消。所以， KФ 单位是 m A &#x2F; (2π 弧)。将鉴相器输出的直流均值电流乘以环路滤波器阻抗 Z(s)，就得到 VCO（压控振荡器）输入电压。 VCO是电压到频率的转换器，具有比例系数 KVCO 。环路滤波器是低通滤波器，通常用分离器件实现。 环路滤波器随应用而各异。 调谐电压调节 VCO的输出相位。这样 VCO 的输出相位经 N 分频后就与比较频率相位相等。因为相位是频率的积分，所以也就意味着， VCO 的输出频率经 N 分频后与比较频率相等。输出频率可由下式表达：$$F_{out}&#x3D;\frac{N}{R}*XTAL$$</p>
+<h3 id="1-2常见PLL类型"><a href="#1-2常见PLL类型" class="headerlink" title="1.2常见PLL类型"></a>1.2常见PLL类型</h3><p>第一个 PLL 集成芯片大约出现在 1965 年，是一个纯粹的模拟器件。采用一个模拟乘法器(四象限乘法器)作为鉴相器;环路滤波器用无源或者有源 RC 滤波器实现，利用大家熟知的压控振荡器 VCO产生 PLL的输出信号。今天,我们称这种类型的 PLL为“线性PLL”(LPLL)。在接下来的几年里,PLL 缓慢而稳定地转移到数字领域。大约在 1970年出现了第一个数字 PLL(DPLL),实际上,它是一个混合器件,仅仅鉴相器采用数字电路实现，即使用一个 EXOR门或者一个JK 触发器,剩下的模块仍然是模拟电路。几年以后,发明了“全数字”PLL(ADPLL)。ADPLL毫无例外地全部由数字功能模块组成，因此不包含任何无源元件,如电阻和电容等。类似滤波器,PLL 也可以用软件实现。在这种情况下,PLL 的功能不再用一些专用的硬件实现，而是用计算机程序完成。我们称这种 PLL为SPLL</p>
+<p>​	总结:线性PLL（LPLL）、数字PLL（DPLL)、全数字PLL（ADPLL）、程控PLL（SPLL）</p>
+<p>​			</p>
+<h2 id="二、PLL各组件组成及其传递函数"><a href="#二、PLL各组件组成及其传递函数" class="headerlink" title="二、PLL各组件组成及其传递函数"></a>二、PLL各组件组成及其传递函数</h2><p>​	我们把PLL分成几个子模块，分别是PD（PFD+CP）、环路滤波器（Loop Filter，LPF）、VCO和分频器Divider。首先推导各子模块的传递函数。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200256452.png"></p>
+<h3 id="2-1-PD（PFD-CP）（带有电荷泵输出的鉴相器）"><a href="#2-1-PD（PFD-CP）（带有电荷泵输出的鉴相器）" class="headerlink" title="2.1 PD（PFD+CP）（带有电荷泵输出的鉴相器）"></a>2.1 PD（PFD+CP）（带有电荷泵输出的鉴相器）</h3><p>​	PD的输入是参考时钟和反馈时钟的相位差，输出是CP的电流Icp。实际上，PLL的锁定过程中，PD并不是一个连续的模型，CP的电流仅在有相位差的时间段内会打开，因此它是一个离散的信号。但是为了简化计算，我们构建PLL线性模型中，把PD看作一个连续输出电流信号的模块。为了保证这个结论近似成立，必须要有一定的条件约束。这个条件就是：PLL环路的响应要远小于参考时钟的频率，也就是说环路带宽要小于1&#x2F;10~1&#x2F;15的参考时钟频率。<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200331218.png"></p>
+<p>PD的函数图像如上图所示，在-2π~2π的区间内，都有相位差和Icp的线性关系，其斜率为<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/eq">，即PD的传递函数：$$K_{PD}&#x3D;\frac{I_{cp}}{2\pi}$$</p>
+<p>鉴相器种类总结：1.模拟乘法器鉴相  2.EXOR（异或门）鉴相  3.JK触发器鉴相  4.PFD鉴相器</p>
+<p>PFD鉴相器：<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200837410.png"></p>
+<h3 id="2-2-LPF（环形滤波器）"><a href="#2-2-LPF（环形滤波器）" class="headerlink" title="2.2 LPF（环形滤波器）"></a>2.2 LPF（环形滤波器）</h3><p>LPF是由电阻电容构成的，输入为CP的电流Icp，输出为控制VCO的电压Vctrl，传递函数Z(s)的推导比较容易。下图列出了一阶、二阶、三阶环路滤波器的电路图。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200917020.png"></p>
+<p>由上图可知，一阶环路滤波器的传递函数为：<br>$$<br>Z(s)&#x3D;\frac{1+RC_1s}{C_1s}<br>$$<br>二阶环路滤波器的传递函数为：<br>$$<br>Z(s)&#x3D;\frac{s+\frac{1}{RC_1}}{C_2s(s+\frac{1}{R(C_1|C_2))})}<br>$$<br>三阶环路滤波器的传递函数为：<br>$$<br>Z(s)&#x3D;\frac{\frac{1}{C_{3}s}}{\frac{1}{C_{3}s}+R_{3}}\times[(\frac{1}{C_{1}s}+R)\parallel\frac{1}{C_{2}s}\parallel(\frac{1}{C_{3}s}+R_{3})]<br>$$</p>
+<h3 id="2-3-VCO-CCO（受控振荡源）"><a href="#2-3-VCO-CCO（受控振荡源）" class="headerlink" title="2.3 VCO&#x2F;CCO（受控振荡源）"></a>2.3 VCO&#x2F;CCO（受控振荡源）</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413202234758.png"></p>
+<p>VCO是PLL的核心模块，主要分为Ring-VCO和LC-VCO两大类，有很多巧妙复杂的具体电路结构，但在PLL线性模型中，我们把它看成一个理想的积分器，其输出频率随输入电压线性变化，即：</p>
+<p>$$<br>\omega_{out}&#x3D;\omega_0+K_{VCO}\cdot V_{ctrl}<br>$$<br>其中斜率为Kvco。VCO的输入为LPF的输出电压Vctrl，输出为相位，上述公式两侧对时间进行积分（忽略），即：</p>
+<p>$$<br>\int\omega_{out}dt&#x3D;K_{VCO}\cdot\int V_{ctrl}dt<br>$$<br>频率对时间的积分为相位，整理可得其传递函数为：</p>
+<p>$$<br>\frac{\phi_{out}}{V_{ctrl}}&#x3D;\frac{K_{VCO}}{s}<br>$$<br>因为 VCO是一个模拟电路,它的参数(比如$\omega_{0}$）易受到器件偏差温度漂移和老化等问题的影响。大多数 VCO的数据中都会标明的温度系数通常是以 ppm&#x2F;C 为单位给出。</p>
+<h3 id="2-4-Divider（分频器）"><a href="#2-4-Divider（分频器）" class="headerlink" title="2.4 Divider（分频器）"></a>2.4 Divider（分频器）</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413202658262.png"> </p>
+<p>分频器的模型比较简单，其输入为VCO的输出相位，输出为反馈时钟相位，传递函数为<br>$$<br>\frac{\phi_{div}}{\phi_{out}}&#x3D;\frac{1}{N}<br>$$<br>​	若 VCO频率较高， 用纯 CMOS 计数器则难以处理较高频率。 为避免这种困境， 常用预分频器将 VCO频率分频到较低频率区处理。预分频器常由二的幂次方来分频，这样易于实现。常用的预分频器件有：单模、双模、四模预分频器。其中，双模预分频器最为常用。  </p>
+<h3 id="2-5-PLL的环路增益、闭环传递函数"><a href="#2-5-PLL的环路增益、闭环传递函数" class="headerlink" title="2.5 PLL的环路增益、闭环传递函数"></a>2.5 PLL的环路增益、闭环传递函数</h3><p>根据我们上述推导的PLL各模块的传递函数，我们可以很容易的写出PLL的环路增益、闭环传递函数（LPF以二阶为例），分别是：</p>
+<p>有传递函数：<br>$$<br>H_(s)&#x3D;K_{PD}\cdot Z(s)\cdot\frac{K_{VCO}}{s}&#x3D;\frac{K_{PD}\cdot K_{VCO}\cdot(s+\frac{1}{RC_{1}})}{C_{2}s^{2}(s+\frac{1}{R(C_{1}|C_{2}))})}<br>$$<br>环路增益即环路上PD、LPF、VCO和Divider传递函数的乘积：</p>
+<p>$$<br>H_{loop}(s)&#x3D;\frac{K_{PD}\cdot Z(s)\cdot K_{VCO}}{N\cdot s}&#x3D;\frac{K_{PD}\cdot K_{VCO}\cdot(s+\frac{1}{RC_1})}{N\cdot C_2s^2(s+\frac{1}{R(C_1|C_2))})}<br>$$<br>闭环传递函数即：</p>
+<p>$$<br>H_{close}(s)&#x3D;\frac{H_{open}(s)}{1+H_{loop}(s)}&#x3D;\frac{\frac{K_{PD}\cdot K_{VCO}}{C_{2}\cdot}\cdot(s+\frac{1}{RC_{1}})}{s^{3}+\frac{1}{R(C_{1}|C_{2})}\cdot s^{2}+\frac{K_{PD}\cdot K_{VCO}}{N\cdot C_{2}}\cdot s+\frac{K_{PD}\cdot K_{VCO}}{N\cdot R\cdot C_{1}\cdot C_{2}}}<br>$$</p>
+<h3 id="2-6-PLL各模块的噪声对PLL输出相位噪声的贡献"><a href="#2-6-PLL各模块的噪声对PLL输出相位噪声的贡献" class="headerlink" title="2.6 PLL各模块的噪声对PLL输出相位噪声的贡献"></a>2.6 PLL各模块的噪声对PLL输出相位噪声的贡献</h3><p>输入参考时钟的输出噪声为相位噪声；PD的输出噪声为CP的电流噪声；LPF的输出噪声为Vctrl上的电压噪声；VCO的输出噪声为相位噪声；Divider的输出噪声为相位噪声。各模块的输出噪声到PLL输出端的传递函数，即各模块的输出端到PLL输出端的开环增益，除以1加环路增益，各模块的传递函数及其噪声到PLL输出端的传递函数总结如下表：<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413203145865.png"></p>
+<p>可以看出输入参考时钟、PD和Divider的噪声为低通特性，LPF的噪声为带通特性，VCO的噪声为高通特性。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413203232584.png"></p>
+<p>值得注意的是，这里没有讨论PD的输出噪声对PLL的影响，我的理解是，因为在PLL锁定或者近似锁定的情况下，相位差占整个周期的比例很小，也就是说，每个周期内，只有很小比例的时间CP会开启并引入电流噪声，因此可以忽略。 </p>
+<p>对于不同模块引入的噪声，除了在设计上降低其本身的噪声外，也可以通过PLL系统参数的调整来抑制噪声，如下图所示。减小PLL的环路带宽，可以抑制低通的带内噪声，如输入参考时钟的噪声、CP的噪声和Divider的噪声；增大PLL的环路带宽，可以抑制高通的带外噪声，即VCO的噪声。当然，通过减小（增大）带宽，来抑制带内（带外）噪声，势必也会导致带外（带内）的噪声贡献增大。</p>
+<p>这里有一个重要的结论：PLL的相位噪声，等于各模块输出噪声乘以其到PLL输出端的传递函数的平方加和。如下：</p>
+<p>$$<br>\varphi_{n,all}&#x3D;\varphi_{n,ref}(N\cdot\frac{L\left(s\right)}{1+L\left(s\right)})^{2}+i_{n,rp}^{2}(\frac{N}{K_{PD}}\cdot\frac{L\left(s\right)}{1+L\left(s\right)})^{2}+v_{n,ctri}^{2}(\frac{K_{VCO}}{s}\cdot\frac{1}{1+L\left(s\right)})^{2}+\varphi_{n,rco}(\frac{1}{1+L\left(s\right)})^{2}+\varphi_{n,div}(-N\cdot\frac{L\left(s\right)}{1+L\left(s\right)})^{2}<br>$$<br>这里有一个有意思的点，如果CP的电流噪声较大，应该如何优化呢？正常来说电流噪声与电流值成正比，因此减小Icp可以降低CP本身的电流噪声，但是可以看到，其到PLL输出端的传递函数中，Kpd在分母上，并且是平方关系，一约分的话，还有一个Icp在分母上，也就是说，尽管减小Icp降低了CP本身的电流噪声，但是却导致对PLL输出端的噪声贡献增大。正确的方法应该是增大Icp。当然，考虑到实际情况Icp打开的时间占比很短，这个噪声的贡献实际应该很小。</p>
+<h2 id="三、-PLL关键参数"><a href="#三、-PLL关键参数" class="headerlink" title="三、 PLL关键参数"></a>三、 PLL关键参数</h2><h3 id="3-1-PLL参数"><a href="#3-1-PLL参数" class="headerlink" title="3.1 PLL参数"></a>3.1 PLL参数</h3><p>设计时需要考虑的参数因子</p>
+<p>1.参考(或输人)信号 $u_1(t)$<br>2.参考信号的角频率$\omega_{1}$<br>3.VCO 的输出信号 $u_2(t)$<br>4.一 输出信号的角频率 $\omega_{2}$<br>5.鉴相器的输出信号 $u_{\mathrm{d}}(t)$<br>6.环路滤波器的输出信号 $u_{\mathrm{f}}(t)$<br>7.相位误差 $\theta$<br>8.定义为信号 $u_{\mathrm{i}}(t)$ 和信号 $u_{2}(t)$之间的相位差</p>
+<p>重要参数（用以确定锁相环稳定性）：</p>
+<p>1.环路带宽（应在输入频率的1&#x2F;10—1&#x2F;15左右）</p>
+<p>2.阻尼系数</p>
+<p>3.固有频率（自然频率）</p>
+<h3 id="3-2-PLL重要参数推导"><a href="#3-2-PLL重要参数推导" class="headerlink" title="3.2 PLL重要参数推导"></a>3.2 PLL重要参数推导</h3><p>已知：<br>$$<br>H_{close}(s)&#x3D;\frac{H_{open}(s)}{1+H_{loop}(s)}&#x3D;\frac{\frac{K_{PD}\cdot K_{VCO}}{C_{2}\cdot}\cdot(s+\frac{1}{RC_{1}})}{s^{3}+\frac{1}{R(C_{1}|C_{2})}\cdot s^{2}+\frac{K_{PD}\cdot K_{VCO}}{N\cdot C_{2}}\cdot s+\frac{K_{PD}\cdot K_{VCO}}{N\cdot R\cdot C_{1}\cdot C_{2}}}<br>$$<br>将该传递函数分母写成归一化形式（电路及控制理论）</p>
+<p>分母：$$s^{2}+2\zeta\omega_{\mathrm{n}}s+\omega_{\mathrm{n}}^{2}$$</p>
+<p>所以有$$H(s)&#x3D;\frac{2s\zeta\omega_\mathrm{n}+\omega_\mathrm{n}^2}{s^2+2s\zeta\omega_\mathrm{n}+\omega_\mathrm{n}^2}$$</p>
+<p>此时有固有频率及阻尼系数为：<br>$$<br>\omega_{n}&#x3D;\sqrt{\frac{K_{loop}}{N}},\xi&#x3D;\frac{\omega_{n}}{2\cdot\omega_{Z}}<br>$$<br>及环路带宽：<br>$$<br>\omega_{3dB}&#x3D;\omega_n\cdot\sqrt{a+\sqrt{a^2+1}},a&#x3D;2\xi^2+1-\frac{\omega_n\cdot N}{K_{PD}\cdot K_{VCO}}\cdot(4\xi-\frac{\omega_n\cdot N}{K_{PD}\cdot K_{VCO}})<br>$$<br>为保证环路的稳定和快速锁定，阻尼系数<img src="https://latex.csdn.net/eq?%5Cxi" alt="\xi">取值范围一般为0.5~1，如下图，取值过大或者过小，都会在时域上引起震荡。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413210656661.png"></p>
 
                 
             </div>
@@ -594,7 +567,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lilongxin178.github.io/2023/12/12/Simulink%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/">https://lilongxin178.github.io/2023/12/12/Simulink%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%882%EF%BC%89/</a>
+                    <a href="https://lilongxin178.github.io/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/">https://lilongxin178.github.io/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,15 +604,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/MATLAB%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">MATLAB学习</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                    <span class="chip bg-color">工具</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -950,53 +915,39 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/12/14/Stateflow%20%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/">
+                <a href="/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Stateflow 建模基础（1）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Stateflow 建模基础（1）</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本篇笔记为Stateflow 基础的实验及仿真。
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-10-22
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/MATLAB%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    MATLAB学习
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            工程小李
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/MATLAB%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">MATLAB学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">工具</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1007,31 +958,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/11/Simulink%E5%BB%BA%E6%A8%A1%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/">
+                <a href="/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Simulink建模基础（1）">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="LDO工作原理简单探讨">
                         
-                        <span class="card-title">Simulink建模基础（1）</span>
+                        <span class="card-title">LDO工作原理简单探讨</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本篇笔记为Simulink建模基础的实验及仿真。
+                            low dropout regulator，低压差线性稳压器。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MATLAB%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    MATLAB学习
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
                                 </a>
                             
                             
@@ -1041,12 +992,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MATLAB%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">MATLAB学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">工具</span>
+                    <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">小知识</span>
                     </a>
                     
                 </div>
@@ -1204,13 +1151,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 

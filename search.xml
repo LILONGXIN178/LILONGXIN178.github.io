@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/"/>
+      <url>/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/</url>
+      
+        <content type="html"><![CDATA[<p>title: 锁相环结构及原理探究<br>date: 2024-4-13 14:00:00<br>author: 工程小李<br>top: true<br>hide: false<br>cover: true<br>toc: true<br>mathjax: true<br>summary: 锁相环基本工作原理及常见PLL<br>categories: 硬件探讨<br>tags:</p><ul><li>小知识</li></ul><h1 id="锁相环结构及原理探究"><a href="#锁相环结构及原理探究" class="headerlink" title="锁相环结构及原理探究"></a>锁相环结构及原理探究</h1><h2 id="一、锁相环基本工作原理及常见PLL"><a href="#一、锁相环基本工作原理及常见PLL" class="headerlink" title="一、锁相环基本工作原理及常见PLL"></a>一、锁相环基本工作原理及常见PLL</h2><h3 id="1-1锁相环基本工作原理"><a href="#1-1锁相环基本工作原理" class="headerlink" title="1.1锁相环基本工作原理"></a>1.1锁相环基本工作原理</h3><p>PLL 的起始部分是稳定晶体参考频率， XTAL。它被 R 计数器分频到较低频率。这一经分频后的频率被称为比较频率（Fcomp），并输入到鉴相器。鉴频鉴相器输出电流，其直流均值与比较频率和经 N 分频器后的输出频率的相位差成比例。这个比例常数为 KФ，它就是电荷泵能流出或吸入电流的幅度。理论上，这一项除以 2π 是正确的，但没有必要在本书所有公式中这样做，因为它会被 VCO 中带来的 2π 所抵消。所以， KФ 单位是 m A &#x2F; (2π 弧)。将鉴相器输出的直流均值电流乘以环路滤波器阻抗 Z(s)，就得到 VCO（压控振荡器）输入电压。 VCO是电压到频率的转换器，具有比例系数 KVCO 。环路滤波器是低通滤波器，通常用分离器件实现。 环路滤波器随应用而各异。 调谐电压调节 VCO的输出相位。这样 VCO 的输出相位经 N 分频后就与比较频率相位相等。因为相位是频率的积分，所以也就意味着， VCO 的输出频率经 N 分频后与比较频率相等。输出频率可由下式表达：$$F_{out}&#x3D;\frac{N}{R}*XTAL$$</p><h3 id="1-2常见PLL类型"><a href="#1-2常见PLL类型" class="headerlink" title="1.2常见PLL类型"></a>1.2常见PLL类型</h3><p>第一个 PLL 集成芯片大约出现在 1965 年，是一个纯粹的模拟器件。采用一个模拟乘法器(四象限乘法器)作为鉴相器;环路滤波器用无源或者有源 RC 滤波器实现，利用大家熟知的压控振荡器 VCO产生 PLL的输出信号。今天,我们称这种类型的 PLL为“线性PLL”(LPLL)。在接下来的几年里,PLL 缓慢而稳定地转移到数字领域。大约在 1970年出现了第一个数字 PLL(DPLL),实际上,它是一个混合器件,仅仅鉴相器采用数字电路实现，即使用一个 EXOR门或者一个JK 触发器,剩下的模块仍然是模拟电路。几年以后,发明了“全数字”PLL(ADPLL)。ADPLL毫无例外地全部由数字功能模块组成，因此不包含任何无源元件,如电阻和电容等。类似滤波器,PLL 也可以用软件实现。在这种情况下,PLL 的功能不再用一些专用的硬件实现，而是用计算机程序完成。我们称这种 PLL为SPLL</p><p>​总结:线性PLL（LPLL）、数字PLL（DPLL)、全数字PLL（ADPLL）、程控PLL（SPLL）</p><p>​</p><h2 id="二、PLL各组件组成及其传递函数"><a href="#二、PLL各组件组成及其传递函数" class="headerlink" title="二、PLL各组件组成及其传递函数"></a>二、PLL各组件组成及其传递函数</h2><p>​我们把PLL分成几个子模块，分别是PD（PFD+CP）、环路滤波器（Loop Filter，LPF）、VCO和分频器Divider。首先推导各子模块的传递函数。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200256452.png"></p><h3 id="2-1-PD（PFD-CP）（带有电荷泵输出的鉴相器）"><a href="#2-1-PD（PFD-CP）（带有电荷泵输出的鉴相器）" class="headerlink" title="2.1 PD（PFD+CP）（带有电荷泵输出的鉴相器）"></a>2.1 PD（PFD+CP）（带有电荷泵输出的鉴相器）</h3><p>​PD的输入是参考时钟和反馈时钟的相位差，输出是CP的电流Icp。实际上，PLL的锁定过程中，PD并不是一个连续的模型，CP的电流仅在有相位差的时间段内会打开，因此它是一个离散的信号。但是为了简化计算，我们构建PLL线性模型中，把PD看作一个连续输出电流信号的模块。为了保证这个结论近似成立，必须要有一定的条件约束。这个条件就是：PLL环路的响应要远小于参考时钟的频率，也就是说环路带宽要小于1&#x2F;10~1&#x2F;15的参考时钟频率。<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200331218.png"></p><p>PD的函数图像如上图所示，在-2π~2π的区间内，都有相位差和Icp的线性关系，其斜率为<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/eq">，即PD的传递函数：$$K_{PD}&#x3D;\frac{I_{cp}}{2\pi}$$</p><p>鉴相器种类总结：1.模拟乘法器鉴相  2.EXOR（异或门）鉴相  3.JK触发器鉴相  4.PFD鉴相器</p><p>PFD鉴相器：<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200837410.png"></p><h3 id="2-2-LPF（环形滤波器）"><a href="#2-2-LPF（环形滤波器）" class="headerlink" title="2.2 LPF（环形滤波器）"></a>2.2 LPF（环形滤波器）</h3><p>LPF是由电阻电容构成的，输入为CP的电流Icp，输出为控制VCO的电压Vctrl，传递函数Z(s)的推导比较容易。下图列出了一阶、二阶、三阶环路滤波器的电路图。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413200917020.png"></p><p>由上图可知，一阶环路滤波器的传递函数为：<br>$$<br>Z(s)&#x3D;\frac{1+RC_1s}{C_1s}<br>$$<br>二阶环路滤波器的传递函数为：<br>$$<br>Z(s)&#x3D;\frac{s+\frac{1}{RC_1}}{C_2s(s+\frac{1}{R(C_1|C_2))})}<br>$$<br>三阶环路滤波器的传递函数为：<br>$$<br>Z(s)&#x3D;\frac{\frac{1}{C_{3}s}}{\frac{1}{C_{3}s}+R_{3}}\times[(\frac{1}{C_{1}s}+R)\parallel\frac{1}{C_{2}s}\parallel(\frac{1}{C_{3}s}+R_{3})]<br>$$</p><h3 id="2-3-VCO-CCO（受控振荡源）"><a href="#2-3-VCO-CCO（受控振荡源）" class="headerlink" title="2.3 VCO&#x2F;CCO（受控振荡源）"></a>2.3 VCO&#x2F;CCO（受控振荡源）</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413202234758.png"></p><p>VCO是PLL的核心模块，主要分为Ring-VCO和LC-VCO两大类，有很多巧妙复杂的具体电路结构，但在PLL线性模型中，我们把它看成一个理想的积分器，其输出频率随输入电压线性变化，即：</p><p>$$<br>\omega_{out}&#x3D;\omega_0+K_{VCO}\cdot V_{ctrl}<br>$$<br>其中斜率为Kvco。VCO的输入为LPF的输出电压Vctrl，输出为相位，上述公式两侧对时间进行积分（忽略），即：</p><p>$$<br>\int\omega_{out}dt&#x3D;K_{VCO}\cdot\int V_{ctrl}dt<br>$$<br>频率对时间的积分为相位，整理可得其传递函数为：</p><p>$$<br>\frac{\phi_{out}}{V_{ctrl}}&#x3D;\frac{K_{VCO}}{s}<br>$$<br>因为 VCO是一个模拟电路,它的参数(比如$\omega_{0}$）易受到器件偏差温度漂移和老化等问题的影响。大多数 VCO的数据中都会标明的温度系数通常是以 ppm&#x2F;C 为单位给出。</p><h3 id="2-4-Divider（分频器）"><a href="#2-4-Divider（分频器）" class="headerlink" title="2.4 Divider（分频器）"></a>2.4 Divider（分频器）</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413202658262.png"> </p><p>分频器的模型比较简单，其输入为VCO的输出相位，输出为反馈时钟相位，传递函数为<br>$$<br>\frac{\phi_{div}}{\phi_{out}}&#x3D;\frac{1}{N}<br>$$<br>​若 VCO频率较高， 用纯 CMOS 计数器则难以处理较高频率。 为避免这种困境， 常用预分频器将 VCO频率分频到较低频率区处理。预分频器常由二的幂次方来分频，这样易于实现。常用的预分频器件有：单模、双模、四模预分频器。其中，双模预分频器最为常用。  </p><h3 id="2-5-PLL的环路增益、闭环传递函数"><a href="#2-5-PLL的环路增益、闭环传递函数" class="headerlink" title="2.5 PLL的环路增益、闭环传递函数"></a>2.5 PLL的环路增益、闭环传递函数</h3><p>根据我们上述推导的PLL各模块的传递函数，我们可以很容易的写出PLL的环路增益、闭环传递函数（LPF以二阶为例），分别是：</p><p>有传递函数：<br>$$<br>H_(s)&#x3D;K_{PD}\cdot Z(s)\cdot\frac{K_{VCO}}{s}&#x3D;\frac{K_{PD}\cdot K_{VCO}\cdot(s+\frac{1}{RC_{1}})}{C_{2}s^{2}(s+\frac{1}{R(C_{1}|C_{2}))})}<br>$$<br>环路增益即环路上PD、LPF、VCO和Divider传递函数的乘积：</p><p>$$<br>H_{loop}(s)&#x3D;\frac{K_{PD}\cdot Z(s)\cdot K_{VCO}}{N\cdot s}&#x3D;\frac{K_{PD}\cdot K_{VCO}\cdot(s+\frac{1}{RC_1})}{N\cdot C_2s^2(s+\frac{1}{R(C_1|C_2))})}<br>$$<br>闭环传递函数即：</p><p>$$<br>H_{close}(s)&#x3D;\frac{H_{open}(s)}{1+H_{loop}(s)}&#x3D;\frac{\frac{K_{PD}\cdot K_{VCO}}{C_{2}\cdot}\cdot(s+\frac{1}{RC_{1}})}{s^{3}+\frac{1}{R(C_{1}|C_{2})}\cdot s^{2}+\frac{K_{PD}\cdot K_{VCO}}{N\cdot C_{2}}\cdot s+\frac{K_{PD}\cdot K_{VCO}}{N\cdot R\cdot C_{1}\cdot C_{2}}}<br>$$</p><h3 id="2-6-PLL各模块的噪声对PLL输出相位噪声的贡献"><a href="#2-6-PLL各模块的噪声对PLL输出相位噪声的贡献" class="headerlink" title="2.6 PLL各模块的噪声对PLL输出相位噪声的贡献"></a>2.6 PLL各模块的噪声对PLL输出相位噪声的贡献</h3><p>输入参考时钟的输出噪声为相位噪声；PD的输出噪声为CP的电流噪声；LPF的输出噪声为Vctrl上的电压噪声；VCO的输出噪声为相位噪声；Divider的输出噪声为相位噪声。各模块的输出噪声到PLL输出端的传递函数，即各模块的输出端到PLL输出端的开环增益，除以1加环路增益，各模块的传递函数及其噪声到PLL输出端的传递函数总结如下表：<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413203145865.png"></p><p>可以看出输入参考时钟、PD和Divider的噪声为低通特性，LPF的噪声为带通特性，VCO的噪声为高通特性。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413203232584.png"></p><p>值得注意的是，这里没有讨论PD的输出噪声对PLL的影响，我的理解是，因为在PLL锁定或者近似锁定的情况下，相位差占整个周期的比例很小，也就是说，每个周期内，只有很小比例的时间CP会开启并引入电流噪声，因此可以忽略。 </p><p>对于不同模块引入的噪声，除了在设计上降低其本身的噪声外，也可以通过PLL系统参数的调整来抑制噪声，如下图所示。减小PLL的环路带宽，可以抑制低通的带内噪声，如输入参考时钟的噪声、CP的噪声和Divider的噪声；增大PLL的环路带宽，可以抑制高通的带外噪声，即VCO的噪声。当然，通过减小（增大）带宽，来抑制带内（带外）噪声，势必也会导致带外（带内）的噪声贡献增大。</p><p>这里有一个重要的结论：PLL的相位噪声，等于各模块输出噪声乘以其到PLL输出端的传递函数的平方加和。如下：</p><p>$$<br>\varphi_{n,all}&#x3D;\varphi_{n,ref}(N\cdot\frac{L\left(s\right)}{1+L\left(s\right)})^{2}+i_{n,rp}^{2}(\frac{N}{K_{PD}}\cdot\frac{L\left(s\right)}{1+L\left(s\right)})^{2}+v_{n,ctri}^{2}(\frac{K_{VCO}}{s}\cdot\frac{1}{1+L\left(s\right)})^{2}+\varphi_{n,rco}(\frac{1}{1+L\left(s\right)})^{2}+\varphi_{n,div}(-N\cdot\frac{L\left(s\right)}{1+L\left(s\right)})^{2}<br>$$<br>这里有一个有意思的点，如果CP的电流噪声较大，应该如何优化呢？正常来说电流噪声与电流值成正比，因此减小Icp可以降低CP本身的电流噪声，但是可以看到，其到PLL输出端的传递函数中，Kpd在分母上，并且是平方关系，一约分的话，还有一个Icp在分母上，也就是说，尽管减小Icp降低了CP本身的电流噪声，但是却导致对PLL输出端的噪声贡献增大。正确的方法应该是增大Icp。当然，考虑到实际情况Icp打开的时间占比很短，这个噪声的贡献实际应该很小。</p><h2 id="三、-PLL关键参数"><a href="#三、-PLL关键参数" class="headerlink" title="三、 PLL关键参数"></a>三、 PLL关键参数</h2><h3 id="3-1-PLL参数"><a href="#3-1-PLL参数" class="headerlink" title="3.1 PLL参数"></a>3.1 PLL参数</h3><p>设计时需要考虑的参数因子</p><p>1.参考(或输人)信号 $u_1(t)$<br>2.参考信号的角频率$\omega_{1}$<br>3.VCO 的输出信号 $u_2(t)$<br>4.一 输出信号的角频率 $\omega_{2}$<br>5.鉴相器的输出信号 $u_{\mathrm{d}}(t)$<br>6.环路滤波器的输出信号 $u_{\mathrm{f}}(t)$<br>7.相位误差 $\theta$<br>8.定义为信号 $u_{\mathrm{i}}(t)$ 和信号 $u_{2}(t)$之间的相位差</p><p>重要参数（用以确定锁相环稳定性）：</p><p>1.环路带宽（应在输入频率的1&#x2F;10—1&#x2F;15左右）</p><p>2.阻尼系数</p><p>3.固有频率（自然频率）</p><h3 id="3-2-PLL重要参数推导"><a href="#3-2-PLL重要参数推导" class="headerlink" title="3.2 PLL重要参数推导"></a>3.2 PLL重要参数推导</h3><p>已知：<br>$$<br>H_{close}(s)&#x3D;\frac{H_{open}(s)}{1+H_{loop}(s)}&#x3D;\frac{\frac{K_{PD}\cdot K_{VCO}}{C_{2}\cdot}\cdot(s+\frac{1}{RC_{1}})}{s^{3}+\frac{1}{R(C_{1}|C_{2})}\cdot s^{2}+\frac{K_{PD}\cdot K_{VCO}}{N\cdot C_{2}}\cdot s+\frac{K_{PD}\cdot K_{VCO}}{N\cdot R\cdot C_{1}\cdot C_{2}}}<br>$$<br>将该传递函数分母写成归一化形式（电路及控制理论）</p><p>分母：$$s^{2}+2\zeta\omega_{\mathrm{n}}s+\omega_{\mathrm{n}}^{2}$$</p><p>所以有$$H(s)&#x3D;\frac{2s\zeta\omega_\mathrm{n}+\omega_\mathrm{n}^2}{s^2+2s\zeta\omega_\mathrm{n}+\omega_\mathrm{n}^2}$$</p><p>此时有固有频率及阻尼系数为：<br>$$<br>\omega_{n}&#x3D;\sqrt{\frac{K_{loop}}{N}},\xi&#x3D;\frac{\omega_{n}}{2\cdot\omega_{Z}}<br>$$<br>及环路带宽：<br>$$<br>\omega_{3dB}&#x3D;\omega_n\cdot\sqrt{a+\sqrt{a^2+1}},a&#x3D;2\xi^2+1-\frac{\omega_n\cdot N}{K_{PD}\cdot K_{VCO}}\cdot(4\xi-\frac{\omega_n\cdot N}{K_{PD}\cdot K_{VCO}})<br>$$<br>为保证环路的稳定和快速锁定，阻尼系数<img src="https://latex.csdn.net/eq?%5Cxi" alt="\xi">取值范围一般为0.5~1，如下图，取值过大或者过小，都会在时域上引起震荡。</p><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240413210656661.png"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LDO工作原理简单探讨</title>
       <link href="/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/"/>
       <url>/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/</url>
@@ -45,9 +58,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
@@ -97,9 +110,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
@@ -124,9 +137,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> MATLAB学习 </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -151,9 +164,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> MATLAB学习 </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -178,9 +191,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> MATLAB学习 </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -205,9 +218,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
@@ -232,9 +245,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
@@ -259,9 +272,9 @@
       
         <tags>
             
-            <tag> DSP设计 </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> DSP设计 </tag>
             
         </tags>
       
