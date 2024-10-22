@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LDO工作原理简单探讨, 硬件 笔记">
-    <meta name="description" content="low dropout regulator，低压差线性稳压器。">
+    <meta name="keywords" content="晶振基础知识, 硬件 笔记">
+    <meta name="description" content="晶振基础知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LDO工作原理简单探讨 | 小李工作站</title>
+    <title>晶振基础知识 | 小李工作站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -418,12 +418,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LDO工作原理简单探讨</h1>
+                    <h1 class="description center-align post-title">晶振基础知识</h1>
                 </div>
             </div>
         </div>
@@ -472,14 +472,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-01-20
+                    2024-08-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-20
+                    2024-10-22
                 </div>
                 
 
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    10 分
                 </div>
                 
 
@@ -508,39 +508,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LDO工作原理简单探讨"><a href="#LDO工作原理简单探讨" class="headerlink" title="LDO工作原理简单探讨"></a>LDO工作原理简单探讨</h1><h2 id="一、LDO介绍"><a href="#一、LDO介绍" class="headerlink" title="一、LDO介绍"></a>一、LDO介绍</h2><p>​	LDO英文名：low dropout regulator，低压差线性稳压器。<br>​	电源的分类有很多种，比如<strong>开关电源</strong>、<strong>逆变电源</strong>、<strong>交流电源</strong>等等。在移动端消费类电子产品中，常用的有<strong>DCDC电源</strong>和<strong>LDO电源</strong>两种，DCDC的优点是效率高，但是噪声大；LDO正相反，它是效率低，噪声小。<br>​	这两种电源具体在什么场景下使用不能一概而论，通常而言，对于噪声不太敏感的数字电路多可以优先考虑DCDC，而对于模拟电路，由于对噪声比较敏感，可以优先考虑LDO，但在大部分系统中，我们为了获得较好的电源效率以及稳定的电源系统，在进行设计时我们常常将两款电源系统进行混合使用。</p>
-<h2 id="二、LDO模型及工作原理探讨"><a href="#二、LDO模型及工作原理探讨" class="headerlink" title="二、LDO模型及工作原理探讨"></a>二、LDO模型及工作原理探讨</h2><h3 id="先列举出我们可能较为常见的一些LDO模型"><a href="#先列举出我们可能较为常见的一些LDO模型" class="headerlink" title="先列举出我们可能较为常见的一些LDO模型"></a>先列举出我们可能较为常见的一些LDO模型</h3><p><strong>三极管型LDO：</strong><br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319163743031.png" alt="三极管型LDO"></p>
-<p><strong>PMOS型LDO：</strong><br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/bccbaed39a891cee1fa2c4675802d51d.jpg" alt="NMOS型LDO"></p>
-<p><strong>NMOS型LDO：</strong></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/8ec246cee8ebb24437b130ac68e7a7ef.jpg" alt="PMOS型LDO"></p>
-<p>​	此时，我们发现三种结构大同小异，只有在管子的选择上略有不同，那么我们就将其分成两种结构（<strong>三极管结构、MOS管结构</strong>）进行分析。</p>
-<h3 id="三极管型原理推导："><a href="#三极管型原理推导：" class="headerlink" title="三极管型原理推导："></a>三极管型原理推导：</h3><p>​	我们对三极管型的结构进行剖析，首先，我们能看到由电阻R和二极管Dz组成的稳定电压源（Vref），以及R1、R2、R3组成的分压网络，以及RL所代表的输出负载电阻。那么此时三级管以及运放所组成的应该是什么呢？<br>​	我们回到LDO的名字上，为什么要叫<strong>低压线性稳压器</strong>，那我在此先进行简单的猜测，暂且认为<strong>LDO</strong>是<strong>线性</strong>的一种元件（暂定）。<br>​	那么运放在此处又是什么作用呢？有正有负，又没有反馈用的电阻，那么它是不是<strong>比较器</strong>呢，我们都知道运放开环使用就是比较器嘛。但是仔细想想，好像无法将此处的运放当作比较器来使用。运算放大器的开环增益普遍在80dB以上，并且我们在实际使用LDO时都知道我们的输出会有“纹波”，假设纹波5mV，经过分压网络后有2mV，此时运算放大器以80dB的开环增益计算，输出最高都可以达到20V。一般来说，哪怕运放输出电压轨足够高，可以令输出最高达到20V，但此时三极管或者MOS管在大部分时间是处于导通状态的，那导通了就与我们上面的假设背道而驰了，并且我们知道开关电源正因为管子做开关使用，在导通和截止两个状态变换，那此时这种状态显然也不是LDO该有的工作状态，那我就只能将运放用法进行变换。<br>​	那我们给它加上反馈呢?加上反馈后，我们可以得到以下结构：</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319162945677.png" alt="LDO误差放大器结构"></p>
-<p>​	此处反馈所使用的是复阻抗，具体为何下文在进行解释。<br>​	当加入反馈后，运放便由比较器变成了误差放大器，那么此时我们就可以更简单的去分析LDO的原理了。再上一张图：</p>
-<p>​	<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319163637437.png" alt="三极管型LDO内部电流电压关系"></p>
-<p>​	由于运算放大器在开环增益足够大且具有负反馈电路的工作条件下，会具有虚短的特性，所以当误差放大器在系统稳定时，有：<br>$$<br>VFB&#x3D;Vref<br>$$<br>​	此时，误差放大器有一稳定输出Vc&#x2F;Vb，此时三极管在Vb的作用下，有：<br>$$<br>Ie&#x3D;Ib*β<br>$$</p>
-<h4 id="负载变化时，有两种情况："><a href="#负载变化时，有两种情况：" class="headerlink" title="负载变化时，有两种情况："></a>负载变化时，有两种情况：</h4><h5 id="1-当负载变大时"><a href="#1-当负载变大时" class="headerlink" title="1.当负载变大时"></a>1.当负载变大时</h5><p>​	负载变大时，RL变小，此时由于电流IL不变，Vout随之下降，误差放大器同相反相之间产生误差，输出Vc+∆Vc,此时三极管基极电压增加，Ib增加，Ie增加，电流增加后，由于<br>$$<br>Vout&#x3D;RL*IL<br>$$<br>​	所以，Vout会逐渐上升直到稳定到输出值</p>
-<h5 id="2-当负载变小时"><a href="#2-当负载变小时" class="headerlink" title="2.当负载变小时"></a>2.当负载变小时</h5><p>​		负载变小时，RL变大，此时由于电流IL不变，Vout随之上升，误差放大器同相反相之间产生误差，输出Vc-∆Vc,此时三极管基极电压下降，Ib减小，Ie减小，电流减小后，由于<br>$$<br>Vout&#x3D;RL*IL<br>$$<br>​	所以，Vout会逐渐下降直到稳定到输出值</p>
-<p>​	<strong>负载变化调整输出的过程，也可以看作电路系统反馈稳定的过程，通过反馈环路的设计以达到一个稳定的输出环境。</strong></p>
-<h4 id="三极管型LDO中三极管的工作区"><a href="#三极管型LDO中三极管的工作区" class="headerlink" title="三极管型LDO中三极管的工作区"></a>三极管型LDO中三极管的工作区</h4><p>​	可以看到，在上述推导中进行了合理假设，并验证了假设的理论可能性。<br>​	三极管在上述的探讨中，Ib与Ie始终具有着倍数关系，我们知道这种状态是三极管的放大区。<br>​	以下是三极管的工作区特点，以及输出特性曲线，以便理解对比。</p>
-<p><strong>(1)截止区：三极管工作在截止状态，当发射结电压Ube小于0.6—0.7V的导通电压，发射结没有导通集电结处于反向偏置，没有放大作用。</strong><br><strong>(2)放大区：三极管的发射极加正向电压，集电极加反向电压导通后，Ib控制Ic，Ic与Ib近似于线性关系，在基极加上一个小信号电流，引起集电极大的信号电流输出。</strong><br><strong>(3)饱和区：当三极管的集电结电流IC增大到一定程度时，再增大Ib，Ic也不会增大，超出了放大区，进入了饱和区。饱和时，Ic最大，集电极和发射之间的内阻最小，电压Uce只有0.1V~0.3V，Uce&lt;ube，发射结和集电结均处于正向电压。三极管没有放大作用，集电极和发射极相当于短路，常与截止配合于开关电路。</strong></p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319212529344.png" alt="三极管输出特性曲线"></p>
-<h4 id="三级管型LDO简单仿真"><a href="#三级管型LDO简单仿真" class="headerlink" title="三级管型LDO简单仿真"></a>三级管型LDO简单仿真</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319213629802.png" alt="三极管型LDO仿真"></p>
-<h3 id="MOS管型LDO原理推导："><a href="#MOS管型LDO原理推导：" class="headerlink" title="MOS管型LDO原理推导："></a>MOS管型LDO原理推导：</h3><p>​	MOS管型LDO与三极管型LDO的差别在于它所使用的管子不同。在结构相同的条件下，可直接替换管子进行分析。</p>
-<h4 id="MOS管的漏源电流工作区特性"><a href="#MOS管的漏源电流工作区特性" class="headerlink" title="MOS管的漏源电流工作区特性"></a>MOS管的漏源电流工作区特性</h4><p>​	在拉扎维中，对MOS管的讨论在三极管区和饱和区。</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319215652655.png" alt="MOS管的三极管区"></p>
-<p>​	<strong>此时电流公式为：</strong><br>$$<br>I_D&#x3D;\mu\cdot\frac{\epsilon_{ox}}{t_{ox}}\cdot\frac WL\cdot\left[(V_{GS}-V_{TH})\cdot V_{DS}-\frac12V_{DS}^2\right]<br>$$<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319215527746.png" alt="MOS管的饱和区"></p>
-<p>​	<strong>此时电流公式为：</strong><br>$$<br>I_D&#x3D;\frac12\beta\frac W{L^{\prime}}(V_{GS}-V_{TH})^2<br>$$<br>​	由上图可以发现两个工作区的漏源电流公式只有VGS一个变量，那么从这里就可以看出MOS管的LDO原理依旧是依靠误差放大器所带来的<strong>电压变化</strong>引起功率输出级的<strong>电流变化</strong>。</p>
-<h4 id="MOS管型LDO中MOS管的工作区"><a href="#MOS管型LDO中MOS管的工作区" class="headerlink" title="MOS管型LDO中MOS管的工作区"></a>MOS管型LDO中MOS管的工作区</h4><p>​	从上文中的MOS管漏源电流公式以及电流输出图像，可以看出MOS管的漏源电流输出并不像三极管的电流输出机制。<br>​	MOS管的工作区需要从VGS和VDS两个方面进行分析，MOS管型的LDO可能会工作在三极管区或者饱和区。但为了达到一个较为良好的工作环境（低压降）设计师常常将工作区设置在饱和区中，只有在特殊条件下LDO才会工作在三极管区。<br>​	压降小时工作在线性区，损耗由导通电阻和电流决定；压降大时工作在饱和区，损耗由压降和电流决定，工作在饱和区时，环路性能比线性区好，但压降损耗增大。<br>​	线性区由于其增益比饱和区小，所以环路相对较差。但在补偿的条件下现在的确已经可以控制，并正常使用。</p>
-<h4 id="MOS管型LDO简单仿真"><a href="#MOS管型LDO简单仿真" class="headerlink" title="MOS管型LDO简单仿真"></a>MOS管型LDO简单仿真</h4><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240319223126591.png" alt="MOS管型LDO仿真"></p>
-<h2 id="三、LDO输出公式推导"><a href="#三、LDO输出公式推导" class="headerlink" title="三、LDO输出公式推导"></a>三、LDO输出公式推导</h2><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320102813834.png" alt="环路控制"></p>
-<p>​	如图，将mos管到输出负载电阻部分的传递函数设为H(S),再将误差放大器的反馈环的传递函数设为G(s)，那么，此时系统整体传递函数流程图为：</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320102625921.png" alt="传递函数流程图"></p>
-<p>​	但在该系统中，当Vin为定值时，可以暂且不以Vin为系统输入。那么我们可以看到此时Q1处MOS管三个引脚，D为Vin(定值)，S为Vout（输出），那么我们只能从G级看起，将Vc作为新的输入。<br>​	那么此时有新的传递函数，为：</p>
-<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320103406712.png" alt="功率级传递函数"></p>
-<p>​	又已知：<br>$$<br>Vc(s)&#x3D;Verr(s)×G(s)<br>$$<br>​	<br>$$<br>Verr(s)&#x3D;Vref(s)-\alpha Vout(s) 此处\alpha为电阻分压系数<br>$$<br>​	那么加以转换，可得到新的系统传递函数为（此处Zout可看作MOS管漏源电阻）：</p>
-<p>​	<img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240320103530327.png"></p>
-<p>​	那么，此时的闭环输出公式为：<br>$$<br>V_{\mathrm{out}}(s)&#x3D;\frac{V_{\mathrm{ref}}(s)}{\alpha}\frac{G(s)H(s)}{1+G(s)H(s)}-\frac{Z_{\mathrm{out},0\mathrm{l}}(s)}{1+G(s)H(s)}I_{\mathrm{out}}(s)<br>$$<br>​	显然可得，当开环增益G(s)H(s)足够大时，有公式为：<br>$$<br>V_{\mathrm{out}}&#x3D;\frac{V_{\mathrm{ref}}}\alpha<br>$$</p>
+                <h1 id="晶振基础知识"><a href="#晶振基础知识" class="headerlink" title="晶振基础知识"></a>晶振基础知识</h1><h3 id="晶振振动方式"><a href="#晶振振动方式" class="headerlink" title="晶振振动方式"></a>晶振振动方式</h3><p>石英晶体单元的振动类型分为<strong>弯曲振动，扩张振动，表面切变振动和厚度切变振动</strong>。基频和泛音可以在任何类型的谐振器中工作。最常用的是基频，但对于厚度型器件也常用泛音。</p>
+<p><strong>PS:晶振基频是指晶体振荡器产生的基本频率，而泛音是晶体振荡器产生的高频谐波。</strong></p>
+<h3 id="频率-温度特性"><a href="#频率-温度特性" class="headerlink" title="频率-温度特性"></a>频率-温度特性</h3><p>​	<strong>定义：频率温度特性是指环境温度在规定的范围内按预定的方式改变时，其输出频率产生的相对变化特性</strong></p>
+<p>​	石英产品大多作为电路元件用于频率选择和&#x2F;或频率控制，因此器件的频率-温度特性是最重要的参数。这种百万分之一(ppm)级频率-温度特性的稳定性是石英频率器件的另一个优点，是LCR离散分量振荡电路无法在大规模生产中实现的。<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240802093920273.png" alt="各种石英切片的频率-温度特性"></p>
+<h3 id="晶体谐振器的等效电路"><a href="#晶体谐振器的等效电路" class="headerlink" title="晶体谐振器的等效电路"></a>晶体谐振器的等效电路</h3><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240802094751194.png" alt="晶振等效电路"></p>
+<p><strong>C0:并联电容     C1：动态电容      L1：动态电感       R1：动态电阻</strong></p>
+<p><strong>C0并联电容：两个电极间形成的寄生电容。</strong></p>
+<p><strong>L1动态等效电感：代表机型振动的惯性。</strong></p>
+<p><strong>C1动态等效电容：代表晶振的弹性。</strong></p>
+<p><strong>R1动态等效电阻：代表电路的损耗。</strong> </p>
+<h3 id="谐振频率"><a href="#谐振频率" class="headerlink" title="谐振频率"></a><strong>谐振频率</strong></h3><p>​	一般来说，有三对谐振频率，分别为【<strong>“串联谐振频率（fs）”</strong>，<strong>“并联谐振频率（fp）”</strong>】，【<strong>“谐振频率”（fr），“反谐振”频率（fa）</strong>】，【<strong>“最大和最小总导纳定位”频率（fm和fn）</strong>】</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240802135706966.png" alt="谐振复数导纳"></p>
+<p>​	根据晶振的等效模型，将<strong>电阻先忽略不计</strong>（由于反馈系统的影响，晶振最终稳定频率不受电阻影响，故此处忽略电阻简化阻抗表达式），即可得到以下的<strong>晶振阻抗表达式</strong>：<br>$$<br>Z&#x3D;\frac{\mathrm{j}}{\mathrm{w}}\times\frac{\mathrm{w}^2\times\mathrm{L}_1\times\mathrm{C}_1-1}{(\mathrm{C}_0+\mathrm{C}_1)-\mathrm{w}^2\times\mathrm{L}_1\times\mathrm{C}_1\times\mathrm{C}_0}<br>$$<br>​	此时可以得出阻抗与频率的关系：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240802141619896.png" alt="阻抗和频率的关系"></p>
+<p>​	<strong>fs</strong>即为Z&#x3D;0时的串联谐振频率，表达式为：<br>$$<br>\mathrm{F_{s}}&#x3D;\frac{1}{2\pi\sqrt{L_1C_1}}<br>$$<br>​	而<strong>fp</strong>即为Z&#x3D;∞时（分母为0的点）的并联谐振频率，表达式为：<br>$$<br>\mathrm{F_{p}&#x3D;F_{s}\sqrt{1+\frac{C_1}{2C_0}}}<br>$$<br>​	fs和fp之间的区域（图中的阴影区域）是并联谐振的区域。在这一区域晶振工作在并联谐振状态，并且在此区域<strong>晶振呈电感特性</strong>，从而带来了相当于180 °的相移。相对来说，对于评估晶振性能，其fs和fp更为重要，所以下文也以fs和fp为重点进行术语的介绍及推导。</p>
+<h3 id="晶振的各项术语"><a href="#晶振的各项术语" class="headerlink" title="晶振的各项术语"></a>晶振的各项术语</h3><p><strong>(1)标称频率及其公差或校准精度</strong></p>
+<p>​	晶体谐振器的频率通常用兆赫(MHz)或千赫(kHz)来指定。正常频率是我们期望从适当匹配的晶体振荡电路中得到的输出频率。在环境温度下(参考25℃)，真实设备的频率与标称频率有一定的偏差。中心频率与标称频率的偏差，作为设备的一个参数，用一个最大值来指定，以百分数(%)或百万分率(ppm)表示。<br>​	计算公式为:<br>$$<br>频偏&#x3D;【（实际频率-标称频率）&#x2F;标称频率*10^{6}】ppm<br>$$<br><strong>(2)负载电容</strong></p>
+<p>​	负载电容CL是从谐振器两端观察电路时振荡器所展示的负载。负载电容形式上与谐振器串联或并联。在并联负载情况下CL的存在会影响并联谐振频率，并联谐振频率fL由。公式如下所示：<br>$$<br>f_L&#x3D;f_s\sqrt{1+C_1&#x2F;2(Co+CL)}<br>$$<br>​	由于负载电容是以并联的形式连接到晶振上，所以，可计算出上表达式。</p>
+<p><strong>（3）频率-温度稳定性</strong><br>    频率-温度稳定性表示的在标准温度环境下(通常25℃)由工作温度变化引起的频率偏差。该参数的曲线体现了频率偏差(单位%或ppm)和工作温度与参考温度(25℃)间偏差的关系。石英器件的温度稳定性取决于切割方式、振动方式和石英毛坯的尺寸。此外，该偏差值与晶体谐振器的工作温度范围、负载电容和驱动功率有关。</p>
+<p><strong>（4）等效串联电阻(ESR)</strong><br>    串联支路中出现的电阻R1可以在串联谐振频率下测量，此时C1和L1的影响相互抵消，R1表示晶体单元和封装的机械性损失。</p>
+<p><strong>（5）运动电容C1和运动电感L1</strong><br>    C1与L1这两个参数与串联谐振频率fs相关，如图10所示，在谐振器设计和表征中fs是一个非常确定的参数。工业标准中只规定了C1的值，L1可以由下方公式推导得出。与振荡电路中通常使用的电容相比，C1的值非常小，可以由晶片和电极的材料和几何参数来评估。<br>$$<br>L_1&#x3D;\frac1{4\pi^2{f_s}^2C_1}<br>$$<br><strong>（6）静态电容Co(在支路中)</strong><br>    Co是一个静态电容，无论晶体是否工作都存在，Co的值可以在很低的频率(小于或约1.0 MHz)测得，计算公式如下，其中A为电极面积，d为切片厚度，e为相应晶体切片的介电常数。在实际应用中，Co不仅包括电镀石英裸片的静态电容，还包括导电结合材料的电容和封装外壳本身的电容<br>$$<br>C_0&#x3D;\varepsilon_{ij}^s.\frac Ad<br>$$<br><strong>（7）驱动功率</strong><br>    谐振器的驱动功率是以纳瓦、微瓦或毫瓦为单位的功率消耗量。运行功率是保证正常启动并保持稳态振荡的合适功率范围。驱动功率应设置在最低功率，以避免长期运行带来的频率漂移和晶体断裂。一般来说，产品越小，在不损坏石英谐振器长期使用的情况下，驱动器功率应该越低。一般来说，驱动级别从10 uW到100 uW对于大多数应用已经足够好了。</p>
+<p><strong>（8）质量因子-Q</strong><br>    作为谐振器，质量因子Q值是一个非常重要的参数。在规格中，指定了空载和有负载情况下的Q值。空载Q，或机械Q，可以表示为，R1是出现在串联支路的电阻。负载值取决于负载电路。<br>$$<br>Q&#x3D;\frac{2 \pi f_sL_1}{R_1}&#x3D;\frac{1}{2 \pi f_sC_1R_1}<br>$$<br><strong>（9）晶振牵引度</strong></p>
+<p>​	晶振的牵引度是指工作在正常并联谐振区的晶振频率的变化率。这也用于衡量随负载电容变化而导致的频率变化，负载电容的减少会导致频率的增加，反之负载电容的增加会导致频率的减小。晶振的牵引度表达式如下：<br>$$<br>\text{Pullability}_{(\text{PPM&#x2F;pF})}&#x3D;\frac{\text{C}_1\times10^6}{2\times\left(\text{C}<em>0+\text{C}</em>{\text{L}}\right)^2}<br>$$<br><strong>（10）老化</strong><br>    老化是指工作频率在指定时间段内的相对 变化，在指定时间段内以百万分率(ppm)表示。这种频率变化率通常是指数性质的。老化的第一周老化率是最高的，之后缓慢下降。通常情况下，老化率可以由85℃下放置一个月，或25摄氏度下放置一年测量得出。老化速率取决于许多因素:密封方法、完整性、制造工艺、材料类型、操作温度和频率。</p>
+<p><strong>（11）存储温度范围</strong><br>        该参数规定了晶体在非工作状态下可以存储或暴露的最低和最高温度。晶体在非工作状态下，长时间处于规定的存储温度范围内，再次在规定的工作温度范围内工作时，晶体的各项参数指标应当符合规格书的规定。</p>
+<h3 id="皮尔斯晶体振荡器的计算方式"><a href="#皮尔斯晶体振荡器的计算方式" class="headerlink" title="皮尔斯晶体振荡器的计算方式"></a>皮尔斯晶体振荡器的计算方式</h3><p>皮尔斯晶体振荡器有低功耗、低成本及良好的稳定性等特点，因此常见于应用中。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240805083744079.png" alt="皮尔斯振荡器使用原理图"></p>
+<p>$\begin{aligned}&amp;\text{Inv: 内部反相放大器。}\&amp;\text{Q: 石英或陶瓷晶振。}\&amp;\text{RF: 内部反馈电阻。}\&amp;\text{RExt: 外部限流电阻,限制反相器输出电流。}\&amp;\text{CL1和CL2:两个外部负载电容。}\&amp;\text{CS: 寄生电容: PCB所线,OSC IN和OSC OUT管脚之间的效杂散电容}\end{aligned}$</p>
+<p><strong>皮尔斯晶体振荡器设计</strong></p>
+<p><strong>1、反馈电阻RF</strong></p>
+<p>​	RF一般来说是内嵌在芯片内的。它的作用是让反相器作为一个放大器来工作。<br>​	Vin和Vout之间增加的反馈电阻使放大器形成反馈，以使其成为闭环的系统，并在工作初期使反相器工作在线性区。该放大器（也可以叫做频率选择器）放大了晶振的正常工作区域内（Fs与Fp之间）的噪声(例如晶振的热噪声)，该噪声从而引发晶振起振（同时由于反馈环路的存在，其不会通过振荡导致输出无限增长）。在某些情况下，起振后去掉反馈电阻RF，振荡器仍可以继续正常工作。</p>
+<p><strong>2、负载电容CL</strong></p>
+<p>​	负载电容CL是指连接到晶振上的终端电容。CL值取决于外部电容器CL1和CL2，杂散电容Cs。CL值一般可从芯片手册中查阅到。<br>​	调整外部电容器CL1和CL2，使振荡电路实际的负载电容等于晶振制造商标定的负载值CL参数（晶振规格书一般会提供），可以获得标定的振荡频率。<br>​	计算公式如下：<br>$$<br>\mathrm{C_L&#x3D;\frac{C_{L1}\times C_{L2}}{C_{L1}+C_{L2}}+C_s}<br>$$<br>​	举个栗子：<br>​	如果晶振规格书手册中CL ＝15pF，并假定Cs &#x3D; 5pF，则匹配电容CL1，CL2有：<br>$$<br>\mathrm{C_{L}-C_{s}&#x3D;\frac{C_{L1}\times C_{L2}}{C_{L1}+C_{L2}}&#x3D;10<del>pF.</del>That<del>is:</del>C_{L1}&#x3D;C_{L2}&#x3D;20~pF}<br>$$<br><strong>3、振荡器的增益裕量</strong></p>
+<p>​	由上述推导，我们可得知该振荡器设计可看作一个闭环的线性系统，根据自动控制原理的理论，闭环的系统的稳定性、增益等受到增益裕量的影响；<br>​	按照ST的AN2867中的描述，增益裕度应等于：<br>$$<br>gain_{margin}&#x3D;\frac{g_m}{g_{mcrit}}<br>$$</p>
+<p>$$<br>\mathrm{g_{mcrit}&#x3D;4\times ESR\times(2\pi F)^2\times(C_0+C_L)^2}<br>$$</p>
+<p>​	而此处$\mathrm{g_{m}}$为芯片手册内的值，故，可进行计算得出增益值。</p>
+<p>​	但ST手册相对来说偏向单片机结构进行设计运算，而在希华和村田的技术文档中，均以负阻的形式进行运算，此时，我们需对晶振的负载电容进行计算：<br>$$<br>R_L&#x3D;R_1\left(1+C_0&#x2F;C_L\right)^{2}<br>$$<br>​	</p>
+<p>​	为了在恒定频率下保持稳定的振荡，它必须具有足够的负电阻（|-R|）以补偿晶体的电阻。将电阻“VR”串联到晶体单元中，并确保振荡开始或停止。 电路的近似负电阻是将有效电阻“RL”与振荡开始时或停止时的最大电阻“VR”相加得到的值，在逐渐使VR值变大后。负电阻（-R）的最佳值是R1的3~5倍。 如果负电阻 （-R） 太小，可能会使晶体不稳定。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20240807105904719.png" alt="-R测试电路"></p>
+<p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="http://www.yoketant.com.tw/yoketant/terms-s.htm">希华 (yoketant.com.tw)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.murata.com.cn/zh-cn/products/timingdevice/crystalu/overview/basic/margin">振荡裕量 测量方法的基础知识 | 晶体谐振器的基础知识 | 村田制作所 (murata.com.cn)</a></p>
 
                 
             </div>
@@ -567,7 +575,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lilongxin178.github.io/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/">https://lilongxin178.github.io/2024/01/20/LDO%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%AE%80%E5%8D%95%E6%8E%A2%E8%AE%A8/</a>
+                    <a href="https://lilongxin178.github.io/2024/08/15/%E6%99%B6%E6%8C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">https://lilongxin178.github.io/2024/08/15/%E6%99%B6%E6%8C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -919,29 +927,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/04/13/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/">
+                <a href="/2024/08/15/%E6%99%B6%E6%8C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="锁相环结构及原理探究">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="晶振基础知识">
                         
-                        <span class="card-title">锁相环结构及原理探究</span>
+                        <span class="card-title">晶振基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            锁相环基本工作原理及常见PLL
+                            晶振基础知识
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -954,6 +963,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -972,31 +982,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/01/10/TI%E2%80%94%E2%80%94C2000%E8%8A%AF%E7%89%87%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%8F%8A%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E4%BB%8E%E6%9C%BAADC%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%B8%BB%E6%9C%BA%E4%B8%B2%E5%8F%A3%E9%87%87%E9%9B%86/">
+                <a href="/2024/04/13/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="锁相环结构及原理探究">
                         
-                        <span class="card-title">TI——C2000芯片自动代码生成及示例（二）——从机ADC采集配置及主机串口采集</span>
+                        <span class="card-title">锁相环结构及原理探究</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对从机ADC采集配置及主机串口采集进行配置
+                            锁相环基本工作原理及常见PLL
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/DSP%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                    DSP设计
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
                                 </a>
                             
                             
@@ -1006,12 +1016,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">工具</span>
-                    </a>
-                    
-                    <a href="/tags/DSP%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">DSP设计</span>
+                    <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">小知识</span>
                     </a>
                     
                 </div>

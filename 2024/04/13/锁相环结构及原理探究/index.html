@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="硬件 笔记">
-    <meta name="description" content="title: 锁相环结构及原理探究date: 2024-4-13 14:00:00author: 工程小李top: truehide: falsecover: truetoc: truemathjax: truesummary: 锁相环基本">
+    <meta name="keywords" content="锁相环结构及原理探究, 硬件 笔记">
+    <meta name="description" content="锁相环基本工作原理及常见PLL">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>小李工作站</title>
+    <title>锁相环结构及原理探究 | 小李工作站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -418,12 +418,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">锁相环结构及原理探究</h1>
                 </div>
             </div>
         </div>
@@ -445,12 +445,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">小知识</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                硬件探讨
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -459,7 +472,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-10-22
+                    2024-04-13
                 </div>
                 
 
@@ -495,11 +508,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>title: 锁相环结构及原理探究<br>date: 2024-4-13 14:00:00<br>author: 工程小李<br>top: true<br>hide: false<br>cover: true<br>toc: true<br>mathjax: true<br>summary: 锁相环基本工作原理及常见PLL<br>categories: 硬件探讨<br>tags:</p>
-<ul>
-<li>小知识</li>
-</ul>
-<h1 id="锁相环结构及原理探究"><a href="#锁相环结构及原理探究" class="headerlink" title="锁相环结构及原理探究"></a>锁相环结构及原理探究</h1><h2 id="一、锁相环基本工作原理及常见PLL"><a href="#一、锁相环基本工作原理及常见PLL" class="headerlink" title="一、锁相环基本工作原理及常见PLL"></a>一、锁相环基本工作原理及常见PLL</h2><h3 id="1-1锁相环基本工作原理"><a href="#1-1锁相环基本工作原理" class="headerlink" title="1.1锁相环基本工作原理"></a>1.1锁相环基本工作原理</h3><p>PLL 的起始部分是稳定晶体参考频率， XTAL。它被 R 计数器分频到较低频率。这一经分频后的频率被称为比较频率（Fcomp），并输入到鉴相器。鉴频鉴相器输出电流，其直流均值与比较频率和经 N 分频器后的输出频率的相位差成比例。这个比例常数为 KФ，它就是电荷泵能流出或吸入电流的幅度。理论上，这一项除以 2π 是正确的，但没有必要在本书所有公式中这样做，因为它会被 VCO 中带来的 2π 所抵消。所以， KФ 单位是 m A &#x2F; (2π 弧)。将鉴相器输出的直流均值电流乘以环路滤波器阻抗 Z(s)，就得到 VCO（压控振荡器）输入电压。 VCO是电压到频率的转换器，具有比例系数 KVCO 。环路滤波器是低通滤波器，通常用分离器件实现。 环路滤波器随应用而各异。 调谐电压调节 VCO的输出相位。这样 VCO 的输出相位经 N 分频后就与比较频率相位相等。因为相位是频率的积分，所以也就意味着， VCO 的输出频率经 N 分频后与比较频率相等。输出频率可由下式表达：$$F_{out}&#x3D;\frac{N}{R}*XTAL$$</p>
+                <h1 id="锁相环结构及原理探究"><a href="#锁相环结构及原理探究" class="headerlink" title="锁相环结构及原理探究"></a>锁相环结构及原理探究</h1><h2 id="一、锁相环基本工作原理及常见PLL"><a href="#一、锁相环基本工作原理及常见PLL" class="headerlink" title="一、锁相环基本工作原理及常见PLL"></a>一、锁相环基本工作原理及常见PLL</h2><h3 id="1-1锁相环基本工作原理"><a href="#1-1锁相环基本工作原理" class="headerlink" title="1.1锁相环基本工作原理"></a>1.1锁相环基本工作原理</h3><p>PLL 的起始部分是稳定晶体参考频率， XTAL。它被 R 计数器分频到较低频率。这一经分频后的频率被称为比较频率（Fcomp），并输入到鉴相器。鉴频鉴相器输出电流，其直流均值与比较频率和经 N 分频器后的输出频率的相位差成比例。这个比例常数为 KФ，它就是电荷泵能流出或吸入电流的幅度。理论上，这一项除以 2π 是正确的，但没有必要在本书所有公式中这样做，因为它会被 VCO 中带来的 2π 所抵消。所以， KФ 单位是 m A &#x2F; (2π 弧)。将鉴相器输出的直流均值电流乘以环路滤波器阻抗 Z(s)，就得到 VCO（压控振荡器）输入电压。 VCO是电压到频率的转换器，具有比例系数 KVCO 。环路滤波器是低通滤波器，通常用分离器件实现。 环路滤波器随应用而各异。 调谐电压调节 VCO的输出相位。这样 VCO 的输出相位经 N 分频后就与比较频率相位相等。因为相位是频率的积分，所以也就意味着， VCO 的输出频率经 N 分频后与比较频率相等。输出频率可由下式表达：$$F_{out}&#x3D;\frac{N}{R}*XTAL$$</p>
 <h3 id="1-2常见PLL类型"><a href="#1-2常见PLL类型" class="headerlink" title="1.2常见PLL类型"></a>1.2常见PLL类型</h3><p>第一个 PLL 集成芯片大约出现在 1965 年，是一个纯粹的模拟器件。采用一个模拟乘法器(四象限乘法器)作为鉴相器;环路滤波器用无源或者有源 RC 滤波器实现，利用大家熟知的压控振荡器 VCO产生 PLL的输出信号。今天,我们称这种类型的 PLL为“线性PLL”(LPLL)。在接下来的几年里,PLL 缓慢而稳定地转移到数字领域。大约在 1970年出现了第一个数字 PLL(DPLL),实际上,它是一个混合器件,仅仅鉴相器采用数字电路实现，即使用一个 EXOR门或者一个JK 触发器,剩下的模块仍然是模拟电路。几年以后,发明了“全数字”PLL(ADPLL)。ADPLL毫无例外地全部由数字功能模块组成，因此不包含任何无源元件,如电阻和电容等。类似滤波器,PLL 也可以用软件实现。在这种情况下,PLL 的功能不再用一些专用的硬件实现，而是用计算机程序完成。我们称这种 PLL为SPLL</p>
 <p>​	总结:线性PLL（LPLL）、数字PLL（DPLL)、全数字PLL（ADPLL）、程控PLL（SPLL）</p>
 <p>​			</p>
@@ -567,7 +576,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lilongxin178.github.io/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/">https://lilongxin178.github.io/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/</a>
+                    <a href="https://lilongxin178.github.io/2024/04/13/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/">https://lilongxin178.github.io/2024/04/13/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -604,7 +613,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">小知识</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -915,39 +928,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/10/22/%E9%94%81%E7%9B%B8%E7%8E%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/">
+                <a href="/2024/08/15/%E6%99%B6%E6%8C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="晶振基础知识">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">晶振基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            晶振基础知识
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-10-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-15
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            工程小李
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">小知识</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1151,6 +1174,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 
