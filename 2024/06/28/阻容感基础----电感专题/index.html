@@ -1,0 +1,2026 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="阻容感基础----电感专题, 硬件 笔记">
+    <meta name="description" content="阻容感基础----电感专题">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>阻容感基础----电感专题 | 小李工作站</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="小李工作站" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小李工作站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小李工作站</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://blog.csdn.net/mttmd?spm=1000.2115.3001.5343" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://blog.csdn.net/mttmd?spm=1000.2115.3001.5343" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">阻容感基础----电感专题</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%99%A8%E4%BB%B6%E7%B1%BB/">
+                                <span class="chip bg-color">器件类</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                硬件探讨
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-06-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-10-25
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    53 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="阻容感基础—-电感专题"><a href="#阻容感基础—-电感专题" class="headerlink" title="阻容感基础—-电感专题"></a>阻容感基础—-电感专题</h1><h2 id="关于磁场"><a href="#关于磁场" class="headerlink" title="关于磁场"></a>关于磁场</h2><p>​	首先，确定一点，电信号（包括电源，数字、模拟等信号）传播的本质是：<strong>电磁波的传播。</strong><br>​	其次，有万能的<strong>右手螺旋定则：右手大拇指与四指垂直并在同一平面，四指指向电场（E）的方向，再逐渐握拳指向磁场（H）的方向，那么大拇指指向就是电磁场能量流动（S）的方向；</strong></p>
+<p>​	下面将对电磁场能量流动进行推导演示：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024143725841.png"></p>
+<p>​	如图电阻器电流为从左向右（电场方向相同）：磁场方向根据右手定则为围绕着电阻器的圆，使用右手螺旋定则：四指指向电场（电流）方向，然后弯曲四指朝外（电阻正上方的磁场方向），那么发现此时电磁能量处处指向电阻，即电阻器周围的能量流动指向电阻。<br>​	由此，也可以看到：<strong>电磁能量的传播方向并不是电流方向。</strong></p>
+<p>​	并且，也有以下的一些结论：</p>
+<ul>
+<li>金属导线是电磁波的波导：电磁波顺着导线在导线附近传递，距离导线越远其电磁波能量越弱；</li>
+<li>电流顺着金属导线流动，电流越大则传输的磁场强度越大，那么传播的电磁波能量越大，如果没有导线作为媒介，那么真空或空气很难承载大的电磁波能量。</li>
+</ul>
+<p>​	通过上述的分析，也就能理解：市电使用220V交流电，虽然电流方向在不断地交变，而电磁能量的传播方向却一直保持不变。</p>
+<p>​	<strong>磁场的本质是什么？</strong>先说结论：磁场是由运动电荷或电场的变化而产生的（包括磁铁、电流磁场、电磁波）</p>
+<p>​	已知电流与磁场的关系：<strong>电流流过导线时，会在导线周围产生磁场，同时变化的磁场也可以产生电流。</strong>所以，可知电流联系着磁场，而电压联系着电场；电流是有磁性的，电压是有电性的。导线由于有电压（电场）会产生电流，而有电流的地方必然会产生磁场，所以有变化电场就理应产生磁场。</p>
+<h3 id="1，磁场基本物理定理"><a href="#1，磁场基本物理定理" class="headerlink" title="1，磁场基本物理定理"></a>1，磁场基本物理定理</h3><p>​	磁场本身的几个基本物理量：磁场强度H，磁感应强度B，磁通量Φ以及磁导率μ；</p>
+<ol>
+<li><strong>安培环路定理：</strong>在稳恒磁场中，沿着任何一条闭合回线L，磁场强度H的线积分值恰好等于该闭合回路所包围的电流代数和乘以磁导率。</li>
+</ol>
+<p>$$<br>\oint Hdl&#x3D;\sum_{i&#x3D;1}^{n}Ii ;\quad\oint Bdl&#x3D;\mu*\Sigma_{i&#x3D;1}^{n}Ii<br>$$</p>
+<p>​	安培环路定理需要满足两个条件： </p>
+<ul>
+<li>电流及其分布不随时间变化； 假设某时刻电流突然从 0 变为某个值， 由于电磁场传播需要一定时间， 环路上不可能瞬间出现磁场；</li>
+<li>空间中不能有变化的电场， 因为变化的电场也会产生磁场，就会改变环路积分的结果。</li>
+</ul>
+<p>​	通过安培环路定理公式：计算圆电流外平面磁场强度H的大小，并通过H和磁导率μ推出磁感应强度B的大小；如果回路没有包围电流，那么此时磁场强度H为0。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024151843608.png"></p>
+<ol start="2">
+<li><strong>磁路欧姆定律：</strong>电和磁之间存在着许多的相似性，在磁路上也存在类似于电路的欧姆定律；磁路欧姆定律用来确定磁路的磁通量Φ（电流I）、磁动势F（电动势V）和磁阻Rm（电阻R）三者之间的关系；作用在磁路上的磁动势F等于磁路内的磁通量Φ乘以磁阻Rm，F &#x3D; Φ * Rm （V &#x3D; I*R）。</li>
+</ol>
+<p>  铁芯的磁导率比周围空气的磁导率高很多，因此磁通量的绝大部分经过铁芯形成闭合回路，这种人为造成的磁通路径被称为磁路；</p>
+<p>  如下右图，磁阻的大小与磁路通过的导体的长度l成正比，与导体的横截面积S成反比，比例系数为1&#x2F;μ，即Rm &#x3D; l&#x2F;(μA)（类似电阻R &#x3D; ρ*l&#x2F;A）；</p>
+<p>   假设右下图为一个均匀密集缠绕的环形通电线圈，其每一匝可看作一个圆形横截面（面积为S），将每匝的圆心连成一个圆（周长为l），则线圈内部的磁感应强度方向沿该圆的切线方向；磁感应强度对该圆上其中一段路径的积分：$\int B<em>dl&#x3D;B</em>I$；由于H &#x3D; B&#x2F;μ，并定义：F &#x3D; H*l，可得F&#x2F;Rm＝BS &#x3D; Φ。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024153724569.png"></p>
+<ol start="3">
+<li><p><strong>基尔霍夫第一定律：</strong>电路中任一个节点上，在任一时刻流入节点的电流之和等于流出节点的电流之和；假设进入某节点的电流为正值，离开这节点的电流为负值，则所有涉及这节点的电流的代数和等于零。对于磁路来说：穿出或进入任一闭合面的总磁通量恒等于零（或进入任一闭合面的磁通量恒等于穿出该闭合面的磁通量），即<strong>磁通连续性定律。</strong></p>
+</li>
+<li><p><strong>基尔霍夫第二定律：</strong>在任何一个闭合回路中，各元件上的电压降的代数和等于电动势的代数和，即从一点出发绕回路一周回到该点时，各段电压的代数和恒等于零，即∑U&#x3D;0。对于磁路来说：沿任何闭合磁路的总磁动势恒等于各段磁路磁位降的代数和。</p>
+</li>
+</ol>
+<p>​	 从磁场和磁路的基本物理定律中，可以发现磁路与电路的相通之处。如下表所示，将：磁动势等效为电动势，磁通量等效为电流，磁阻等效为电阻；电路相关的物理定律同样也满足磁路。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024154532084.png"></p>
+<ol>
+<li><p>如果维持恒定磁通量Φ，那么铁芯中是没有损耗的；即电路中P &#x3D; I²*R不符合磁路应用；<br>——交变的磁通量是会造成磁介质损耗，损耗随磁芯体积、工作频率、磁通密度变化的系数成正比。</p>
+</li>
+<li><p>没有磁绝缘体，除了铁芯中的磁通之外，还有一部分漏磁通会散布在空气中；<br>——这造成了变压器的漏感必然会存在，漏感也好处也有坏处。</p>
+</li>
+<li><p>磁导率μ不是一个常数，是磁通密度的函数；</p>
+</li>
+<li><p>磁路在饱和状态时为非线性，磁通量的叠加原理不适用。</p>
+</li>
+</ol>
+<h3 id="2，电磁感应定律"><a href="#2，电磁感应定律" class="headerlink" title="2，电磁感应定律"></a>2，电磁感应定律</h3><p>​	<strong>电磁感应定律也叫法拉第电磁感应定律：</strong>电磁感应现象是指因磁通量变化产生感应电动势的现象。闭合电路的一部分导体在磁场里做切割磁感线的运动时，导体中就会产生电流，产生的电流称为感应电流，产生的电动势（电压）称为感应电动势。<br>​	且有：电路中感应电动势的大小，跟穿过这一电路的磁通变化率成正比，若感应电动势为E，则E &#x3D;n*ΔΦ&#x2F;Δt。</p>
+<p>​	<strong>楞次定律：</strong>电磁感应电流产生的磁场总要阻碍引起感应电流的磁通量的变化，即磁通量变大，产生的电流有让其有变小的趋势；而磁通量变小，产生的电流有让其变大的趋势（线圈对电流的作用是：来拒去留）。</p>
+<p>​	<strong>应用楞次定律判断感应电流的方向：</strong></p>
+<ol>
+<li><p>首先确定穿过回路的原磁通量的方向以及原磁通量是增加还是减少；</p>
+</li>
+<li><p>根据楞次定律的涵义，确定回路中感应电流在该回路中产生的磁通的方向；<br>——感应电流磁场要阻碍原磁通量的变化，即：来拒去留。</p>
+</li>
+<li><p>根据回路电流在回路内部产生磁场的方向的规律(右手螺旋法则)，由感应电流的磁通量方向（增反减同）来确定感应电流的方向；</p>
+</li>
+<li><p>右手螺旋定则（安培定则）：表示电流和电流激发磁场的磁感线方向之间关系的定则。</p>
+</li>
+</ol>
+<p>​	电流、磁场以及力，其实质是能量，其根本的依据是遵循了能量守恒定律；也就是说：如果电磁感应电流方向违背了楞次定律，那么也就违背得了能量守恒定律。</p>
+<h2 id="电感器模型"><a href="#电感器模型" class="headerlink" title="电感器模型"></a>电感器模型</h2><p>理想电感的阻抗为：<br>$$<br>Z_{ideal}&#x3D;j\omega L\<br>$$</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/v2-2f65deb91f4c0610975a1ead5f9438d9_b.jpg"></p>
+<p>和电阻的是一样的，即：<br>$$<br>Z_{real}&#x3D;\frac{j\omega L+R}{(1-\omega^2LC)+j\omega RC}\<br>$$<br>从下图可以看出，理想的电感的阻抗是随着频率的增加而变大的。 等效电感的阻抗呈一个倒V型，正好和电容相反，倒V的最高点称为电感的自谐振点。</p>
+<p>当系统阻尼R提供的衰减不足时，容抗和感抗相互抵消，能量在LC间来回传递，这就是谐振。</p>
+<ul>
+<li>频率低于自谐振频率SRF时，电感感抗随着频率增加而增加。</li>
+<li>频率等于自谐振频率SRF时，电感感抗达到最大。</li>
+<li>频率高于自谐振频率SRF时，电感感抗随着频率增加而减少。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/v2-ec2ccf3082cf1361fb40f6c3aefc29e7_b.jpg"></p>
+<ol>
+<li><p>上图虚线对应电感器的一阶数学模型（理想电感器）：ZL &#x3D; jωL；根据公式可得，电感器感抗随ω的增加而线性增大。</p>
+</li>
+<li><p>实线对应的电感器二阶数学模型：Z &#x3D; (jωL+R)&#x2F;[(1-ω²LC)+jωRC]，此时电感器不再只是简单的电感特性，根据公式以及电感器二阶阻抗-频率特性图分析，可分为如下三个阶段：</p>
+</li>
+</ol>
+<ul>
+<li>低频阶段，电感L感值对阻抗的影响远大于寄生电容：(1-ω²LC)+ jωRC ≈ 1，所以Z &#x3D; jωL + R，电感器阻抗随ω的增大而线性增加，此时电感器呈现电感特性；<br>——如上右图，低频段阻抗：Z &#x3D; jωL + R；在理论上低频段 DCR占电感器阻抗的比例比较大，所以在更低频率时阻抗曲线呈现水平直线。</li>
+<li>随着ω增大到一定值（SRF）时：1 - ω²LC &#x3D; 0，ω &#x3D;1&#x2F;√(C&#x2F;L)，此时电容器阻抗Z &#x3D; (jωL+R)&#x2F; (jωRC) &#x3D; L&#x2F;(RC) – j&#x2F;√(C&#x2F;L)，此时电感器的阻抗Z达到最大值；<br>——此工作频率称为电感器的自谐振频率-SRF；电容器用于电源滤波：需要最小阻抗，而谐振频点的阻抗最小，滤波效果最好；而电感器滤波时，需要利用其感性部分（理想电感阶段），所以需要远离自谐振频点。</li>
+<li>ω继续增大：ω＞1&#x2F;√(C&#x2F;L)，此时可以看到寄生电容的影响开始大于电感的影响，所以随ω的增大，阻抗Z线性减小，此时电感器呈现电容特性。<br>——单板电源系统滤波设计中，两个不同容值电容器会产生并联谐振点：大容值电容器的高频电感特性和小容值电容器的低频电容特性，形成了LC谐振，产生电源滤波特定频率的高阻抗区域。</li>
+</ul>
+<p><strong>除此之外，有以下一些结论：</strong></p>
+<ol>
+<li><p>电感器感值的越小，低频段阻抗越大；<br>——低频段电感的感值：Z &#x3D; jωL+R，主要由DCR决定，而电感量越大（线圈匝数多），导线越长，DCR则越大；所以一般同封装电感器的电感越大，DCR越大。</p>
+</li>
+<li><p>电感器感值的越小，自谐振频率越大；<br>——自谐振频率点：ω &#x3D;1&#x2F;√(C&#x2F;L)，电感量越大（线圈匝数多），那么线圈层间电容量就越大；相反：电感量越小，寄生电容量也越小，所以自谐振频率越高。</p>
+</li>
+<li><p>不同感值的电感器，自谐振频点右侧（高频段）阻抗曲线取决于寄生电容的大小（因为此时电感器呈现容性）。</p>
+</li>
+</ol>
+<h2 id="电感量参数"><a href="#电感量参数" class="headerlink" title="电感量参数"></a>电感量参数</h2><h3 id="1，电感量"><a href="#1，电感量" class="headerlink" title="1，电感量"></a>1，电感量</h3><p>​	电感量是线圈本身固有特性，表示电感线圈储能效率的大小（单位电流储能大小），与电流大小无关；电感量反应了电感器储存磁能的本领，与电感线圈的匝数、几何尺寸、有无磁芯（铁芯）、磁芯的导磁率有关。用公式表示L &#x3D; μ<em>N²</em>Ae&#x2F;Le，电感量的单位为亨（H）。具体参数如下图所示。在同等条件下：匝数（N）多电感量大，线圈直径（Ae）大电感量大，有磁芯比没磁芯（μ）电感量大，（Le） 磁路长度。<br>​	低频应用中呈现电感特性，而在高频特性中则呈现了电容特性（看成是一个电容器），其表现与电容器刚好成对偶关系；所以电感器的电感量与工作频率相关。</p>
+<p>​	电感量精度是电感量实际值与标称之差除以标称值所得的百分数。如下图所示为行业规范标称的范围：</p>
+<ol>
+<li><p>铁氧体电感：K档和M档；<br>——电感量大，随频率影响大（μ），应用于开关电源电路，电源输入等几MHz以下低频滤波应用。</p>
+</li>
+<li><p>陶瓷电感：S档，D档，J档，K档。<br>——电感量小，随频率影响小，应用于射频相关百MHz以上高频应用。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/caff614d057c90ecd93ef48c79872916.png"></p>
+<h3 id="2，磁导率"><a href="#2，磁导率" class="headerlink" title="2，磁导率"></a>2，磁导率</h3><p>​	<strong>磁导率</strong>：磁介质中磁感应强度与磁场强度之比；它是表征磁介质导磁性能的物理量：μ &#x3D;B&#x2F;H（B：磁感应强度，H：磁场强度）。<br>​	——磁导率反应了该材料能够被磁场穿透的程度。</p>
+<h3 id="3，电感磁芯损耗"><a href="#3，电感磁芯损耗" class="headerlink" title="3，电感磁芯损耗"></a>3，电感磁芯损耗</h3><p>​	电感器磁芯损耗包括<strong>：磁滞损耗和涡流损耗，以及剩余损耗。</strong><br>​	电感磁芯损耗是功率材料的一个最主要的指标，它决定了整机的工作效率、温升、可靠性。</p>
+<p>（1）<strong>磁滞损耗：</strong>当磁芯材料磁化时，转化为磁场的能量有两部分：</p>
+<ul>
+<li>转化为势能，即：去掉外磁化电流时磁场能量会返回给电路，这部分能量只是暂时储存在磁芯中；</li>
+<li>变为克服摩擦使磁芯发热消耗掉，这部分能量就是磁滞损耗。</li>
+</ul>
+<p>（2）<strong>涡流损耗：</strong>交变电流I产生的磁场B也是变化的，变化的磁场B在磁芯上面产生环形的电场e，所以当电流流过磁芯便产生了损耗，称为涡流损耗。</p>
+<p>（3）<strong>剩余损耗：</strong>由于磁化弛豫效应或磁性滞后效应引起的损耗。磁化弛豫是指在磁化或反磁化的过程中，磁化状态并不是随磁化强度的变化而立即变化到它的最终状态，而是需要一个过程，这个“时间效应”便是引起剩余损耗的原因。</p>
+<h3 id="4，直流电阻DCR"><a href="#4，直流电阻DCR" class="headerlink" title="4，直流电阻DCR"></a>4，直流电阻DCR</h3><p>​	<strong>直流电阻Rdc：</strong>又称为DCR，通常指电感器的内阻，是电感器在直流下电阻值。该电阻主要是电感器导线（铜线）上的电阻，体现了电感器在工作时的铜损大小。Pcu &#x3D; I²rms *DCR。<br>​	——既然电感器有直流电阻DCR，那么就会有电感器的交流电阻，即电感器在交流信号应用中的电阻。那为什么直流电阻和交流电阻不一样呢？其主要源于<strong>电感导线的趋肤效应</strong>：在高频信号时电流趋于分布在导线的表面（电流实际流过导线横截面的面积变小），导致导线的实际电阻增加。</p>
+<p>对于电感器的DCR，需要如下注意点：</p>
+<ol>
+<li><p>同一个系列的电感器的电感量越大，DCR越大；<br>——同一系列电感器电感量越大，则说明线圈匝数越多，铜线越长，那么DCR越大。</p>
+</li>
+<li><p>设计中电感器的DCR越小越好；<br>——电感器的损耗主要有：磁芯损耗和铜损两部分；DCR影响了电感器的损耗（铜损），从节能、散热等考虑，DCR尽量小。</p>
+</li>
+</ol>
+<h3 id="5，品质因数Q"><a href="#5，品质因数Q" class="headerlink" title="5，品质因数Q"></a>5，品质因数Q</h3><p>​	<strong>电感器品质因数Q：</strong> 电感器储能与能耗的比值，是某一工作频率下感抗XL（XL&#x3D; ωl &#x3D; 2πfL）与其等效损耗电阻的比值；用于区分不同线圈结构的一个物理量。<br>​	——线圈Q值愈高，回路的损耗愈小；线圈的损耗主要与：导线的直流电阻，骨架的磁芯损耗，屏蔽罩或铁芯引起的涡流损耗，以及趋肤效应等因素有关。</p>
+<p>​	品质因数Q与测试频率有关，与电感量有关；所以产品样本上对应的Q值均有对应的测试频率；</p>
+<h3 id="6，额定电流"><a href="#6，额定电流" class="headerlink" title="6，额定电流"></a>6，额定电流</h3><p>​	电感器额定电流：是指电感器允许通过的最大电流；是高频、低频扼流线圈和功率电感器的重要参数。</p>
+<p>​	<strong>对于功率电感器来说，额定电流有两种：</strong></p>
+<ol>
+<li><p>基于自我温度上升的额定电流：以元件的发热量为指标的额定电流，超出该范围时可能会导致元件破损及组件故障；<br>——Irms：指电感器的应用额定电流，也称为温升电流，即产品应用时，表面达到一定温度（例：温升40℃）时所对应的DC电流。</p>
+</li>
+<li><p>基于电感值的变化率的额定电流：以电感值的下降程度为指标的额定电流，超出该范围时可能会由于纹波电流的增加而导致电路不稳定。<br>——Isat：指磁介质的饱和电流，即电感器感量下降到一定比例（例：30%）时的电流大小。</p>
+</li>
+</ol>
+<p>​	<strong>如果电路的实际工作电流大于电感器饱和电流，会导致电感器磁芯饱和，存在如下隐患：</strong></p>
+<ol>
+<li><p>造成电流纹波超出后级电路最大允许规格范围，造成电源电路无法正常工作甚至损坏；</p>
+</li>
+<li><p>电感器额定电流（包括饱和和温升电流）选择余量不足会导致其工作时表面温度过高、整机效率降低、加速电感器本身甚至整机的老化，从而影响设备使用寿命。</p>
+</li>
+</ol>
+<p>​	电感分为开磁路和闭磁路两种，对于开磁路类型：随着直流电流的增加到规定电流值为止，呈现比较平坦的电感值，但以规定电流值为界后的电感值急剧下降。相反闭磁路类型：随着直流电流的增加，透磁率的数值逐渐减少，因此电感值缓慢下降。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024193932658.png"></p>
+<p>​	<strong>屏蔽电感磁路结构为闭磁路结构：</strong>闭磁路结构是由磁性材料组成，磁阻抗非常小，代表磁芯为环形磁芯，是闭磁路结构。</p>
+<p>​	<strong>非屏蔽电感磁路结构为开磁路结构：</strong>由于磁路组成结构裸露，具有非常明显的气隙，其磁阻比较的大，代表磁芯为U型、EE型磁芯。</p>
+<ol>
+<li><p><strong>由于屏蔽电感和非屏蔽电感磁屏蔽结构不同，在相同电感以及工作电流下，屏蔽电感器的体积要大于非屏蔽电感器；</strong><br>——非屏蔽电感器的磁芯会存在气隙，导致有效磁路长度远大于实际磁路，所以非屏蔽电感器的有效体积：Le*Ae也远大于屏蔽电感器，而电感器的储能容量大小与电感器有效体积成正比，同时由电感储能公式：P &#x3D;(1&#x2F;2)<em>L</em>I²，可得：在同样电感量和工作电流时，电感器的储能是一样的，所以非屏蔽电感器的体积要更小。</p>
+</li>
+<li><p>屏蔽电感器具有大功率、低电阻、大电流的特点，主要用在对EMC有着高要求的电路中，涉及到信号传输，智能计算等等，例如手机、计算机、高品质音响等等。</p>
+</li>
+</ol>
+<h3 id="7，自谐振频率（SRF）"><a href="#7，自谐振频率（SRF）" class="headerlink" title="7，自谐振频率（SRF）"></a>7，自谐振频率（SRF）</h3><p>​	<strong>自谐振频率（SRF）：</strong>SRF &#x3D; f0 &#x3D; 1&#x2F;[2π√(LC)]，表示了电感器的电感值（Inductance）、感抗（Impedance）与频率的关系、。</p>
+<ol>
+<li><p>频率低于SRF时，电感器阻抗和电感量随频率增加而增加；<br>——一般应用中需尽量保持电感器感量的稳定，所以电感器的工作频率应远离SRF，如下图，工作频率在低于1&#x2F;2 * SRF时电感量基本保持稳定。</p>
+</li>
+<li><p>频率等于SRF时，电感器阻抗达到最大值；<br>——此时电感器阻抗达到最大，并对外呈现阻性，但并非电感器的Rac和Rdc电阻体现在了阻抗上，而是电感器振荡后能量传播不出去，全部由电感器的寄生电阻所消耗。。</p>
+</li>
+<li><p>频率高于SRF时，电感器阻抗随频率增加而减小。<br>——高于SRF后电感器对外呈现出电容的特性，阻抗随频率而减小。</p>
+</li>
+</ol>
+<p>​	<strong>自谐振频率应用过程中的注意点：</strong></p>
+<ol>
+<li><p>SRF与材料、电感量有关，一般电感器的电感量越大SRF越小（同时，寄生电容随电感量的增加而增大）；</p>
+</li>
+<li><p>作为共模&#x2F;差模扼流电感器使用时，让信号的最高频率在电感自谐振频率处，消耗该频点的能量；</p>
+</li>
+<li><p>作为匹配滤波器使用时，电感器的电感值在信号带宽内应尽可能的恒定，电感的SRF取信号最大频率的10倍（经验值）。</p>
+</li>
+</ol>
+<h3 id="8，临界温度Tc"><a href="#8，临界温度Tc" class="headerlink" title="8，临界温度Tc"></a>8，临界温度Tc</h3><p>​	并非在任何温度下，磁性材料都具有磁性；<strong>磁性材料具有一个临界温度Tc（即居里温度）：</strong>在这个温度以上，由于高温下原子的剧烈热运动，原子磁矩的排列是混乱无序，铁磁物质的磁化强度随温度升高而下降，它确定了磁性器件工作的上限温度。超过居里温度，磁芯的磁导率会大大减小直至消失。</p>
+<h2 id="电感器的相关知识"><a href="#电感器的相关知识" class="headerlink" title="电感器的相关知识"></a>电感器的相关知识</h2><h3 id="1，趋肤效应"><a href="#1，趋肤效应" class="headerlink" title="1，趋肤效应"></a>1，趋肤效应</h3><p>​	趋肤效应对PCB高速信号走线距离计算和损耗都有较大的影响，一般在信号完整性中有所提及。趋肤效应对PCB走线或电感器中的不同在于应用的频率不同：PCB走线很扁平，所以发生趋肤效应时的频率就非常高（&gt;10MHz），而电感器铜导线则是圆形线缆，其直径远大于PCB走线，产生趋肤效应时的频率就低很多（几百KHz）。</p>
+<p>​	<strong>趋肤效应，就是随着在导线中信号频率的升高，决定电流分布的阻抗由原来的电阻变成了感抗，导致电流趋于聚集到导体的表面的现象。</strong>聚集程度随频率的增加按√f规律加大，所以电流聚集会导致铜导线有效电阻的增加，此时导线对电流表现出来的就是：交流电阻。<br>​	——当导线中的信号频率增加到一定大小时，导线中心位置将没有电流通过，电流流过导线的实际横截面积减小了，也就是说对该频率信号的电流来说，其导线电阻增加了。</p>
+<h3 id="2，气隙磁芯"><a href="#2，气隙磁芯" class="headerlink" title="2，气隙磁芯"></a>2，气隙磁芯</h3><p>​	无气隙磁芯的有效磁路长度基本上就是磁芯中心虚圆的周长：Le，有效面积几乎是磁芯的几何截面积：Ae；此时磁阻$\mathrm{R\Phi}&#x3D;\mathrm{Le}&#x2F;(\mathrm{\mu c}^{<em>}\mathrm{Ae})$。如下图所示磁芯有气隙后，磁阻会增加至$\mathrm{R\Phi}&#x3D;\mathrm{Lgc}&#x2F;(\mathrm{\mu c}^{</em>}\mathrm{Ae})$；其中$lgc &#x3D; Le + μr\times Lg$；μr &#x3D;μc&#x2F;μ0。事实上Lgc是气隙磁芯的有效长度，其远大于无气隙磁芯长度Le。<br>​	又因为，Lgc &#x3D; Lc +μr$\times$Lg，即气隙磁芯的有效磁路长度增加了，虽然Lg非常小，但是μr可达几千，所以磁路长度Lgc值基本上取决于μr*Lg。</p>
+<h4 id="（1）气隙对磁路长度影响的推导："><a href="#（1）气隙对磁路长度影响的推导：" class="headerlink" title="（1）气隙对磁路长度影响的推导："></a>（1）<strong>气隙对磁路长度影响的推导：</strong></h4><ol>
+<li><p>根据安培环路定律：磁场强度H的闭环积分等于包围的安匝数：Hc$\times$Lc + Hg+Lg &#x3D; N*I；</p>
+</li>
+<li><p>由于B &#x3D; μ$\times$H，而Φ &#x3D; B$\times$A，可得：Φ&#x2F;(μc$\times$Ac) $\times$Lc +Φ&#x2F;(μ0$\times$Ac)$\times$Lg &#x3D; N*I。</p>
+</li>
+</ol>
+<p>——根据基尔霍夫定律，磁通Φ（相当于电流）在磁路中必须连续，且磁芯与气隙中的Ae相同，所以Φc &#x3D; Φg &#x3D; Φ，Ag &#x3D; Ac；气隙的磁导率为真空磁导率μ0，</p>
+<ol start="3">
+<li>计算可得Φ &#x3D; (N$\times$I)&#x2F;[Lc&#x2F;(μc$\times$Ac)+Lg&#x2F;(μ0$\times$Ac)] &#x3D; FΦ&#x2F;RΦ，所以RΦ&#x3D; Rc + Rg &#x3D; Lc&#x2F;(μc$\times$Ac) + Lg&#x2F;(μ0$\times$Ac) &#x3D; [1&#x2F;(μ0$\times$Ac)]$\times$[(Lc&#x2F;μr)+Lg] &#x3D; [1&#x2F;(Ac$\times$μ0$\times$μr)]$\times$(Lc+ μr$\times$Lg) &#x3D;Lgc&#x2F;(Ac$\times$μr)；</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024200455114.png"></p>
+<h4 id="（2）增加了磁路长度的实际用处："><a href="#（2）增加了磁路长度的实际用处：" class="headerlink" title="（2）增加了磁路长度的实际用处："></a>（2）<strong>增加了磁路长度的实际用处：</strong></h4><ol>
+<li><p>有气隙磁芯的有效体积从Ae$\times$Le变成了Ae*Lgc，直观上体积增加了z倍，意味着气隙磁芯体积比实际见到的磁芯物理体积要大的多；</p>
+</li>
+<li><p>气隙实际上成为了磁芯体积的倍增器，而且只要能产生足够强的磁场，就有希望存储更多的能量。<br>——实际上大部分磁场能量存储在了气隙上。</p>
+</li>
+<li><p>加气隙后新的有效长度除以加气隙之前的就的有效长度，该比例称为z因数：z &#x3D;Lgc&#x2F;Le &#x3D; (Le+μr$\times$Lg)&#x2F;Le ≈ μr*Lg&#x2F;Le，其中Le &#x3D; Lg+Lc；所以净磁阻从无气隙磁芯的Re &#x3D; Le&#x2F;(μr$\times$Ae)增加到了有气隙磁芯的Rgc &#x3D; z$\times$Le&#x2F;(μr$\times$Ae)。<br>——假设为μr为1000，气隙长度占磁芯长度的5%，那么有效磁路长度L ≈ 1000$\times$5% &#x3D; 50，磁路长度增加了50倍，磁阻也增加了50倍。</p>
+</li>
+<li><p>气隙使得电感器的磁阻增加了，所以磁通密度（磁感应强度）B&#x3D; Φ&#x2F;Ae &#x3D; N$\times$I&#x2F;(Ae$\times$RΦ)，从无气隙磁芯时的μc$\times$N$\times$I&#x2F;Le降至有气隙磁芯时的μc$\times$N$\times$I&#x2F;(z$\times$Le)</p>
+</li>
+</ol>
+<h4 id="（3）比较有气隙磁芯和无气隙磁芯的磁通密度B和磁通强度H："><a href="#（3）比较有气隙磁芯和无气隙磁芯的磁通密度B和磁通强度H：" class="headerlink" title="（3）比较有气隙磁芯和无气隙磁芯的磁通密度B和磁通强度H："></a><strong>（3）比较有气隙磁芯和无气隙磁芯的磁通密度B和磁通强度H：</strong></h4><ol>
+<li><p>根据基尔霍夫定律，磁通（相当于电流）在磁路中必须连续，而Φ &#x3D; B$\times$Ae，磁芯与气隙的Ae相同，并且磁力线穿过不同材料时是连续的，所以Bg &#x3D; Bc &#x3D; B &#x3D;μc$\times$N$\times$I&#x2F;Lgc；</p>
+</li>
+<li><p>由于H &#x3D;B&#x2F;μ，磁芯中的磁导率为μc而气隙中的磁导率为μ0，它们相差μr &#x3D; μc&#x2F;μ0 倍（相对磁导率），所以Hc &#x3D; B&#x2F;μc &#x3D; N$\times$I&#x2F;Lgc，Hg &#x3D; B&#x2F;μ0 &#x3D; μr*(N$\times$I&#x2F;Lgc)；气隙磁芯的磁芯与气隙的磁场强度H不同（磁场强度在气隙和磁芯之间不连续，有突变），相差一个相对磁导率系数μr；</p>
+</li>
+<li><p>对于有气隙的磁芯，相比于同尺寸的无气隙磁芯，其磁通密度B下降了z倍，而且磁芯的磁场强度H也一样。</p>
+</li>
+</ol>
+<h4 id="（4）磁芯气隙如何获得更多的能量储存："><a href="#（4）磁芯气隙如何获得更多的能量储存：" class="headerlink" title="（4）磁芯气隙如何获得更多的能量储存："></a>（4）<strong>磁芯气隙如何获得更多的能量储存：</strong></h4><ol>
+<li><p>根据电感能量储存的公式ε&#x3D; 1&#x2F;2$\times$B$\times$H$\times$V(体积)，对于无气隙磁芯来说H &#x3D; B&#x2F;μc，那么εe&#x3D; 1&#x2F;2$\times$B²$\times$Ve&#x2F;μc；</p>
+</li>
+<li><p>对于有气隙磁芯来说，需要分为两部分：</p>
+</li>
+</ol>
+<ul>
+<li>气隙部分：εg  &#x3D; 1&#x2F;2$\times$B$\times$Hg$\times$V &#x3D; 1&#x2F;2$\times$(B²$\times$Ae$\times$Lg&#x2F;μ0)；</li>
+<li>磁芯部分：εc  &#x3D; 1&#x2F;2$\times$B$\times$Hc$\times$V &#x3D;1&#x2F;2$\times$(B²$\times$Ae$\times$Lg&#x2F;μc)；</li>
+<li>气隙磁芯的总能量储存εgc &#x3D; εg + εc &#x3D;1&#x2F;2$\times$(B²$\times$Ae²)$\times$[Lg&#x2F;(μ0$\times$Ae) + Lc&#x2F;(μc$\times$Ae)] &#x3D;  1&#x2F;2$\times$(B²$\times$Ae²)* RΦ&#x3D; 1&#x2F;2* RΦ$\times$Φ²。（Φ&#x3D; B<em>S）。</em><br>——该磁芯储存能量公式：ε &#x3D; 1&#x2F;2$\times$Φ²$\times$ RΦ；类似于电气消耗能量：P &#x3D; I²$\times$R；因为磁通量与电流等效，而磁阻与电阻的表现类似，但磁阻具有储能能力而无耗能特性。又由于电感器储能量定义：ε &#x3D; 1&#x2F;2$\times$I²$\times$L，与ε &#x3D; 1&#x2F;2$\times$Φ²$\times$ RΦ结合，可以推导出电感量L &#x3D;(μc$\times$N²$\times$Ae)&#x2F;Le。</li>
+</ul>
+<ol start="3">
+<li><p>当磁芯增加气隙时，如果安匝数（N$\times$I）保持不变（即，磁动势不变），那么气隙磁芯的磁通密度B下降1&#x2F;z，而取决于B²$\times$z的储存能量也以1&#x2F;z下降，并不能增加能量储存；</p>
+</li>
+<li><p>如果要使磁通密度B保持不变，即安匝数（N*I）增加z倍，那么能量存储以系数z倍增加。</p>
+</li>
+</ol>
+<h2 id="电感器分类"><a href="#电感器分类" class="headerlink" title="电感器分类"></a>电感器分类</h2><h3 id="1，磁芯分类"><a href="#1，磁芯分类" class="headerlink" title="1，磁芯分类"></a>1，磁芯分类</h3><h4 id="（1）磁性材料分类"><a href="#（1）磁性材料分类" class="headerlink" title="（1）磁性材料分类"></a>（1）磁性材料分类</h4><ol>
+<li><p>矩磁材料：具有矩形磁滞回线、剩余磁感强度Br和工作时最大磁感应强度Bm的比值,即Br&#x2F;Bm接近于1；<br>——在两个方向上的剩磁可用于表示计算机二进的“0”和“1”，适合于制成“记忆”元件。</p>
+</li>
+<li><p>压磁材料：具有压磁效应的材料称为压磁材料，可以用压磁材料制成来感知其磁性（磁导率）变化的传感器，从而检测其内部应力和外部载荷的变化。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024205747179.png"></p>
+<ol start="3">
+<li><p>硬磁材料又叫永磁材料：是指那些被磁化后能长久保持高磁性，不易失去磁性的材料；其Hc大，Br大，磁滞回线的面积大，损耗大。<br>——例如高碳钢，铝镍钴合金，钛钴合金等，用于制造磁带（录音&#x2F;录像）、磁盘等。</p>
+</li>
+<li><p>软磁材料具有：磁导率大，易磁化、易退磁，磁饱和强度大，Hc小，B-H磁滞回线面积窄长，磁芯损耗小等特点。<br>——如图所示，包括磁纯铁，铁粉芯，硅钢坡莫合金(Fe，Ni)铁氧体等。软磁材料相对于硬磁材料特点如下图所示。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024205803548.png"></p>
+<h4 id="（2）对于软磁材料，有如下电感器常用材料："><a href="#（2）对于软磁材料，有如下电感器常用材料：" class="headerlink" title="（2）对于软磁材料，有如下电感器常用材料："></a>（2）<strong>对于软磁材料，有如下电感器常用材料：</strong></h4><ol>
+<li><strong>铁氧体（Ferrite）：</strong>以Fe2O3为主要成分，有Mn-Zn，Cu-Zn，Ni-Zn等；<br>——其中Mn-Zn（锰-锌）最为常用，具有窄而长的磁滞回线，高磁导率，低矫顽力等特点。</li>
+</ol>
+<ul>
+<li>优点：成型容易，成本低，电阻率高，高频损耗较小；</li>
+<li>缺点：饱和磁通较低（4000~5000高斯） ，居里温度点较低；</li>
+<li>应用：适于10K－500KHz频率，较低功率的应用；常用作高频变压器，小功率的储能电感器等，高磁导率的铁氧体也常用作EMI共模电感。</li>
+</ul>
+<ol start="2">
+<li><strong>铁粉芯（Iron Powder）：</strong>由铁磁性粉粒与绝缘介质混合压制而成的一种软磁材料，存在分散气隙（效果类似磁芯气隙）；<br>——常用铁粉芯是由碳基铁磁粉及树脂碳基铁磁粉构成。</li>
+</ol>
+<ul>
+<li><p>优点：磁导率随频率和直流电流的变化相对稳定，成本较低；</p>
+</li>
+<li><p>缺点：磁导率低，高频下损耗高，存在高温老化问题；</p>
+</li>
+<li><p>应用：因其直流电流叠加性能好，常用于工频或直流中叠加高频成份的滤波和储能电感：PFC电感，INV电感，BUCK电路的储能电感器等。</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>硅钢片（Silicon Steel）：</strong>在纯铁中加入少量的硅（一般在4.5%以下）形成的铁硅系合金。</li>
+</ol>
+<ul>
+<li><p>优点：易于生产，成本低，饱和磁通较高（约12000高斯）。</p>
+</li>
+<li><p>缺点：电阻率低，高频涡流损耗大。</p>
+</li>
+<li><p>应用：一般使用频率不大于400Hz，在低频、大功率下最为适用。常用做电力变压器，低频电感，CT等。</p>
+</li>
+</ul>
+<ol start="4">
+<li><strong>铁镍合金（又称坡莫合金或MPP）：</strong>坡莫合金常指铁镍系合金，镍含量在30~90%范围内。</li>
+</ol>
+<ul>
+<li><p>优点：磁导率很高，损耗很低，高频性能好；</p>
+</li>
+<li><p>缺点：成本高；</p>
+</li>
+<li><p>应用：脉冲变压器，电感铁芯和功能性磁材料。</p>
+</li>
+</ul>
+<ol start="5">
+<li>铁硅铝粉芯（又称Sendust或Kool Mu）：由约9%铝、5%硅、85%铁粉构成。</li>
+</ol>
+<ul>
+<li><p>优点：损耗较低，性价比较优；</p>
+</li>
+<li><p>缺点：价格比铁粉芯略高；</p>
+</li>
+<li><p>应用：其直流电流叠加性能较好，损耗较铁粉芯低，可代替铁粉芯作为UPS中PFC的电感器和逆变器的输出滤波电感器。<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024210405319.png"></p>
+</li>
+</ul>
+<h3 id="2，电感器分类"><a href="#2，电感器分类" class="headerlink" title="2，电感器分类"></a>2，电感器分类</h3><p>​	根据电感器的结构不同可以分为：绕线型电感器（分：屏蔽和非屏蔽），一体成型电感器，叠层片式电感器以及薄膜电感器。<br>​	在开关电源领域，一体成型电感器和绕线型电感器占大多数，而叠层片式电感器（包括磁珠）和薄膜电感器主要用于EMI滤波和RF应用。</p>
+<h4 id="（1）叠层片式电感器"><a href="#（1）叠层片式电感器" class="headerlink" title="（1）叠层片式电感器"></a>（1）叠层片式电感器</h4><h5 id="1-MLCI"><a href="#1-MLCI" class="headerlink" title="1.MLCI"></a>1.MLCI</h5><p>​	MLCI(MultiLayer Chip Inductor)：用铁氧体浆料（软磁铁氧体陶瓷）和导体浆料交替印刷、叠层、烧结，形成闭合磁路；MLCI采用了厚膜多层钝化技术和叠层生产工艺，实现了超小型表面安装（制造工艺同MLCC类似）。叠层片式电感一般尺寸小、便于安装和电路小型化，所以在单板电源滤波电路中应用非常广泛。<br>​	——其中铁氧体是Fe2O3、NiO、ZnO、CuO等多种氧化物构成陶瓷材料，经烧结的铁氧体硬度高，磁导率高，电阻率高；铁氧体电感器中氧化物比例不同，可获得磁导率不同，使用磁导率不同的铁氧体制成形状尺寸、工作频段不同的电感器，在不同频段并保持较低的能量损耗。</p>
+<p>叠层片式电感器的特点：</p>
+<ol>
+<li><p>具有良好的磁屏蔽性，烧结密度高，可靠性高，耐热好，可焊性好，机械强度好；<br>——线圈绕组被封闭在磁体内部，构成封闭磁环回路，所以磁场泄露很小。</p>
+</li>
+<li><p>合格率低，成本高，电感量较小，Q值较低。</p>
+</li>
+</ol>
+<h5 id="2-叠层片式磁珠"><a href="#2-叠层片式磁珠" class="headerlink" title="2.叠层片式磁珠"></a>2.叠层片式磁珠</h5><p>​	MLCB(MultiLayer Chip Bead)：叠层片式磁珠是叠层片式电感器的一种，其制作工艺和片感完全相同；主要用于消除存在于传输线路中的高频噪声。磁珠主要原料为铁氧体，高频噪声电流在铁氧体磁芯上产生的高速变化的交变磁场，并在磁芯中产生非常大的涡流损耗。<br>​	磁珠工作原理：导线中的高频交变电流（高频噪声）产生了变化的磁场，同时变化的磁场又会产生涡流电场（电场与磁场垂直），如果磁芯的电阻较小，就会产生较大的涡流损耗，从而将特定频段的噪声以热能的形式释放掉。</p>
+<h5 id="3-叠层片式电感器与磁珠的对比"><a href="#3-叠层片式电感器与磁珠的对比" class="headerlink" title="3.叠层片式电感器与磁珠的对比"></a>3.叠层片式电感器与磁珠的对比</h5><p>​	磁珠就器件结构本质来说也是电感器的一种，只是所使用的磁芯材料与电感器有所不同；磁珠更加侧重于对某一频段噪声的吸收，所以磁珠就其功能来说是耗能元件，更类似于电阻器。电感器重点关注的参数是：电感量（L），品质因数（Q），自谐振频率（SRF）；而磁珠关注的参数是：阻抗（Z），电抗（XL），电阻（R）。</p>
+<h5 id="4-叠层片式电感器和磁珠的对比差别如下："><a href="#4-叠层片式电感器和磁珠的对比差别如下：" class="headerlink" title="4.叠层片式电感器和磁珠的对比差别如下："></a>4.叠层片式电感器和磁珠的对比差别如下：</h5><ol>
+<li><p>电感器的单位是亨特(H)，磁珠的单位是欧姆(ohm)；<br>——假如以100MHz 为标准，比如磁珠标称：600Ω@100MHz，意思就是在100MHz 频率的时候磁珠的阻抗相当于600Ω。</p>
+</li>
+<li><p>电感器是储能元件，磁珠是能消耗（涡流损耗）元件；</p>
+</li>
+<li><p>电感器在高频段呈高感抗特性（XL &#x3D; jωL，反射高频信号），低频段呈低阻性（DCR）；磁珠在高频段（&gt;50MHz）呈高阻性，在低频呈低感抗特性；</p>
+</li>
+<li><p>电感器多用于电源滤波回路，侧重于抑止CE（&lt;30MHz）干扰；磁珠多用于电源以及信号回路高频噪声抑制，主要用于RE（&gt;30MHz）的抑制。<br>——电感器用在LC振荡电路、中低频的滤波电路等，其应用频率范围很少超过50MHz；磁珠用来吸收超高频信号。</p>
+</li>
+</ol>
+<h5 id="5-叠层片式电感器与绕线片式电感器特点对比"><a href="#5-叠层片式电感器与绕线片式电感器特点对比" class="headerlink" title="5.叠层片式电感器与绕线片式电感器特点对比"></a>5.叠层片式电感器与绕线片式电感器特点对比</h5><p>​	绕线片式电感器的内部是磁芯+线圈绕组的结构，外部通过塑料外壳保护或直接裸露；绕线片式电感器的磁路是不闭合的，但其寄生电容小，Q值高，稳定性好，常应用于中高频电路。</p>
+<h4 id="（2）功率电感器"><a href="#（2）功率电感器" class="headerlink" title="（2）功率电感器"></a>（2）功率电感器</h4><p>​	功率电感器分为两类：一类是用于信号系统的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=RF&spm=1001.2101.3001.7020">RF</a>电感器，另一类是用于电源系统的功率电感器。具有低直流阻抗Rdc，高Q值，大电流的特点</p>
+<p>​	功率电感更偏向于参考以下几个参数：</p>
+<ol>
+<li><p>电感量L： 电感器的标称感值，由于分布电容的存在，感量会随频率的变化而变化；功率电感器的精度一般为M（±20%）档或者N（±30%）档；</p>
+</li>
+<li><p>直流电阻DCR： 指产品电极之间所用漆包线的总直流电阻；</p>
+</li>
+<li><p>饱和电流Isat：指电感器在连续通直流电流的情况下，电感的电感量会下降，一般为电感量下降30%时的电流值规格；</p>
+</li>
+<li><p>温升电流Irms：指电感器在连续通直流电流的情况下，电感表面的温度会上升，一般按照上升40℃时候的电流值来设定规格；</p>
+</li>
+<li><p>SRF：指由于电感及电感器本身分布电容的相互作用，使电感在某频率下达到谐振，功率电感要求使用在自谐频率以下（1&#x2F;10的SRF）。</p>
+</li>
+</ol>
+<h5 id="1-功率电感器类型"><a href="#1-功率电感器类型" class="headerlink" title="1.功率电感器类型"></a>1.功率电感器类型</h5><ol>
+<li><p><strong>金属合金绕线型(一体成型)电感器：</strong>采用绕线和涂布了树脂的金属磁性粉热压而成电感器。金属磁性材料与铁氧体材相比磁导率较低，但具有出色的直流叠加特性（磁饱和强度更大），属于适合大电流的磁芯材料。一体成型电感器磁屏蔽性能很好，漏磁非常小，适合应用于对磁场干扰敏感的电路（模拟信号，高速信号等）。<br>——一体成型的磁芯内部金属磁性粉通过绝缘树脂材料包裹进行绝缘，所以磁性粉之间存在间隙，类似磁芯气隙的作用。</p>
+</li>
+<li><p><strong>铁氧体绕线型电感器：</strong>将导线在铁氧体磁芯外部盘绕成螺旋状。铜导线上涂布了磁性树脂，树脂涂层的目的是减少漏磁通，提高电感磁通量的获取效率和强度；铁氧体的导磁率很高，适合高电感量领域使用。</p>
+</li>
+<li><p><strong>铁氧体多层型电感器：</strong>包括铁氧体材料技术、内部电极形成技术、电路设计技术、叠层技术；依靠磁路间隙形成技术，抑制磁饱和，实现了优异的直流叠加特性。实现需要小型化和薄型化领域的产品线。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024212821552.png"></p>
+<p>​	如图所示，对于铁氧体绕线型电感器和金属合金绕线型(一体成型)电感器，根据电感器屏蔽程度的不同，又可以分为如下多种类型：无屏蔽电感器，带磁屏蔽罩电感器，树脂涂层屏蔽电感器，一体成型电感器。</p>
+<h5 id="2-一体成型电感器优缺点如下："><a href="#2-一体成型电感器优缺点如下：" class="headerlink" title="2.一体成型电感器优缺点如下："></a>2.一体成型电感器优缺点如下：</h5><p>优点：</p>
+<ol>
+<li><p>通过铁粉模压成型而成，相同封装下散热性能更好，更易实现大的额定电流；<br>——压铸成型的生产工艺方式，更适合批量自动化生产。</p>
+</li>
+<li><p>不易产生磁饱和，具备出色的直流叠加特性；</p>
+</li>
+<li><p>相较磁封胶结构、带磁屏蔽以及叠层片式电感器具有更好的磁屏蔽效果；</p>
+</li>
+<li><p>有很好的温度特性，温度对金属磁性材料导磁率的影响较小。</p>
+</li>
+<li><p>同样尺寸和L值的一体成型电感在开关电源中损耗更少，效率更高；与铁氧体多层型测试结果相比，约为3%</p>
+</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li><p>由于其磁芯材料是铁粉合金，所以在长期高温、高湿环境中相对更加容易生锈；</p>
+</li>
+<li><p>磁芯材料是铁粉外包裹绝缘树脂组成，在高压下可能会击穿包裹铁粉的绝缘层，所以一体成型电感器有额定工作电压的要求。<br>——一体成型电感器需要关注电感器规格资料中最大工作电压的要求，避免电感器在实际应用中过压击穿失效。</p>
+</li>
+</ol>
+<h4 id="（3）薄膜电感器"><a href="#（3）薄膜电感器" class="headerlink" title="（3）薄膜电感器"></a>（3）薄膜电感器</h4><p>​	<strong>薄膜电感器：</strong>一种采用积层结构和真空薄膜工艺制作的电感器；它的特点如下：</p>
+<ol>
+<li><p>可靠性高（高稳定性），易于集成化和片式化；</p>
+</li>
+<li><p>体积超小（0603&#x2F;0402），电气性能高；</p>
+</li>
+<li><p>高精度；</p>
+</li>
+<li><p>高Q值，高SRF。</p>
+</li>
+</ol>
+<p>​	适用于移动通信设备小型、轻量化趋势，感值偏差较小以及Q值高的RF电路的耦合和共振。</p>
+<h4 id="（4）共模电感器（共模扼流圈）"><a href="#（4）共模电感器（共模扼流圈）" class="headerlink" title="（4）共模电感器（共模扼流圈）"></a>（4）共模电感器（共模扼流圈）</h4><p>​	<strong>共模电感器(Common mode Choke)：</strong>以铁氧体为磁芯的共模干扰抑制器件，它由两个尺寸相同，匝数相同的线圈对称地绕制在同一个铁氧体环形磁芯上，形成一个四端器件，要对于共模信号呈现出大电感具有抑制作用，而对于差模信号呈现出很小的漏电感几乎不起作用。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024213446996.png"></p>
+<h5 id="1-工作原理："><a href="#1-工作原理：" class="headerlink" title="1.工作原理："></a>1.工作原理：</h5><p>​	流过共模电流时磁环中的磁通相互叠加，从而具有相当大的电感量，对共模电流起到抑制作用，而当两线圈流过差模电流时，磁环中的磁通相互抵消，几乎没有电感量，所以差模电流可以无衰减地通过。</p>
+<ul>
+<li>所谓共模信号是两个幅度相等、相位相同的信号；如下图所示，对于共模信号（I1和I2电流大小相等，方向相同），那么I1和I2产生的磁力线的方向相同，且当I1 &#x3D; I2且电流方向相同时，穿过磁芯的磁力线为两倍，对于共模电感器来说，其电感量就为L+M<br>——共模信号一般来自电网，共模信号会影响电路板的正常工作，也会以传导干扰（CE）的形式干扰周围环境。</li>
+<li>如下图所示，磁力线方向可以根据万能的右手螺旋法则获得，当共模线圈中流过相同方向电流时，I1和I2所产生的磁力线方向相同（如下右图所示），穿过磁芯的磁力线就会被叠加，对于共模电感其来说其电感量也越大；<br>——Φ &#x3D; B<em>S，共模电流产生的磁通量方向相同，所以磁通量变大，L &#x3D; NΦ&#x2F;I，对于线圈1来说I1电流对应I1+I2&#x3D; 2</em>I1的磁通量，所以电感量加倍了。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024214328662.png"></p>
+<ul>
+<li>所谓差模信号是两个幅度相等、相位相反的信号；如下图所示，对于差模信号（I1和I2电流大小相等，方向相反），那么I1和I2产生的磁力线的方向相反，且当I1 &#x3D; I2且电流反向相反时，穿过磁芯的磁力线为0（两个线圈完全对称），对于共模电感器来说，其电感量就为0。<br>  ——这正是电源输入接口使用共模电感器的原因，电源电流输入和GND电流输出，它们大小相等、方向相反，所以共模电感器对电源正常工作的电流没有任何作用。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024214521722.png" alt="image-20241024214521722"></p>
+<ul>
+<li>共模电感器的模型如下图所示，如果共模信号的频率太高，那么输入和输出线之间的寄生电容将对磁芯产生旁路的作用，从而降低共模电感的有效性。<br>  ——共模电感的应用是有频率限制范围的，只能抑制某频段内的共模噪声。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024214605380.png"></p>
+<h5 id="2-设计原则"><a href="#2-设计原则" class="headerlink" title="2.设计原则"></a>2.设计原则</h5><p>设计共模电感器时，我们需要考虑符合如下原则：</p>
+<ol>
+<li><p>电路正常工作状态下的额定电流，不会达到共模电感器的磁饱和状态；<br>——一旦达到磁饱和状态，共模电感就失去了对噪声的抑制能力。</p>
+</li>
+<li><p>高频阻抗足够大（自谐振点要高），且有一定的频宽，且对工作频率信号电流阻抗较小；<br>——如果应用于输入电源的共模噪声滤波，其最高频率为30MHz以下（CE）。</p>
+</li>
+<li><p>温度系数要小；</p>
+</li>
+<li><p>直流阻抗（Rdc）要尽量小；<br>——虽然要对共模信号抑制，但对差模信号的损耗要越小越好，例如对于输入电源共模电感器应用，电源和GND线是差模信号，共模电感器的RDC越大，那么损耗越大。</p>
+</li>
+<li><p>电感值稳定，感应电感量尽量大；</p>
+</li>
+<li><p>绕阻之间绝缘性能满足安规要求；</p>
+<p>——共模电感一般用于对外接口（电源接口、信号接口等），会接触到高压冲击信号，所以其绝缘性能必须满足安规要求，避免共模电感器损坏。</p>
+</li>
+<li><p>线圈尽可能单层绕制，减小线圈寄生电容，增强线圈对瞬时过压承受能力。<br>——线圈间寄生电容越大，共模电感器越容易通过电容被击穿，大能量浪涌电压穿透共模电感器传递到电路内部，从而起不到共模防护的作用。</p>
+</li>
+</ol>
+<h4 id="（5）磁环"><a href="#（5）磁环" class="headerlink" title="（5）磁环"></a>（5）磁环</h4><p>​	磁环是一个环状的导磁体，是电子电路中常用的抗干扰元件，对于高频噪声有很好的抑制作用。一般使用铁氧体材料制成，是损耗式滤波器，主要用于抑制线缆上的传导干扰；其工作原理是：在不同的频率下有不同的阻抗特性：在低频时阻抗很小，当信号频率升高磁环表现的损耗急剧升高。<br>​	——从对磁环的描述来看，其工作原理与磁珠非常类似：都是利用磁芯涡流损耗，来损耗线路中的高频信号噪声。<br>​	磁环与其它电感器件有非常明显的不同——它与电路之间没有电气连接，只是一个单纯的磁芯。所以我们也能猜出，磁环并不是用在单板电路中，而是用于设备线缆上：将电源线、信号线（网线&#x2F;电话线&#x2F;DVI线等等）绕在磁环上，避免EMI干扰。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024214819453.png"></p>
+<h4 id="（6）变压器"><a href="#（6）变压器" class="headerlink" title="（6）变压器"></a>（6）变压器</h4><p>​	变压器就其本质来说也是一种电感器，利用电磁互感应来变换电路中交流电压、电流和阻抗特性的器件。<br>​	<strong>变压器的原理是：</strong>当初级线圈中通有交流电流时，铁芯（或磁芯）中便产生交流磁通，使次级线圈中感应出电压。<br>​	——根据电磁感应原理，如下图所示，当变压器输入交流电压Vin时，其原边感应电压Vin &#x3D; -N1* dΦ&#x2F;dt，副边感应电压为Vout &#x3D; -N2dΦ&#x2F;dt；由于原边和副边线圈共用1个磁芯（不考虑漏磁），其通过原边和副边的磁通量变化相同，所以Vout &#x3D; -N2$\times$(-Vin&#x2F;N1) &#x3D; Vin$\times$N2&#x2F;N1，可得Vout&#x2F;Vin &#x3D; N2&#x2F;N1 &#x3D; n（匝数比）。所以对于理想变压器原理：其绕组匝数比不同最终导致的是各绕组之间的电压比不同，与绕组是否流过电流无关；Pin &#x3D; Pout，Vin * Iin &#x3D; Vout * Iout，所以：Iout&#x2F;Iin &#x3D; Vin&#x2F;Vout &#x3D; N1&#x2F;N2。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024215127184.png"></p>
+<p>​	<strong>变压器的结构：</strong>由铁芯（或磁芯）和线圈组成，线圈有两个或两个以上的绕组，其中接电源的绕组叫初级线圈（原边），其余的绕组叫次级线圈（副边）。变压器的能量转换并非100%，就算是副边空载也一样存在损耗，称之为空载损耗；</p>
+<h5 id="1-变压器分类"><a href="#1-变压器分类" class="headerlink" title="1.变压器分类"></a>1.变压器分类</h5><ul>
+<li><p>按冷却方式分类：干式（自冷）变压器、油浸（自冷）变压器、氟化物（蒸发冷却）变压器。</p>
+</li>
+<li><p>按防潮方式分类：开放式变压器、灌封式变压器、密封式变压器。</p>
+</li>
+<li><p>按铁芯或线圈结构分类：芯式变压器、壳式变压器、环型变压器、金属箔变压器。<br>——壳式变压器铁芯包围住线圈，形成一个外壳；而芯式变压器铁芯大部分在线圈之中，只有一部分在线圈外作为磁回路。</p>
+</li>
+<li><p>按电源相数分类：单相变压器、三相变压器、多相变压器。</p>
+</li>
+<li><p>按用途分类：电源变压器、调压变压器、音频变压器、中频变压器、高频变压器、脉冲变压器。</p>
+</li>
+</ul>
+<h5 id="2-变压器结构"><a href="#2-变压器结构" class="headerlink" title="2.变压器结构"></a>2.变压器结构</h5><p><strong>变压器主要由：</strong>磁芯，骨架，漆包线，胶带，套管，铜皮，绝缘油等构成</p>
+<ol>
+<li><p><strong>磁芯材料的选择依据：</strong>1，工作频率范围；2，饱和磁密度（磁感应强度）大小；3，磁芯的损耗。</p>
+</li>
+<li><p><strong>磁芯形状的选择依据：</strong>1，功率密度要求；2，成品高度的限制；3，绕阻的多少；4，漆包线的引出形式。</p>
+</li>
+<li><p><strong>变压器绕线：</strong>主要关注绕线方式以及漆包线的选择</p>
+</li>
+</ol>
+<h5 id="3-变压器参数"><a href="#3-变压器参数" class="headerlink" title="3.变压器参数"></a>3.变压器参数</h5><ol>
+<li><strong>额定功率：</strong>在规定频率和电压下，变压器长期工作而不超过规定温升的最大输出功率；</li>
+</ol>
+<ul>
+<li><p>额定功率包含部分无功功率，单位为VA，一般在数百VA以下；</p>
+</li>
+<li><p>额定功率与磁芯体积、绕组导线直径等有关：同样情况下，磁芯体积越大，导线越粗，额定功率也越大。</p>
+</li>
+</ul>
+<ol start="2">
+<li><p><strong>工作频率：</strong>是变压器传输不同频率信号能力的重要参数，变压器磁芯&#x2F;铁芯损耗与频率关系很大，故应根据使用频率来设计和使用，这种频率称工作频率。<br>—— 加在变压器上的电压频率若在其频率范围以外时，可能出现工作时温度过高或不能正常工作等现象。</p>
+</li>
+<li><p><strong>额定电压：</strong>在变压器线圈上所允许施加的最大电压；<br>—— 变压器长期、可靠、稳定运行所能承受的最大工作电压。</p>
+</li>
+<li><p><strong>额定电流：</strong>变压器在额定容量下，长期可靠、稳定运行所允许通过的最大电流。</p>
+</li>
+<li><p><strong>电压比（K）：</strong>指变压器初级电压和次级电压的比值：空载电压比和负载电压比；<br>——理想变压器的电压比跟空载或负载无关，但是实际绕组铜线的损耗（压降）、磁芯损耗以及漏感在空载和负载条件下不同，造成了空载电压比和负载电压比的差别。</p>
+</li>
+<li><p><strong>效率：</strong>指在额定负载的情况下，副边功率P2与原边功率P1比值的百分比：η &#x3D;P1&#x2F;P2；一般变压器的额定功率愈大，效率就愈高。</p>
+</li>
+<li><p><strong>漏电感：</strong>变压器原边绕组中电流产生的磁力线不可能全部都通过副边绕组，而不通过副边绕组的磁力线就叫漏磁通；由于漏磁通而产生的电感，称为漏感。</p>
+</li>
+<li><p><strong>空载电流：</strong>变压器次级开路时，原边仍有一定的电流，这部分电流称为空载电流。空载电流由磁化电流（产生磁通）和铁损电流（由铁芯&#x2F;磁芯损耗引起）组成。对于50Hz电源变压器而言，空载电流基本上等于磁化电流；</p>
+</li>
+<li><p><strong>空载损耗：</strong>指变压器副边开路时，在原边测得功率损耗；主要损耗是铁芯&#x2F;磁芯损耗，其次是空载电流在原边绕组铜阻上产生的损耗（绕组损耗），这部分损耗很小，可以忽略不计。<br>——铁芯&#x2F;磁芯损耗由磁滞损耗和涡流损耗组成；磁滞损耗与导磁材料的磁化曲线面积成正比，与磁通密度的平方成正比；而涡流损耗与磁通密度、导磁材料厚度以及频率的平方成正比；降低空载损耗就要降低磁通密度（B），其结果导致导磁材料的重量增加；或者采用高导磁，低损耗的导磁材料，或者采用厚度更薄的导磁材料。 </p>
+</li>
+<li><p><strong>绝缘电阻：</strong>表示变压器各线圈之间、各线圈与铁芯之间的绝缘性能好坏的参数。</p>
+</li>
+</ol>
+<ul>
+<li>绝缘电阻的高低与所使用的绝缘材料的性能、温度高低和潮湿程度有关；</li>
+<li>如果电源变压器的绝缘电阻太低，就可能出现一次绕组与二次绕组间的短路，造成电气设备的损坏，外壳带电的危险。<br>——对于电源变压器，绝缘电阻应在10MΩ以上。</li>
+</ul>
+<h4 id="（7）网络隔离变压器"><a href="#（7）网络隔离变压器" class="headerlink" title="（7）网络隔离变压器"></a>（7）网络隔离变压器</h4><p>​	网络变压器又称为网络隔离变压器，由于以太网是常用对外通信接口，网络变压器的使用也是非常的多，同时其种类也非常多。</p>
+<h5 id="1-网络变压器主要有三个作用："><a href="#1-网络变压器主要有三个作用：" class="headerlink" title="1.网络变压器主要有三个作用："></a>1.网络变压器主要有三个作用：</h5><ol>
+<li><p>传输数据：把PHY送出来的差分信号用差模耦合的线圈耦合滤波以增强信号，并通过电磁场的转换耦合到不同电平的连接网线的另外一端；<br>——有两部分功能：1，滤除杂波；2，不同电平之间的转换（AC耦合）；</p>
+</li>
+<li><p>隔离：对网线连接的不同网络设备不同电平进行隔离，防止不同电压（不同参考地或浮地）通过网线传输损坏设备；</p>
+</li>
+<li><p>浪涌防护：对设备起到一定的共模浪涌防护作用。</p>
+</li>
+</ol>
+<h2 id="电感器应用"><a href="#电感器应用" class="headerlink" title="电感器应用"></a>电感器应用</h2><h3 id="1，磁珠的应用"><a href="#1，磁珠的应用" class="headerlink" title="1，磁珠的应用"></a>1，磁珠的应用</h3><p>​	磁珠主要用于对传导（CE）&#x2F;辐射（RE）干扰的抑制。<br>​	——电磁干扰（EMI）分为：传导干扰（CE）和辐射干扰（RE），主要差别在于传导干扰（CE）频段集中在30MHz以下，通过电缆为载体传播；辐射干扰（RE）频段在30MHz以上，通过空间辐射方式传播。</p>
+<ol>
+<li><p>信号（data）与噪声（noise）的频率分布不同：一般信号工作于磁珠低频低阻区域，而噪声频段分布在磁珠的高阻区，从而达到有效抑制噪声电平的效果；</p>
+</li>
+<li><p>如上图所示，对信号进行低通滤波：噪声频率越大则阻抗越大（阻抗来自于磁芯材料的损耗），从而噪声通过后的衰减越大；<br>——一般信号的频率&lt;10MHz，抑制噪声信号的频率&lt;2GHz（高频磁珠可以达到2G~3GHz范围）。</p>
+</li>
+</ol>
+<ul>
+<li><p>通用磁珠：一般通流能力&lt;0.5A；</p>
+</li>
+<li><p>尖峰磁珠：用于屏蔽确定频率的强噪声；</p>
+</li>
+<li><p>大电流磁珠：用于电源电路、大电流电路的噪声屏蔽，一般通流能力&gt;0.5A。</p>
+</li>
+</ul>
+<p>根据不同磁珠的不同特性，磁珠可以应用于不同的硬件电路设计中：</p>
+<ol start="3">
+<li><p>大电流磁珠最常用于DC电源的传导干扰抑制：应用在单板内芯片端电源输入管脚的噪声抑制，需要明确的是这种抑制是双向的：既抑制芯片电源干扰到单板电源，又阻止单板电源干扰到芯片电源管脚。如下图所示，电源上存在高频噪声，其频段为50MHz~250MHz，为了避免芯片受到板级电源平面上的高频噪声干扰，在芯片电源输入管脚端增加磁珠滤波（一般为π型滤波）。</p>
+</li>
+<li><p>数字电路的干扰抑制：数字信号有丰富的高频谐波，容易产生辐射干扰，通过选择不同型号的磁珠来抑制不同的高频分量；这种硬件设计主要用在对外接口信号线上，防止噪声通过对外接口信号线传播到设备外面，造成RE超标。</p>
+</li>
+<li><p>一般传导干扰（CE）以差模方式传播，辐射干扰（RE）以共模方式传播，所以采用不同的方式进行抑制；<br>高速数字信号，如USB2.0等，产生的干扰以辐射干扰（RE）噪声为主，可采用共模磁珠抑制，同时也可以改善信号质量。</p>
+</li>
+</ol>
+<h3 id="2，叠层片式电感器的应用"><a href="#2，叠层片式电感器的应用" class="headerlink" title="2，叠层片式电感器的应用"></a>2，叠层片式电感器的应用</h3><p>​	叠层片式电感器的选择，须兼顾较小的电感量波动和较高的品质因数Q；中低频片式电感器采用铁氧体材料制作（高磁导率的黑色瓷体），高频片感采用陶瓷材料制作（低磁导率的白色瓷体）。叠层片式电感器由于体型较小，其额定电流（最大工作电流）一般小于0.5A；感量一般在nH<del>uH级别，精度J&#x3D;±5% K&#x3D;±10% M&#x3D;±20%，Q值一般为40</del>70。</p>
+<p>​	根据前期电感器特性的分析以及电感器实际应用，电感器需要工作在感值较稳定，感抗相对较大（达到良好抑制作用），Q值也相对较大的区域。<br>​	叠层片式电感器一般用于RF滤波电路，由LC组合构成，同时还有阻抗匹配的功能。工作频率较高时，要求电感器有较高的Q值与极高的L精度，以确保较低的插入损耗。</p>
+<h3 id="3，功率电感器-变压器的应用"><a href="#3，功率电感器-变压器的应用" class="headerlink" title="3，功率电感器&#x2F;变压器的应用"></a>3，功率电感器&#x2F;变压器的应用</h3><ol>
+<li><p>电感器的感值L的大小，主要影响开关电源输出纹波电流∆IL的大小：感值高纹波电流小，感值低则纹波电流大；同时纹波电流决定了磁芯损耗的大小；</p>
+</li>
+<li><p>功率电感器的额定电，流选择Isat和Irms中较小的值，一旦超过额定电流，电感器性能无法保障，电感器在Buck开关电源中最大电流Imax &#x3D; Io + ∆IL&#x2F;2；</p>
+</li>
+<li><p>DCR是电感器直流电阻值，是电感器在开关电源中损耗的重要组成部分，直流阻抗值越小越好；</p>
+</li>
+<li><p>屏蔽电感器与非屏蔽电感器对外部的电路影响不同，同时非屏蔽电感器容易受到外部磁性元件或PCB铜皮的影响,所以尽可能使用磁屏蔽封装功率电感器。</p>
+</li>
+</ol>
+<h3 id="4，网络变压器的应用"><a href="#4，网络变压器的应用" class="headerlink" title="4，网络变压器的应用"></a>4，网络变压器的应用</h3><p>网络变压器的使用，首先需要根据10M、100M、1000M不同的速率来选择合适的变压器。</p>
+<p>我们在使用网络变压器时，看到变压器中间抽头的接线方式有很多种，这主要是由所使用PHY芯片的UTP驱动类型决定（参考PHY芯片资料推荐连接方式）：</p>
+<ul>
+<li>如果是电流驱动，就需要将网络变压器抽头接至电源；电源具体接多少，取决于PHY芯片的UTP端口电平；电流驱动类型驱动变压器的工作原理。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024220944399.png"></p>
+<p>如果是电压驱动，直接接一个电容到GND即可；其工作原理如下图所示。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241024221011039.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">工程小李</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lilongxin178.github.io/2024/06/28/%E9%98%BB%E5%AE%B9%E6%84%9F%E5%9F%BA%E7%A1%80----%E7%94%B5%E6%84%9F%E4%B8%93%E9%A2%98/">https://lilongxin178.github.io/2024/06/28/%E9%98%BB%E5%AE%B9%E6%84%9F%E5%9F%BA%E7%A1%80----%E7%94%B5%E6%84%9F%E4%B8%93%E9%A2%98/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">工程小李</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%99%A8%E4%BB%B6%E7%B1%BB/">
+                                    <span class="chip bg-color">器件类</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '90MkdDM0NOZLbCcjFKa2dQlK-gzGzoHsz',
+        appKey: '9PYHQdW1prEoFgpqz2VQdGtG',
+        serverURLs: '',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/08/15/%E6%99%B6%E6%8C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="晶振基础知识">
+                        
+                        <span class="card-title">晶振基础知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            晶振基础知识
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">小知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/06/23/%E9%98%BB%E5%AE%B9%E6%84%9F%E5%9F%BA%E7%A1%80----%E7%94%B5%E5%AE%B9%E4%B8%93%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="阻容感基础----电容专题">
+                        
+                        <span class="card-title">阻容感基础----电容专题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            阻容感基础----电容专题
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%99%A8%E4%BB%B6%E7%B1%BB/">
+                        <span class="chip bg-color">器件类</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 小李工作站<br />'
+            + '文章作者: 工程小李<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2134665182"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">工程小李</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "11";
+                        var startDate = "25";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:lilongxin178@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+</html>

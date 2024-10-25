@@ -479,7 +479,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-10-23
+                    2024-10-24
                 </div>
                 
 
@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    28 分
                 </div>
                 
 
@@ -523,6 +523,16 @@
 <p>A：电极面积（m²）；</p>
 <p>d：介质厚度（m）。</p>
 <p>​	对于理想电容器来说，两个导体之间是没有直流通路的，只有当导体之间有电压变化时才可能有电流（位移电流）流经电容器：<strong>I &#x3D; ΔQ&#x2F; Δt &#x3D; C*dV&#x2F;dt</strong>；在给定导体间电压变化率时，电容是：<strong>对相同变化率下导体之间形成电流大小的度量</strong>。</p>
+<ol>
+<li><p>电容器容值的越小，低频段阻抗越大；<br>——根据电容器阻抗计算公式：Z &#x3D; RE + jω *(Llead- 1&#x2F;ω²C) ≈1&#x2F;jωC，在相同信号频率下（ω相等），C越大阻抗越小（在低频段电容特性占主导作用）。</p>
+</li>
+<li><p>电容器容值的越小，自谐振频率越大；<br>——自谐振频率点f0 &#x3D; ，假设同材料、封装的电容器Llead值相同：那么C越大，自谐振频率点f0就越小；而且C与f0的关系可以通过公式计算，例如C增大10倍（如上图：0.1uF和0.01uF），那么自谐振频率点f0就相差 &#x3D; 3.16倍。</p>
+</li>
+<li><p>不同容值的电容器，自谐振频点右侧（高频段）曲线重叠；<br>——如上分析，自谐振频率点后，电容器呈现电感特性：Z &#x3D; RE + jω *(Llead -1&#x2F;ω²C)≈jωLlead，其阻抗曲线斜率取决于寄生电感Llead的大小，而相同材料、封装的电容器寄生电感值非常接近，而呈现在电容器阻抗曲线图中，就是自谐振频率点右侧的阻抗曲线相同。</p>
+</li>
+<li><p>电容器容值的越小，Rs（ESR）呈上升趋势；<br>——但电容器的ESR更多取决于电容器本身的材料、结构及封装，也同电容的工作频率有关</p>
+</li>
+</ol>
 <h2 id="电容器参数"><a href="#电容器参数" class="headerlink" title="电容器参数"></a>电容器参数</h2><h3 id="1，电容器容值"><a href="#1，电容器容值" class="headerlink" title="1，电容器容值"></a>1，电容器容值</h3><p>​	在硬件电路上使用电容器，我们首先关注的便是电容器容值，但是电容容值C会随环境发生改变，也会随外加电压、工作频率以及测量方法的改变而发生变化。不同种类电容器对不同的环境&#x2F;电应力的表现也不同；<br>​	例如：<br>​	陶瓷电容器容值对外加电压的变化很敏感（陶瓷电容：大家都知道了喔？）；<br>​	铝电解电容器容值随工作频率的影响很大。</p>
 <h3 id="2，额定电压"><a href="#2，额定电压" class="headerlink" title="2，额定电压"></a>2，额定电压</h3><p>​	<strong>电容器额定工作电压：</strong>该电容器在电路中能够长期可靠地工作而不被击穿所能承受的最大直流电压。</p>
 <p>​	当在电容器的两极施加电压之后，电容电介质材料会产生极化，但这些电荷依然受介质本身的束缚而不能自由移动，介质的绝缘性能尚未遭到破坏，只有少数电荷脱离束缚而形成很小的漏电流（这个能量损耗即为“介质损耗”）。如果<strong>外加电压不断加强，最后将使极化电荷大量脱离束缚，引起漏电流大大增加，造成介质材料的绝缘性能遭到破坏，使电容器两极短接，从而完全丧失电容器的作用，这种现象称为介质击穿</strong>。<br>​	——电容器的耐压与<strong>电容器的结构、介质材料和介质的厚度</strong>有关；一般来说，对于结构、介质相同，容量相等的电容器，其耐压值越高，体积也越大。</p>
@@ -1148,24 +1158,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/08/15/%E6%99%B6%E6%8C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                <a href="/2024/06/28/%E9%98%BB%E5%AE%B9%E6%84%9F%E5%9F%BA%E7%A1%80----%E7%94%B5%E6%84%9F%E4%B8%93%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="晶振基础知识">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="阻容感基础----电感专题">
                         
-                        <span class="card-title">晶振基础知识</span>
+                        <span class="card-title">阻容感基础----电感专题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            晶振基础知识
+                            阻容感基础----电感专题
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-06-28
                         </span>
                         <span class="publish-author">
                             
@@ -1182,8 +1192,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">小知识</span>
+                    <a href="/tags/%E5%99%A8%E4%BB%B6%E7%B1%BB/">
+                        <span class="chip bg-color">器件类</span>
                     </a>
                     
                 </div>
