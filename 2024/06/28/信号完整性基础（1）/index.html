@@ -1,0 +1,1957 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="信号完整性基础（一）, 硬件 笔记">
+    <meta name="description" content="信号完整性基础（一）">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>信号完整性基础（一） | 小李工作站</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="小李工作站" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小李工作站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小李工作站</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://blog.csdn.net/mttmd?spm=1000.2115.3001.5343" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://blog.csdn.net/mttmd?spm=1000.2115.3001.5343" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">信号完整性基础（一）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BF%A1%E5%8F%B7%E5%AE%8C%E6%95%B4%E6%80%A7/">
+                                <span class="chip bg-color">信号完整性</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                硬件探讨
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-06-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-10-26
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    61 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="信号完整性基础（一）"><a href="#信号完整性基础（一）" class="headerlink" title="信号完整性基础（一）"></a>信号完整性基础（一）</h1><p>​		信号完整性理论就是非常典型的建立数学模型来分析和预测电路实际行为的理论。它有两大两大理论基石：麦克斯韦电磁理论和傅里叶变换：</p>
+<ol>
+<li>麦克斯韦的电磁理论描述的是电磁场量之间的相互关系，描述了理想阻、容、感元件在电磁场中行为；</li>
+<li>傅里叶变换：任何连续周期信号可以由一组适当的正弦曲线组合而成。</li>
+</ol>
+<h2 id="时域与频域"><a href="#时域与频域" class="headerlink" title="时域与频域"></a>时域与频域</h2><p>​	<strong>时域：一般来说，时间是物质存在的一种客观形式，由过去、现在、将来构成的连绵不断的系统，是物质的运动变化的持续性和连续性的表现。我们从时间的角度来看事物的变化，这就是所谓的时域。</strong></p>
+<h3 id="1，傅里叶与频域"><a href="#1，傅里叶与频域" class="headerlink" title="1，傅里叶与频域"></a>1，傅里叶与频域</h3><p>​	傅里叶变换，表示能将满足一定条件的某个函数表示成三角函数或者它们的积分的线性组合；时域中的任何波形都可由正弦波的组合而成。<br>​	傅里叶变换将信号成功的从时间维度（时域）转换成了频率维度（频域），提供给我们一个全新的观察角度，能更加容易的去理解和解释发生的现象。</p>
+<p>主要是正弦波有如下的四个性质：</p>
+<ol>
+<li><p>时域中的任何波形都可由正弦波的组合，完全且唯一的描述；</p>
+</li>
+<li><p>任何两个频率不同的正弦波都是正交的，可以将不同的频率分量相互分离开；</p>
+</li>
+<li><p>正弦波有精确的数学定义；</p>
+</li>
+<li><p>正弦波及其微分值处处存在，没有上下边界。</p>
+</li>
+</ol>
+<p>​	这些性质并不是正弦波所独有，使用正弦波来描述时域信号还有其它好处，它完美的契合了现实电路中的特性和现象：</p>
+<ul>
+<li><p>电路一般用R，L，C组合来表征，这些元件的二阶线性微分方程的解是正弦波；</p>
+</li>
+<li><p>频域中不会产生新的信息，与时域描述所包含的信息完全相同；</p>
+</li>
+<li><p>在频域中对一些问题的理解和描述更加容易：</p>
+<p>1, 带宽：描述与信号、测量或互连相关的最高有效正弦波频率分量；</p>
+<p>2, 阻抗：电源地分布阻抗对电源轨道塌陷问题提供更简单的解释和解决方法；<br>——  轨道塌陷噪声（Rail Collapse Noise）通常指电源轨上的电压瞬时跌落现象，<br>3, 电磁干扰：产品的电磁兼容问题使用频域更加容易定位解决；</p>
+<p>4, 有损传输线损耗分析：串联电阻随频率的平方根增加，介质内并联交流漏电（介质损耗）随频率线性增加。</p>
+</li>
+</ul>
+<h3 id="2，时域到频域的转换"><a href="#2，时域到频域的转换" class="headerlink" title="2，时域到频域的转换"></a>2，时域到频域的转换</h3><p>​	正弦波是频域中唯一存在的波形，它在时域中需要标记很多的电压-时间数据；而在频域中它只需用3项描述：频率、幅度和相位。<br>​	对于有若干频点的实际信号波形，可以通过傅里叶变换转换成频域，这样可以很直观的观察到各个频点频率以及能量大小。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025113824583.png"></p>
+<p>​	假设有一个1GHz的理想数字信号波形-方波：信号上升沿为0，占空比为50%；频谱中正弦波的频率是1GHz的整数倍，所有偶次谐波分量幅度都为0，只有奇次谐波有幅度：An &#x3D; 2&#x2F;(nπ)（如下右图傅里叶变换后可以得到该结论）。其中有一个特殊频点：0Hz，它表示了直流偏移分量，其幅度等于信号平均值。如下图所示，由傅里叶变换计算可得1次谐波的信号幅度为0.63V，加上直流偏移分量：0.5V，那么它的幅度会大于理想方波自身的幅度（违反直觉，但从能量的角度能够解释）。<br>​	——如上右图所示，正常信号波形并非只有奇次谐波能量，偶次谐波上同样存在能量分布（所以EMI也要关注信号的偶次谐波分量）；而如下左图的理想方波（且占空比为50%）的情况下，偶次谐波的能量为0。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025114305340.png"></p>
+<h3 id="3，频域逆变到时域"><a href="#3，频域逆变到时域" class="headerlink" title="3，频域逆变到时域"></a>3，<strong>频域逆变到时域</strong></h3><p>​	根据傅里叶变换的原理，我们将频域上的所有谐波频率（无限）正弦波叠加起来，就能得到从能量角度来看无限逼近的理想方波；如下图所示，我们每次叠加一部分谐波频率分量，在这个过程的波形中，可以得到如下三个结论：</p>
+<ul>
+<li><p>随着叠加谐波频率越大，信号边沿时间越短（越陡）；</p>
+</li>
+<li><p>随着叠加谐波频率越大，信号电平幅度越稳定（越接近原始波形电平幅度）；</p>
+</li>
+<li><p>随着叠加谐波频率越大，越接近理想方波。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025114716131.png"></p>
+<p>​	信号边沿时间与叠加的最高谐波频率分量相关，以理想方波频谱为基准，波形最高频率分量越大，10%-90%（或20%~80%）边沿就越短。<br>​	那么，我们怎么来确定信号最高频率分量？那就必须引出另一重量级概念：带宽。</p>
+<h2 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h2><p>​	<strong>带宽并非是数据速率，而是指信号不失真情况下的频谱宽度。</strong><br>​	<strong>带宽是指：表示频谱中最高的有效正弦波频率分量值，所有高于带宽的频率都可忽略不计。</strong></p>
+<p>​	但实际电路中不会存在一个界限：小于某一频点无损通过，而大于某一频点是100%衰减；往往衰减量对相对频率是连续的，一般定义最高有效正弦波频率分量指的是：在信道传递函数的伯德图中下降3dB的频率点，我们称之为该信道的带宽。<br>​		</p>
+<h3 id="1，有效带宽0-35-tr"><a href="#1，有效带宽0-35-tr" class="headerlink" title="1，有效带宽0.35&#x2F;tr"></a>1，有效带宽0.35&#x2F;tr</h3><p>​	首先，我们给出一个理想方波上升沿，即阶跃信号。而实际方波仍有上升沿时间，由傅里叶变换可知，其为有限次谐波的方波信号。那么假设，我将阶跃信号通入RC低通滤波器这一系统中，理论上输出的信号Vo应为有限次谐波的方波信号。<br>​	所以只要建立起滤波器、方波频谱以及滤波后信号波形上升时间的关系，就能得到信号上升时间与带宽的关系。	</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025121456214.png"></p>
+<p>​	如果Vin 是一个0~1V的阶跃信号，则Vout 就是该滤波网络的阶跃响应。根据电路理论可知<br>$$<br>V_{out} &#x3D; 1-\mathrm{e}^{-\frac{t}{\tau_{RC}}}<br>$$<br>​	其中，τRC &#x3D;RC为该网络的时间常数。阶跃响应如图所示。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025121551890.png"></p>
+<p>​	定义Tr 为信号幅度的10%-90%所对应的时间跨度，即10%<del>90%上升时间，则Tr 可以通过如下方式计算得到：<br>$$<br>0.9&#x3D;1-\mathrm{e}^{-\frac{t_{90}}{\tau_{RC}}}\Rightarrow t_{90}&#x3D;-\ln0.1\bullet\tau_{RC}\0.1&#x3D;1-\mathrm{e}^{-\frac{t_{10}}{\tau_{RC}}}\Rightarrow t_{10}&#x3D;-\ln0.9\bullet\tau_{RC}<br>$$<br>​	进而得到10%</del>90%上升时间与电路时间常数τRC 的关系</p>
+<p>​	<br>$$<br>T_r&#x3D;t_{90}-t_{10}&#x3D;\tau_{RC}\cdot\ln\frac{0.9}{0.1}&#x3D;2.197 2\tau_{RC}<br>$$<br>​	接下来看滤波器的频域特性，RC网络的频域响应可表示为<br>$$<br>H(f)&#x3D;\frac1{1+\mathrm{j}2\pi fRC}&#x3D;\frac1{1+\mathrm{j}2\pi f\tau_{<em>{RC}}}<br>$$<br>​	幅度为<br>$$<br>\left|H(f)\right|&#x3D;\frac{1}{\sqrt{1+\left(2\pi f\tau</em>{<em>{RC}}\right)^{2}}}<br>$$<br>​	其频率响应如图所示。在响应幅度的-3dB处，|H（f）|下降为最大值的$\frac{1}{\sqrt{2}}$ ，此时有<br>$$<br>\begin{aligned}2\pi f\tau</em>{<em>{RC}} &amp; &#x3D;1\f</em>{<em>{3dB}} &amp; &#x3D;\frac{1}{2\pi\tau</em>{_{RC}}}\end{aligned}<br>$$<br><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025122051755.png"></p>
+<p>​	代入该式到上文中的公式，可推导出：<br>$$<br>f_{\mathrm{3dB}}&#x3D;\frac{1}{2\pi} \frac{1}{\tau_{\mathrm{RC}}}&#x3D;\frac{1}{2\pi} \frac{2. 197 2}{T_{r}}&#x3D;\frac{0. 35}{T_{r}}<br>$$<br>​	由此可得，0.35&#x2F;tr实质上是单极型低通滤波网络的3dB带宽。需要特别说明的是，这种带宽定义方式中，Tr 指的是10%~90%信号上升时间。</p>
+<h3 id="2，有效带宽0-5-tr"><a href="#2，有效带宽0-5-tr" class="headerlink" title="2，有效带宽0.5&#x2F;tr"></a>2，有效带宽0.5&#x2F;tr</h3><p>​	定义一个系统带宽，可以使用3dB带宽，也可以使用等效噪声带宽或称为均方差带宽，记为$f_{RMS}$ 。对于单极型低通滤波网络， 0.5&#x2F;tr与等效噪声带宽很接近。如果给定系统的频域传输函数为H（ω），则等效噪声带宽$f_{RMS}$可表示为<br>$$<br>f_{\mathrm{RMS}}&#x3D;\frac{1}{2\pi}\int_{0}^{\infty}\left|\frac{H(\omega)}{H_{\mathrm{max}}}\right|^{2}\mathrm{d}\omega<br>$$<br>​	其中，Hmax 为H（ω）的最大值。为了弄清楚fRMS 的含义，将定义变形<br>$$<br>2\pi f_{\mathrm{RMS}} \left| H_{\mathrm{max}} \right|^{2}&#x3D;\int_{0}^{\infty} \left| H(\omega) \right|^{2}\mathrm{d}\omega<br>$$<br>​	等效噪声带宽fRMS 是这样一种频带宽度：如果频谱在该带宽定义的频率范围内幅值不变，保持频域传输函数为H（ω）的最大值Hmax ，则该频带内$|H_{\max}|^{2}$下所覆盖的矩形面积等于$|H_{\max}|^{2}$ 在整个频率范围内覆盖的面积，</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025141517606.png"></p>
+<p>​	对于单极型低通滤波网络，3dB带宽f3dB 与等效噪声带宽$f_{RMS}$ 之间有着确定的关系。下面我们通过简单的数学推导找出这种关系。将单极型RC滤波网络的传输函数写成如下形式：<br>$$<br>H(\omega)&#x3D;\frac1{1+\mathrm{j}\frac\omega{\omega_{3\mathrm{dB}}}}<br>$$</p>
+<p>$$<br>\left|H(\omega)\right|&#x3D;\frac{1}{\sqrt{1+\left(\frac{\omega}{\omega_{3\mathrm{dB}}}\right)^{2}}}&#x3D;\frac{\omega_{3\mathrm{dB}}}{\sqrt{\omega^{2}+\omega_{3\mathrm{dB}}^{2}}}<br>$$</p>
+<p>​	有Hmax &#x3D;1，将该式带入上文$f_{RMS}$计算公式中，得：<br>$$<br>\begin{aligned}<br>f_{RMS}&amp; &#x3D;\frac{1}{2\pi}\int_{0}^{\infty}\frac{\omega_{3\mathrm{dB}}^{2}}{\omega^{2}+\omega_{3\mathrm{dB}}^{2}}\mathrm{d}\omega&#x3D;\frac{1}{2\pi}\omega_{3\mathrm{dB}}^{2} \frac{1}{\omega_{3\mathrm{dB}}} \arctan\left(\frac{\omega}{\omega_{3\mathrm{dB}}}\right) \bigg|<em>{0}^{\infty} \<br>&amp;&#x3D;\frac{\omega</em>{3\mathrm{dB}}}{2\pi} \frac\pi2 \<br>&amp;&#x3D;\frac{\pi}{2}f_{\mathrm{3dB}}<br>\end{aligned}<br>$$<br>​	此时，可得等效噪声带宽与上升时间得关系式：<br>$$<br>f_{\mathrm{RMS}}&#x3D;\frac{\pi}{2}f_{\mathrm{3dB}}&#x3D;\frac{\pi}{2}\frac{0.35}{T_{r}}&#x3D;\frac{0.55}{T_{r}}<br>$$<br>​	可见，信号带宽的定义 0.5&#x2F;tr与单极型低通滤波网络的等效噪声带宽$f_{RMS}$非常接近，相当于等效噪声带宽$f_{RMS}$。如果定义带宽所使用的滤波网络的响应和单极型低通滤波网络不同，那么得到的带宽也不同。</p>
+<h3 id="3，其他说法的信号带宽"><a href="#3，其他说法的信号带宽" class="headerlink" title="3，其他说法的信号带宽"></a>3，其他说法的信号带宽</h3><p>​	从原则上讲边沿时间和时钟的唯一约束是：边沿时间一定小于周期的50%。但实际设计中，边沿时间一般要求小于时钟周期的10%，为了带宽计算方便（BW &#x3D; 0.35&#x2F;RT），估计边沿时间为时钟周期的7%；<br>​	——如此计算时钟带宽：BWclock &#x3D; 0.35&#x2F;（0.07*Tclock）&#x3D; 5Fclock，是信号频率的5倍，或则说最高正弦频率是5次谐波。（这可能是方波采集需要10倍频以上得采样时间得原因【奈奎斯特两倍于五次谐波】）</p>
+<h3 id="4，互连带宽"><a href="#4，互连带宽" class="headerlink" title="4，互连带宽"></a>4，互连带宽</h3><p>​	<strong>互连带宽是指：能被互连传输且未造成有效损耗的最高正弦波分量。</strong>对于有损传输线来说，导线损耗和介质损耗对高频分量的衰减要大于低频分量的衰减，这种选择性衰减使得互连中传播信号的带宽降低。互连的“有效”最高频率分量指的是：传输线频率分量幅度减小3dB（幅值70%左右）。<br>​	互连带宽是对互连所能传输信号的最短边沿的度量。<br>​	假设互连带宽为1GHz，那么它所能传输的最快边沿RT&#x3D;0.35&#x2F;1GHz&#x3D;350ps（本征边沿时间）；如果边沿时间为350ps的信号进入互连，那么输出边沿时间RT²out &#x3D; RT²in + RT²interconnect，，RTout &#x3D; $(\sqrt{350^2 + 350^2})$ &#x3D; 495ps。<br>​	如果要使互连对信号边沿时间的影响不超过10%，那么互连的本征上升沿要小于该信号上升沿的50%，也就是说互连的带宽要大于信号带宽的2倍；为传输1GHz带宽的信号，互连带宽至少需要2GHz。</p>
+<h3 id="5-测量带宽"><a href="#5-测量带宽" class="headerlink" title="5,测量带宽"></a>5,测量带宽</h3><p>​	测量带宽是指：对于在时域工作的测量仪器，它的测量带宽取决于它能输出到被测元件的信号的最快边沿；例如，测量所得快速阶跃边沿时间为52ps，那么边沿带宽为0.35&#x2F;52ps&#x3D;7GHz，这是时域反射计输出端信号的带宽。<br>​	为保证信号能被正确测量，最好使测量的带宽可以超过信号的带宽（5倍频）。</p>
+<h2 id="传输线理论"><a href="#传输线理论" class="headerlink" title="传输线理论"></a>传输线理论</h2><p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025145432756.png"></p>
+<h3 id="1，传输线电感"><a href="#1，传输线电感" class="headerlink" title="1，传输线电感"></a>1，传输线电感</h3><p>​	仔细观察传输线的电流回路：传输线上的电流只要从源端发出，那么它必然将会回到源端，形成一个的闭环。如下图所示传输线的信号路径（信号电流）与返回路径（返回电流）形成了一个个回路，构成类似电感器的环路结构，这个电感就叫做：回路电感。<br>​	——并非是信号从源端传播到了终端后，回流才从终端返回到了源端最终形成一个回路；而是信号在不断向前传播的同时，回流在不断地出现；下面章节会详细分析。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025145558955.png"></p>
+<h4 id="（1）传输线电感定义"><a href="#（1）传输线电感定义" class="headerlink" title="（1）传输线电感定义"></a>（1）传输线电感定义</h4><p>​	电感：L &#x3D; dφ&#x2F;dI，即在单位变化电流下在导线内部及其周围产生磁通量（磁力线匝数）的变化；再简单一点表述：电感就是导体电流为1A时周围的磁力线匝数；<br>​	假设有这么一段导线，只有这一段有电流，前后都没电流，也没有回流（这种情况实际不存在），那么它有电感么？比照电感的定义，当这段导线通过1A电流时，周围产生了磁力线，因为只要有电流流过，就会产生围绕着电流的闭合磁力线，差别只在于磁力线匝数的不同（没有那么多圈圈来叠加）。那么，这段导线的电感，我们就称它为：局部自感。<br>​	——圆杆导线局部自感近似公式：L &#x3D; 5$\times$Len[ln(2$\times$Len&#x2F;r)-(3&#x2F;4)]。</p>
+<p>​	局部自感是局部导线自身的电感，如果有导线a和导线b两条导线相邻，而且导线b中发生电流变化，那么它必然会影响到围绕着导线a的磁力线匝数发生变化，此时所产生的电感就是：局部互感。那么局部自感和局部互感就组成了：局部电感；即电感由：自感和互感组成。<br>​	——磁力线只要穿越了导线的周边范围，就必然会与导线自身的磁力线叠加或抵消，根据电感公式可知，其磁力线的大小发生变化则电感量必然发生变化。两根圆杆导线局部互感近似公式：L &#x3D; 5$\times$Len[ln(2$\times$Len&#x2F;s)-1]。</p>
+<p>​	传输线在信号传播过程中会形成一个完整的电流回路，其总电感是：回路电感，所以对于回路电感来说，必然由：回路自感和回路互感组成。</p>
+<h4 id="（2）传输线电感详解"><a href="#（2）传输线电感详解" class="headerlink" title="（2）传输线电感详解"></a>（2）传输线电感详解</h4><p>​	传输线的电流是从源端发出经过信号路径，再从回流路径返回到源端，形成一个电流环路；如下图所示，那么电流环路的电感由这几部分构成：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025150955862.png"></p>
+<ol>
+<li><p>信号路径自感（La，局部自感）：信号路径本身的电感；</p>
+</li>
+<li><p>回流路径自感（Lb，局部自感）：回流路径本身的电感；</p>
+</li>
+<li><p>信号路径和回流路径互感（Lab，局部互感）：如上图所示，信号路径a产生的磁力线会与回流路径b的磁力线相互影响（叠加或抵消），那么它们之间的相互影响就是互感。</p>
+</li>
+</ol>
+<p>​	由于回流路径上的电流方向与信号路径相反，用右手定则发现电流相反会减小相邻导线的磁力线匝数，所以此时互感的作用是减小整体电感；因此传输线回路电感：Lloop &#x3D; （La - Lab）+ （Lb - Lab）&#x3D; La + Lb – 2*Lab。互感Lab随信号路径与回流路径间距的减小而增加，随着信号频率增加，为减小Lloop（回路自感），使返回路径尽量靠近信号路径并减小回路面积（返回路径在信号路径正下方），从而增大两条路径之间的局部电感（Lab）。<br>​	回路互感指的是两条不同传输线之间产生的电感：某一回路中流过单位安培电流时，环绕在另一完整电流回路周围的磁力线匝数；电流方向不同回路互感对回路电感大小的影响不同（电流同向：回路电感&#x3D;回路自感+回路互感；电流反向：回路电感&#x3D;回路自感-回路互感）。<br>​	——磁力线的圈圈要包围住导线（电流），才能影响导线的电感，如上图中，如果磁力线落在a和b之间，那么是不会影响到导线电感的。</p>
+<p>如下为传输线所有的电感定义：</p>
+<ol>
+<li><p>局部电感：其它地方没有电流存在时，环绕在该段导线周围的磁力线匝数。</p>
+</li>
+<li><p>局部自感：仅在一段导线中有单位安培电流而其他地方无电流存在时，环绕在该段导线自身周围的磁力线匝数。</p>
+</li>
+<li><p>局部互感：仅在某一段导线中有单位安培电流而其他地方无电流存在时，环绕在另一段导线周围的磁力线匝数。</p>
+</li>
+<li><p>回路电感：流过单位安培电流时，环绕在整个电流回路周围的磁力线总匝数。</p>
+</li>
+<li><p>回路自感：完整电流回路中流过单位安培电流时，环绕在该回路周围的磁力线总匝数。</p>
+</li>
+<li><p>回路互感：某一回路中流过单位安培电流时，环绕在另一完整电流回路周围的磁力线匝数。</p>
+</li>
+<li><p>有效电感：当整个回路中流过单位安培电流时，环绕在一段导线周围的磁力线总匝数，其中包括源于回路每一部分电流的磁力线。</p>
+</li>
+</ol>
+<h4 id="（3）电感的作用和影响"><a href="#（3）电感的作用和影响" class="headerlink" title="（3）电感的作用和影响"></a>（3）电感的作用和影响</h4><ol>
+<li><p>当周围磁力线匝数发生变化时导体两端会产生感应电动势：V &#x3D; ΔN&#x2F;Δt &#x3D; L$\times$ΔI&#x2F;Δt &#x3D; L$\times$dI&#x2F;dt。导线自身电流变化时，它通过自感产生自感电动势，阻止导线自身电流的变化；<br>——所以从原理来说，相当于一个电感器的作用，会阻止导线中电流的变化。</p>
+</li>
+<li><p><strong>如果有相邻导线，则会通过互感在相邻导线上产生感应电动势，从而形成感应电压噪声。</strong><br>当导线中通过直流电流时，导线中的电流分布是均匀的，计算的磁力线匝数重点关注导线外的磁力线，事实上如下左图的横截面所示导线内部也存在磁力线（上节所述的内电感），是导线自感的一部分；导线内部和外部磁力线圈都会影响自感，我们称它们为：内部自感和外部自感。<br>如下中图所示当电流聚集在导线的中间I1或则分散在边缘I2（I1 &#x3D; I2），它们的自感一样么？如下右图所示，I1和I2的磁力线只是分别围绕在I1和I2的外面，I1和I2电流大小相等，那么在I2圈外呈现的I1和I2的磁力线匝数（电感）相同；但是在导线内部I1存在着相比于I2更多的磁力线匝数（内部自感部分），这些多出来的磁力线匝数就是I1相对于I2更大的电感量。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025152102697.png"></p>
+<p><strong>趋肤效应</strong></p>
+<p>​	导线外部的磁力线匝数（外部电感）并不会随着频率的变化而变化，但是导线内部磁力线匝数（内部电感）会随着电流的分布而出现变化。随着频率的增加导线的感抗Z&#x3D; jωL也随之增加，而电流总是循着最小阻抗的路径流动，当导线感抗与电阻比值随着频率越高越大时，电流便越趋于沿着导线的外表面流动（此时导线内部电感小，减小感抗），这就是趋肤效应。<br>​	趋肤效应影响的结果是随信号频率的增大而导线电流趋于分布到导体外表面，影响如下：</p>
+<ol>
+<li>导线自感减小，从而减小了传输线的回路电感；</li>
+<li>导线电流通过的横截面减小（Z&#x3D;ρ*L&#x2F;A），导线电阻增加，线路损耗增加。</li>
+</ol>
+<p>​	随着电流频率的增加，电流流向导线的外边缘，大部分电流集中在一个厚度等于趋肤深度导线的趋肤深度δ的环面中： δ &#x3D; √(1&#x2F;σ$\times$π$\times$μ$\times$f)。其中，σ：电导率；μ：磁导率；f：正弦波频率；一般典型的导体都是非铁磁性的，所以μ &#x3D; μ0 &#x3D; 4π*10⁻⁷。<br>​	——铜线的趋肤深度：δ &#x3D; 66$\times$√(1&#x2F;f)μm。</p>
+<p>​	趋肤效应会将电流聚集到导线表面，使得通过导线的实际横截面积减小，那么其必然会增加导线的电阻率（单位长度的电阻大小）。如下图所示，对圆导线的电阻损耗进行分析：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025201804261.png"></p>
+<p><strong>临近效应</strong></p>
+<p>​	趋肤效应是导线自感所导致的一种现象，那两条导线之间的互感会导致传输线什么样的现象？答案是：邻近效应。</p>
+<ol>
+<li><p>信号路径上电流与回流路径上电流的方向是相反的，回路电感&#x3D;自感-互感；</p>
+</li>
+<li><p>在高频电流中信号路径与回流路径中的电流分布靠的越近，它们所构成的回路面积就越小（互感越大），从而传输线回路电感就越小。</p>
+</li>
+</ol>
+<p>——电流分布总是趋于低阻抗的路径流动，如果是直流电流呢？那么电感就毫无作用（Z &#x3D; jωL &#x3D; 0），所以此时电阻占据主要作用，所以电流就会按照最小电阻的路径来流动（电流平均布满整根导线，实现最低电阻）。</p>
+<p><strong>涡流</strong></p>
+<p>​	根据电磁感应原理：在两个相互靠近导体中，一个导体上电流有改变，那么另外一个导体的两端会产生感应电压，同时该感应电压会形成电流；再简单点表述：当其中一个导体电流变化时，另一个导体会产生感应电流，这个感应电流就是涡流。<br>​	涡流存在于所有的所有的导体结构，但有一种非常特殊的几何结构：电流回路靠近大的导电平面；假设金属平面（可以不是GND或电源）上方有一个线圈，当线圈中有电流变化时，变化的磁力线就会穿过导电平面，并在平面上激起涡流，这些涡流反过来会影响自己产生的磁力线。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025203203459.png"></p>
+<p>​	如上右图所示，通过麦克斯韦方程组求解：涡流产生的磁力线结构就像是平面下方的另一电流产生，它与平面的距离和真实电流与平面的距离相等，这个虚构的电流称为：镜像电流。镜像电流与实际电流大小相等，方向相反，而且镜像电流的一些磁力线会环绕在实际电流周围，源于涡流的互磁力线圈将减小导线的总电感，实际上就是减小了线圈的局部电感。<br>​	在电感下方铺铜皮（GND或其它），是否能减小其正下方导线的影响？首先，铜线以及FR4介质的磁导率约为1，对电感所产生的磁力线无任何作用，磁力线可以轻易穿透铜皮和介质不会产生衰减，对磁力线产生影响的只是与电感距离的大小，离电感越远磁力线密度越小，互感就越小。<br>​	刚刚分析了铜皮会产生涡流，必然会增加了互感，从而减小了电感的感量。如果是开关电源的电感，那么随着电感感量的减小，输出电源纹波电流会增加。另外，铜皮涡流势必会导致电源&#x2F;GND平面的噪声增加，影响EMI辐射。</p>
+<h3 id="2，传输线电容"><a href="#2，传输线电容" class="headerlink" title="2，传输线电容"></a>2，传输线电容</h3><h4 id="（1）电容的概念"><a href="#（1）电容的概念" class="headerlink" title="（1）电容的概念"></a>（1）电容的概念</h4><p>​	电容是两块导体中间夹着一块绝缘体构成的电子元件，实际上任何两个绝缘导体之间都有一定的电容量；<br>​	如果给两个导体上分别加上正电荷和负电荷，那么两个导体之间会存在电压，那么这一对导体的电容量就是单个导体上存储电荷量和导体之间电压的比值：C &#x3D; dQ&#x2F;dV；两个导体在给定电压下储存电荷越多，电容值就越大。<br>​	电容中间是绝缘介质材料，两个导体之间不存在直流通路，只有当导体两端电压发生变化时，才会有电流流经电容器：I &#x3D; ΔQ&#x2F;Δt &#x3D; C*dV&#x2F;dt；这个电流是等效电流（并不是真的有电流从电容中间流过）称之为：位移电流；（在导体中自由电荷的运动称之为：传导电流）。当dV&#x2F;dt保持不变时，电容容量越大，流过电容的电流就越大，表现出来的电容阻抗就越小。<br>​	平行板电容是PCB上的常见电容形式，电容量近似表示为：C &#x3D; ε0 * εr * A&#x2F;d；该式表明一个重要的几何结构特征：导体间距越大，电容量越小；重叠面积越大，电容量越大。</p>
+<h4 id="（2）介质介电常数"><a href="#（2）介质介电常数" class="headerlink" title="（2）介质介电常数"></a>（2）介质介电常数</h4><p>​	<strong>极化的概念，任何物质在电场的作用下都会被极化，如下图所示在外部电场E的作用下，介质内部会产生一个强度为E’的反向电场。</strong>由于增加在两个导体上电荷所形成的电场E被介质极化电场E’削弱，所以需要在导体上增加更多的电荷Q才能达到原本的电场强度E0（外在表现为导体间电压），从而增加了电容量；其增加电容量的比例就是相对介电常数：εr &#x3D; E&#x2F;E0 &#x3D; E&#x2F;(E-E’) &#x3D; C&#x2F;C0。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025204558640.png"></p>
+<p>​	</p>
+<p>​	当电介质受到静电场作用时，往往要经过一段时间（磁豫时间&#x2F;偶极子运动时间）极化强度才能达到其最终值；如果电介质受交变电场作用，而交变电场的改变相当迅速时，极化就会追随不及而滞后，从而导致动态介电常数与静态介电常数之间的不同；当信号频率上升到驰豫极化完全跟不上电场的变化（假设100GHz），只会有瞬时极化发生，此时εr 趋向于 1，且无介质损耗发生；</p>
+<p>​	信号频率变化引起介电常数变化的同时，还会导致介质损耗；由于电介质在电场作用下偶极子会发生移动（从而产生极化），这会导致电场能量的损耗：</p>
+<ul>
+<li>随着频率的增加，电场周期变短，短到可以与驰豫时间相比，极化时间逐渐跟不上电场的变化，这时介质损耗也逐渐增加；</li>
+<li>同时偶极子运动所产生的极化电流（信号路径与回流路径之间的漏电流&#x2F;电导）也逐渐增加。<br>——这是除了趋肤效应外的另一高频损耗，且跟电介质本身特性强相关。</li>
+</ul>
+<h2 id="集总和分布模型"><a href="#集总和分布模型" class="headerlink" title="集总和分布模型"></a><strong>集总和分布模型</strong></h2><p>​	对于信号传输来说，其实就是电磁波的传播。所以对于电路长度来说：重要的不是走线电路本身的尺寸（长度），而是电尺寸（电路尺寸&#x2F;波长）。<br>​	波长代表了电磁波相位改变360°时传播的距离。虽然麦克斯韦的方程组可以解释所有的电现象，但太复杂了不便于应用啊。那是否有方法能够简化的呢？</p>
+<p>​	有一种近似的方法：采用集总模型和基尔霍夫定律来分析。即当电路最大尺寸为电小尺寸时。那又如何定义电小尺寸呢？<br>​	只要电路尺寸（PCB走线长度）远小于信号波长就行了；一般来说当电路的最大尺寸（走线长度）小于信号最高频率波长的1&#x2F;10时，就认为是电小尺寸。好，那我们来总结一下：当PCB走线（线缆）长度小于信号最高频率对应的波长1&#x2F;10时，就认为是集总模型，可以用基尔霍夫定律。</p>
+<p>​	一般情况下，如果连接线长度小于信号激励源频率对应波长的1&#x2F;10，那么我们就假定相移可以忽略不计。在一些特殊情况下，可能要求更高。<br>​	——对电路设计来说，电尺寸比PCB走线长度（电路尺寸）更重要，因为当走线长度小于波长的1&#x2F;10时，信号经过该距离的传播后的相移可忽略不计，所以此时连接线可认为是电小尺寸。	</p>
+<p>​	计算电尺寸来判断一个电路是否为电小尺寸（L &lt; λ&#x2F;10），如果是电小尺寸，就可以运用比电大尺寸（L &gt; λ&#x2F;10）更简单的集总参数电路模型，采用基尔霍夫电压和电流定律；如果是电大尺寸（分布参数电路模型），那么只能运用麦克斯韦方程组或则用一系列集总参数电路串行来近似。对于分布参数电路模型来说，电磁波的滞后效应不可忽略，沿线传播的电磁波不仅是时间的函数，而且是空间坐标的函数。</p>
+<h2 id="传输线"><a href="#传输线" class="headerlink" title="传输线"></a>传输线</h2><h3 id="1，传输线定义"><a href="#1，传输线定义" class="headerlink" title="1，传输线定义"></a>1，传输线定义</h3><p>​	传输线就是：由两条有一定长度的导线组成，把电磁能从电路的一端送到电路另一端的装置。</p>
+<ol>
+<li>从传输线的物理结构描述：是由两条有一定长度的导线组成；</li>
+</ol>
+<ul>
+<li>两条：从某种意义上来说是对的，因为信号的传输就是通过：信号路径和回流路径，这两条“导线”来实现的；但实际信号传输过程中，特别是回流路径往往并不是简单的一条路径，而是根据其固有物理规律（回路阻抗最小）自行选择的n条回流路径；从另外一层意义上来说：传输线说的就是信号路径与回流路径之间的关系，与其它（电源、地）无关；<br>——之所以是n条，因为信号路径上的信号频率一般不是单一频率（有很多频率分量等等），所以不同频率分量就对应了不同的回流路径，很难确定具体的回流路径。</li>
+<li>一定长度：固定长度的导线对于信号A是传输线，可能对信号B来说就只是导线；对于传输线来说，导线长度与信号的边沿时间强相关，它要满足分布系统模（导线长度大于或等于波长），在短线模式或集总系统中的导线不再是传输线（不适用传输线模型的相关理论），而只是导线(可使用基尔霍夫定律解决)</li>
+</ul>
+<ol start="2">
+<li>从传输线的功能描述：把电磁能从电路的一端送到电路另一端的装置；</li>
+</ol>
+<p>（1）电磁能：传输线传输的是电磁波；那么什么是电磁波呢？</p>
+<ul>
+<li>固定的3.3V电平或0V电平是电磁波么？很明显，固定电平并不会产生电磁波，电磁波的传播只发生在信号发生跳变的一瞬间；<br>——固定电平只有固定的电场和磁场，而非交替出现的电磁场（电磁波）。</li>
+<li>传输线只传输由3.3V变成0V或则0V变成3.3V的这些信号边沿，固定的电平不是传输线所传播的；所以高速还是低速信号的判断不在于信号本身频率的高低，而在于传输信号边沿的快慢（最高频率分量）。<br>——但是信号本身频率更高，往往意味着边沿跳变更快，它们是有关联的。</li>
+</ul>
+<p>（2） 从电路的一端送给电路另一端：电磁能的传输需要从发送端传到接收端，需要保证的是接收端信号能够被正确的接收，而不是要求发出端的信号完整，这是传输线的意义所在。<br>    ——测试信号质量的时候是选择发送端还是接收端呢？明显是接收端，但一不小心测了发送端，发现发送端的信号质量很差，会不会有问题呢？发送端信号质量差是正常的。</p>
+<h3 id="2，传输线工作原理"><a href="#2，传输线工作原理" class="headerlink" title="2，传输线工作原理"></a>2，传输线工作原理</h3><p>​	实际设计中，回流路径往往是回流地或电源，但我们需要明确地将：回流路径的概念与回流地&#x2F;电源区分开，避免导致概念的混淆。</p>
+<ol>
+<li><p>只有当信号路径相对回流路径有电压跳变时（信号前沿），信号路径上的电流通过互感和电容（信号路径相对于回流路径）流向回流路径（位移电流）；<br>——需再次强调：传输线模型只使用于跳变信号（信号前沿），对于固定电平，传输线模型的电感和电容不起作用（电感短路，电容开路），此时起作用的只是导线的串联电阻。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025210526597.png"></p>
+</li>
+<li><p>假设有一个导线从地球延伸到月球，此时传输线延时约为1.2s（约38万公里）：信号电流从地球向月球传输，返回电流从月球向地球传输形成一个电流环路，那么返回电流是信号电流到达月球后，再从月球发送回来的么（总共经过2.4s）？</p>
+</li>
+</ol>
+<ul>
+<li>当信号电流从地球（源端）发出的瞬间，就开始对传输线电容进行充电：电流从<strong>芯片电源-&gt;芯片驱动管脚-&gt;信号路径-&gt;电容-&gt;回流路径-&gt;芯片电源</strong>，形成一个完整的回路，即返回电流是跟随信号电流即时产生的；</li>
+<li>信号还未传到远处时，它还不知道后面的传输线结构如何，电流已经过返回路径回到源端，仅仅与信号前沿的环境（介电常数和磁导率等）和信号前沿所在的那一小段传输线有关；</li>
+<li>一旦信号路径中信号发出，回流一直存在，直到在接收端的回流返回到源端，总共花费时间是：2倍的走线延时（举个栗子：地球与月球之间延时的两倍：2.4s）。</li>
+</ul>
+<p><strong>所以可以得到结论</strong></p>
+<p>​	只有在信号前沿（跳变）处的导线才工作在传输线模式，且信号状态只与信号前沿所处位置有关；<br>​	——只有信号边沿（特定时间）所占据的那段导线（特定位置）才是传输线；并非导线的任何时刻、任何位置都是传输线。</p>
+<h3 id="3，传输线如何回流"><a href="#3，传输线如何回流" class="headerlink" title="3，传输线如何回流"></a>3，传输线如何回流</h3><p>​	传输线的回流路径并非一定要是GND平面，那么对于回流平面不是GND平面的情况下是怎样的呢？	<br>​	如下图所示，一条带状线（什么是带状线？置于2个平行的地平面（或电源平面）之间的电介质之间的一根传输导线）上层是电源平面，下层是GND平面，那么信号线中传输信号时，它会智能地选择GND平面来作为回流么？</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025211023746.png"></p>
+<ol>
+<li>当信号线上的电平由低（0）到高（1）跳变时，其电流通路如下图所示；</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025211218758.png"></p>
+<p>（1）首先，我们必须要清楚电流从哪里流出来，必然要流回到哪里去；所以当信号线从0—&gt;1跳变时，这些电流是从哪里来的呢？对于CMOS电平驱动来说，其必然来自于器件的电源管脚VCC；</p>
+<p>（2）电流从VCC通过MOS管流向信号线，信号线上的电流不断通过信号路径与回流路径之间的电容，要返回到VCC去；</p>
+<p>（3）但是对于信号来说，它并不清楚上面那层是VCC平面，下面那层是GND平面，所以信号边沿只会根据所处的电路结构来决定回流到VCC平面和GND平面的电流大小；<br>    ——所谓的电路结构，是指信号线与VCC之间的距离（寄生电容）和信号线与GND之间的距离（寄生电容）大小。</p>
+<p>（4） 两组信号回流路径如下：</p>
+<ul>
+<li><p>VCC平面作为回流路径（黄色箭头）：VCC平面-输出器件VCC电源管脚，阻抗非常小；</p>
+</li>
+<li><p>GND平面作为回流路径（绿色箭头）： GND平面-输出信号器件附近的GND平面-去耦电容返-输出器件VCC电源管脚。<br>——相对回流到VCC平面来说，回流到GND平面的回流反而具有更大的阻抗：去耦电容容抗；当然去耦电容容抗对于高速信号来说也是非常小的，一般10uF陶瓷电容器，理想情况下（不考虑寄生电感）在10MHz的容抗是：|Zc| &#x3D; |1&#x2F;jωC | &#x3D; 1&#x2F;2πfC &#x3D; 1.6mΩ；那如果10nF陶瓷电容器（不考虑寄生电感）在100MHz下，容抗也只有160mΩ。所以基本可以忽略不计。</p>
+</li>
+</ul>
+<ol start="2">
+<li>当信号线上的电平由高（1）到低（0）跳变时，其电流通路如下图所示；</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025211411652.png"></p>
+<p>（1）当信号线从1—&gt;0跳变时，信号线通过下管MOS管驱动到GND，所以信号线上的电流流回到输出器件内再到器件GND管脚；</p>
+<p>（2）那么从信号线上的电流是从哪里来的呢？由上图可以看出，这些电流是从VCC平面和GND平面（回流路径）中来的；电流通过VCC平面和GND平面上寄生电容流向了信号线；<br>    ——为什么GND平面也会有电流流向信号线？因为信号线与GND平面间电容起始状态是充满电（有电压差）的，当信号线瞬间降低到0电平，电容两端必须有电流释放出来（GND-信号线方向）；同理信号线与VCC平面之间寄生电容时没有电压差的，当信号线瞬间降低到0电平时，必须进行充电（VCC-信号线方向）；所以VCC平面和GND平面都有电流流向信号线。</p>
+<p>（3） 电流从哪里来，那它必将回到哪里去；所以它们从VCC和GND平面（回流路径）中出来的电流，必将会从输出器件的GND管脚出发，返回到VCC和GND平面（回流路径）中去；<br>——电流必将回到信号路径对应的回流路径位置的VCC和GND平面上，我们可以将它看成一个实体的电容器来理解：举个栗子，从电容器的+端输出电流，必将回到它的-端去。</p>
+<p>（4）两组信号回流路径如下：</p>
+<ul>
+<li><p>VCC平面作为返回路径（黄色箭头）：从输出器件的GND管脚-去耦电容-输出器件附近VCC平面-VCC电源平面；</p>
+</li>
+<li><p>GND平面作为返回路径（绿色箭头）：从输出器件的GND管脚-GND平面。</p>
+</li>
+</ul>
+<p>​	所以，有结论为：从原理上来说：信号的回流路径是GND平面还是VCC平面，是完全等价的。但为什么我们一般都要选择用GND作为回流平面呢？主要原因在于：</p>
+<ol>
+<li><p>在单板上，不同的器件之间的GND一般是同一个，而且会铺有完整的GND平面；</p>
+</li>
+<li><p>单板上的电源种类有很多，一般不同电源会对电源层进行分割，所以如果以电源平面作为参考，一般情况下会出现回流不连续的情况；</p>
+</li>
+<li><p>并不是所有的VCC平面都可以作为回流路径的，最好是器件的I&#x2F;O电源，起码是输出器件的电源；但如果不是输出器件的电源，那么回流路径会出现不连续，导致传输线阻抗不连续。</p>
+</li>
+</ol>
+<h3 id="4，传输线的阻抗与时延"><a href="#4，传输线的阻抗与时延" class="headerlink" title="4，传输线的阻抗与时延"></a>4，传输线的阻抗与时延</h3><p>​	传输线最重要的两个特征是：1，特征阻抗；2，时延（信号传播速率）。</p>
+<p>​	我们知道信号在传输线上传播的过程中，其电压&#x2F;电流（阻抗）的特性类似电阻，无损传输线可以很好的近似传输线的特征阻抗和时延特性，计算也相对方便，所以先用该模型进行分析。</p>
+<h4 id="（1）传输线阻抗"><a href="#（1）传输线阻抗" class="headerlink" title="（1）传输线阻抗"></a>（1）传输线阻抗</h4><p>​	如下图是无损传输线模型，以及在信号传输过程中的电流完整的流动过程，我们用电感L和电容C来描述传输线的回路电感和电容；</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025212141737.png"></p>
+<ol>
+<li>L在如下拓扑中，指的是回路电感，这是一个等效电感：不是信号路径的局部电感，而是信号路径与回流路径构成的回路电感；所以该电感跟回流路径强相关。当传输线信号路径不变，而回流路径不连续时（例如：信号线的参考GND层被分割，回流路径就要绕远路），传输线的电感会增大；</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025212258789.png"></p>
+<ol start="2">
+<li>C在如下拓扑中，指的是信号路径相对于回流路径之间的电容。<br>——线与回流地之间的板间电容，其间距是PCB层间距，介电常数是FR-4材料的参数。<br>我们知道无损传输线的阻抗模型等效为：很多组串联在信号路径上的L和并联在信号路径与回流路径之间的C组成；而且电流是从信号路径到回流路径的方向，由此得出传输线的阻抗可以等效为搭接在信号路径与回流路径的一个电阻（并联电阻）</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025212504261.png"></p>
+<p>​	如上图所示，如果传输线的阻抗是搭在信号路径与回流路径之间的电阻，那么这么多电阻并联后应该是Z0&#x2F;n而不是Z0。<br>​	回到传输线的定义来：信号在传播过程中只有信号前沿的那部分导线才能看成是传输线。</p>
+<p>​	如下图所示，在信号跳变的左侧是高电平（例如3.3V），右侧是低电平（0V），信号路径与回流路径上的电压差保持不变，没有发生充放电的动作，所以这些地方阻抗是无穷大（导线上的信号是固定电平，则信号路径和回流路径之间电压不会变化，此时电容不会进行充放电，所以电流I &#x3D; 0；而Z &#x3D;U&#x2F;I &#x3D; ∞，相当于断开）；只有处于信号前沿的信号路径与返回路径之间进行着充放电的动作，电容和电感才有了用武之地，成为特征阻抗：Z0。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025212736926.png"></p>
+<p>​	所以，有结论为：传输线的阻抗是信号前沿（跳变）处所受到的阻抗，它是一个瞬时的阻抗。所以传输线阻抗也可以看成串接在信号路径上的一个电阻。<br>​	****传输线阻抗是信号在传输过程中，信号前沿所受到的信号路径与回流路径之间瞬时阻抗****。<br>​	如果传输线的瞬时阻抗在整条导线上都保持恒定（传输线瞬时阻抗保持一致），那么我们称之为：传输线的特征阻抗。传输线特征阻抗的特点是：它只与介质材料、传输线结构相关，与传输线长度无关。</p>
+<h4 id="（2）传输线时延"><a href="#（2）传输线时延" class="headerlink" title="（2）传输线时延"></a>（2）传输线时延</h4><p>​	传输线时延指的是：信号在传输线上传播过程中，电场与磁场建立的快慢。<br>​	信号传输本质上是电磁波的传播，受到介电常数和磁导率的影响，铜线和板材介质相对磁导率是1，不影响信号传播速率，所以信号传播速度主要受到介质介电常数的影响。<br>​	在同一介质材料（相同介电常数εr）中信号传输速度V &#x3D; 1&#x2F;√(LC)是保持不变的，不会因为导线结构的改变而改变，由于各种情况导致的L或C的改变，可以很好的定性分析对应C和L的变化。</p>
+<h3 id="5，有损传输线"><a href="#5，有损传输线" class="headerlink" title="5，有损传输线"></a>5，有损传输线</h3><p>​	实际传输线总是存在损耗的，有损传输线的模型如下图所示，除了串联回路电感和并联电容之外，还有串联电阻和并联电导；传输线的损耗主要就来自于这两部分电阻。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025213536642.png"></p>
+<ol>
+<li>串联电阻是指：金属导线本身的电阻，在直流条件下导线本身电阻是非常小（mΩ级别）；</li>
+</ol>
+<p>——随着信号频率的增加，由于趋肤效应导致导线电阻增加，造成导线对信号的损耗。</p>
+<ol start="2">
+<li>并联电导是指：导线（信号路径）与回流路径之间的漏电流，由于介质材料是绝缘材料，介质本身电阻非常大，所以在直流条件下电阻非常大（漏电流为nA级别），可以忽略不计；</li>
+</ol>
+<p>——随着频率的增加，随着电场变化介质中偶极子运动产生了更大的损耗（介质损耗）。</p>
+<ol start="3">
+<li><p>对于传输信号来说，不管是串联电阻还是并联电导都会造成信号高频分量更大的损耗，高频信号分量损耗的大小决定了传输线的传输带宽；</p>
+</li>
+<li><p>假定εr在频率中保持不变（实际应用中εr会随频率升高而减小），如下图中α为传输线衰减常数，β为相移常数：</p>
+</li>
+</ol>
+<ul>
+<li><p>在高频时电阻分量远小于感抗，所以传播速度接近无损传输线；</p>
+</li>
+<li><p>在低频时电阻分量不可忽略，其传播速度小于无损传输线；</p>
+</li>
+<li><p>所以信号的高频分量的传播速度要大于低频分量的传播速度，会导致信号上升沿先快后慢。</p>
+</li>
+</ul>
+<p><strong>对于高速信号，我们可以有几个方法来降低传输线损耗的问题：</strong></p>
+<ol>
+<li>选用低损耗介质（不是低介电常数）；</li>
+<li>尽量减小导线长度；</li>
+<li>增加导线宽度，但这会影响差分阻抗，影响差分线之间耦合度。</li>
+</ol>
+<h2 id="信号的反射"><a href="#信号的反射" class="headerlink" title="信号的反射"></a>信号的反射</h2><p>​	传输线信号传输的本质是电磁波信号传播，但是其信号反射原理同光的反射&#x2F;折射完全不同，传输线信号的反射是由于传输线阻抗的变化所导致，而非介质变化引起的。我们知道电磁波的反射会导致其部分能量的损失，所以传输线信号的反射就不可避免的同信号质量联系在一起，我们要尽量避免传输线中间的阻抗不连续点。<br>​	且传输信号的目的是：让接收端能正确的接收到信号。很明显假如信号发生了反射，那么根据能量守恒原理，入射信号的能量必然会减小，信号幅度必将发生变化。</p>
+<h3 id="1，信号为什么反射"><a href="#1，信号为什么反射" class="headerlink" title="1，信号为什么反射"></a>1，信号为什么反射</h3><p>​	信号沿传输线传播时，路径上每点都有相应的瞬时阻抗，若瞬时阻抗发生变化（阻抗由原先的50Ω变成60Ω），那么部分信号将沿着与原传播方向相反的方向反射，而另外一部分将继续传播。<br>​	用物理规则结合数学公式来推导信号反射的原理，当信号沿着传输线从阻抗Z1进入到Z2的边界，此时必须保证在此边界处：V1&#x3D;V2，I1&#x3D;I2；同一点的电压和电流必须保持连续：既然交界处电流相等I1&#x3D;I2，又有I1 &#x3D; V1&#x2F;Z1 ，I2 &#x3D; V2&#x2F;Z2；从而推导出V1&#x2F;Z1 &#x3D; V2&#x2F;Z2，而Z1 ≠Z2，很显然：V1&#x3D;V2，I1&#x3D;I2，I1 &#x3D; V1&#x2F;Z1 ，I2 &#x3D; V2&#x2F;Z2；这四个等式不能同时满足。<br>​	所以，必须在区域1中产生一个反射回源端的电压，它唯一的目的是吸收入射信号和传输信号不匹配的电压和电流。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241025214721286.png"></p>
+<p>​	如上图所示，那我们用V入射，V反射，V传输来表示信号在阻抗交界面产生的电压，其对应的电流分别是I入射，I反射，I传输；电流和电压关系需满足：V入射+V反射&#x3D;V传输；I入射-I反射&#x3D;I传输；那么，V入射&#x2F;Z1 - V反射&#x2F;Z1 &#x3D; V传输&#x2F;Z2； 再由 V入射&#x2F;Z1 - V反射&#x2F;Z1 &#x3D; （V入射+V反射）&#x2F;Z2；可得：<br>$$<br>ρ &#x3D; V反射&#x2F;V入射&#x3D;（Z2-Z1）&#x2F;（Z2+Z1）；t &#x3D; V传输&#x2F;V入射&#x3D; 2*Z2&#x2F;（Z2+Z1）。<br>$$<br>​	——ρ：反射系数；t：传输系数。</p>
+<p>​	从下图传输线信号传输模型来定性理解阻抗突变导致的反射现象，假设Z0&#x3D;50ohm，Z1&#x3D;100ohm，输入电压V&#x3D;5V；传输线电流在阻抗突变交接前电流是：5V&#x2F;50ohm &#x3D; 100mA；由于传输线上存在电感，电流不能突变，考虑极端情况：100mA全部电流涌入Z1（100ohm），那么此处会产生电压V2 &#x3D; 100ohm*100mA &#x3D; 10V，此时传输（Z1）电压大于入射（Z0）电压5V，那么必将产生一个反射电流I反&#x3D; (5V-10V)&#x2F;50ohm &#x3D; -100mA。而在实际情况中，当电压上升到大于5V后，电感两端产生反向电压，正向流入的电流迅速减小，同时产生反射电流&#x2F;电压，传输电流不会上升到100mA的极限值，最终形成一个平衡。</p>
+<p><img src="/C:/Users/LLX/AppData/Roaming/Typora/typora-user-images/image-20241025215320264.png"></p>
+<h3 id="2，低源端阻抗无匹配传输线"><a href="#2，低源端阻抗无匹配传输线" class="headerlink" title="2，低源端阻抗无匹配传输线"></a>2，低源端阻抗无匹配传输线</h3><p>​	假设驱动器内阻为10ohm，无损传输线阻抗为50ohm，终端阻抗∞（开路&#x2F;无匹配）；信号传输的过程如下：</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026091627096.png"></p>
+<ol>
+<li><p>信号从源端发出电压沿着传输线传输，从传输线模型可知此时驱动器内阻与传输线阻抗形成分压关系，V源端1 &#x3D; [50&#x2F;(10+50)]*1V &#x3D; 0.84V；</p>
+</li>
+<li><p>经过阻抗连续的无损传输线，Td &#x3D; 1ns的延时，信号V源端1无损耗的传播到终端，信号幅度为0.84V；</p>
+</li>
+<li><p>此时在终端开路，阻抗为∞，传输线阻抗不连续而发生发射，反射系数为：(∞-50)&#x2F;(∞+50) &#x3D; 1，表示全反射；终端电压幅度V终端1 &#x3D; 0.84V+0.84V&#x3D;1.68V，此时有0.84V电压从终端反射回源端；</p>
+</li>
+<li><p>信号到达源端后，源端阻抗为10ohm，注意反射回源端时这个10ohm是并联在电源轨道上，此时电源等价于回流路径，所以不是分压而是反射；反射系数为：（10-50）&#x2F;（10+50）&#x3D; -0.667，反射电压 V源端反射1 &#x3D; 0.84V*（-0.667）&#x3D; -0.56V，  V源端2 &#x3D; 0.84+0.84V–0.56V&#x3D;1.12V；</p>
+</li>
+<li><p>V源端反射1 电压（-0.56V）经传输线再传输到终端，终端全反射，所以终端电压V终端2 &#x3D;1.68V-（0.56V*2）&#x3D; 0.56V；</p>
+</li>
+<li><p>同理-0.56V（反射电压）再传输回源端，至此形成一个振荡，其振荡频率为传输线延时的4倍；振荡幅度不断衰减直至输出信号电压1V。</p>
+</li>
+<li><p>下面探讨几个问题</p>
+</li>
+</ol>
+<p>（1）为什么是源端信号最初发出来的信号与特征阻抗是分压关系？</p>
+<ul>
+<li><p>如下图所示，当一个高电平信号Vo刚刚从器件中发出，它首先是经过了一个串联的内阻Zs；<br>——如果外接了源端串联匹配电阻，那么Zs包括匹配电阻，要求是串联匹配电阻与芯片之间的距离满足集总模型长度（即，走线长度要小于1&#x2F;10的信号波长），这也是为什么源端匹配尽量靠近发送端的原因。</p>
+</li>
+<li><p>信号传播到传输线上后，受到一个传输线的特征阻抗Z0，我们上一章已经说明了，Z0是信号路径相对于回流路径的阻抗（即如下图），并非如源端的阻抗（内阻和源端匹配）是串在信号路径上的；</p>
+</li>
+<li><p>现在就是一个非常简单的计算了，V1 &#x3D; Vo*Z0&#x2F;(Zs+Z0)。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026092120968.png"></p>
+<p>（2）第二个问题是：为什么信号在理想传输线的传输过程中不会产生反射呢？</p>
+<p>​	如下图所示，假设信号在传播过程中，从第2个Z0切换到了第3个Z0，此时传输线上的电流并不会发生变化，即电流一直处于连续状态，所以电压也不会发生变化；<br>​	——如下示意图中，特征阻抗是分离开的一个个Z0，这只是为了便于理解；实际传输线上的特征阻抗并非是离散的，而是随着信号边沿的传播过程而非常连续的：当信号边沿连续从左往右传播时，一部分传输线结束了充放电（L+C），另一部分则开启了充放电（L+C）。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026092214042.png"></p>
+<ol start="2">
+<li><p>Hx(ω) &#x3D; exp √{-x[(R(ω) + jωL)*(jωC) ]}，传输线传递函数，包含传输线损耗和延时；</p>
+</li>
+<li><p>T(ω)&#x3D; [2*ZL(ω)]&#x2F;[ZL(ω)+Z0(ω)]，终端传输系数<br>——传输系数，即传输过去的信号幅度比例。</p>
+</li>
+<li><p>R2(ω) &#x3D; [ZL(ω)-Z0(ω)]&#x2F;[ ZL(ω)-+Z0(ω)]，终端反射函数；终端反射是如何发生的呢？</p>
+</li>
+</ol>
+<ul>
+<li>如下图所示，当信号传输至终端时，原来传输线上的电流I0 &#x3D; V0&#x2F;Z0，但是ZL &gt; Z0的话：IL &#x3D; V0&#x2F;ZL，此时IL &lt; I0，必然会多出一部分电流没地方去，只能原路返回。<br>——假如ZL为无穷大，那么这些电流没地方流出去，只能全部返回回来，所以此时的电流I &#x3D; 2$\times$I0，那我们可以根据欧姆定律得到电压V &#x3D; 2$\times$I0$\times$Z0 &#x3D; 2$\times$V0；这是全反射的情况。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026093758099.png"></p>
+<ol start="5">
+<li>R1(ω) &#x3D; [Zs(ω)-Z0(ω)]&#x2F;[ Zs(ω)-+Z0(ω)]，源端反射函数。</li>
+</ol>
+<ul>
+<li><p>如下图所示，当从终端反射回来的信号边沿到达源端，源端阻抗Zs是一端连接至Vcc或GND的；</p>
+</li>
+<li><p>如果Zs是接到GND（即，输出驱动为低），那么就比较好理解，它在电路结构中的位置等价于特征阻抗Z0和终端阻抗ZL，所以其也是有传输系数和反射系数的；</p>
+</li>
+<li><p>如果Zs是连接到VCC（即，输出驱动为高），需要摒弃回流是GND的这种错误观念，在信号回流上VCC和GND是等价的，VCC就可以当做GND。</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026094001514.png"></p>
+<h3 id="3，短线模式下的传递模型"><a href="#3，短线模式下的传递模型" class="headerlink" title="3，短线模式下的传递模型"></a>3，短线模式下的传递模型</h3><p>​	当输入信号的边沿时间足够长（线长&lt;1&#x2F;6 Tr），所有错开振荡部分会混合叠加，不会产生振铃现象，仅当信号上升时间能够与信号在传输线上的延迟差不多甚至更小时（长线），才会出现明显的过冲和振铃。<br>​	根据如上的理论推导，在短线模式下传输线的损耗和延时都可以忽略不计，且T(ω)&#x3D; R2(ω)+1；可以将传输函数简化：Sshort(ω)&#x3D; [A(ω)$\times$(R2(ω)+1)]&#x2F;[1-(R2(ω)$\times$R1(ω)] ，将函数代入源端阻抗Zs，传输线阻抗Z0，终端阻抗ZL计算，Sshort(ω) &#x3D; ZL&#x2F;(ZL+Zs)。<br>得到一个重要的结论：在短线模式下的传输模型是由负载阻抗ZL和源端阻抗Zs构成的简单阻抗分配网络。<br>——源端串联阻抗匹配有用么？当然有用，串阻叠加到Zs上，从而减小接收端信号电压幅度。</p>
+<h3 id="4，高源端阻抗无匹配传输线"><a href="#4，高源端阻抗无匹配传输线" class="headerlink" title="4，高源端阻抗无匹配传输线"></a>4，<strong>高源端阻抗无匹配传输线</strong></h3><p>​	源端阻抗值大，主要体现在源端阻抗分压：A(ω) &#x3D;Z0(ω)&#x2F;[Zs(ω)+Z0(ω)] 和源端反射系数：R1(ω) &#x3D; [Zs(ω)-Z0(ω)]&#x2F;[ Zs(ω)+Z0(ω)]上，而传输到终端后反射系数：R2(ω) &#x3D; [ZL(ω)-Z0(ω)]&#x2F;[ ZL(ω)+Z0(ω)] &#x3D; 1，是全反射（因为理想终端阻抗ZL(ω)是无穷大）。</p>
+<ol>
+<li><p>此时由于<em>Zs</em>（ω）很大导致A(ω)很小，所以高源端阻抗时初始输出的阶跃非常小；<br>假如源端阻抗Zs(ω)&#x3D;1000Ω，特征阻抗Z0(ω) &#x3D; 50Ω，那么源端分压A(ω) &#x3D; 50&#x2F;(1000-50) &#x3D; 1&#x2F;19，如果是3.3V电平信号，那么在经过第一次阻抗分压之后的电压是0.17V。</p>
+</li>
+<li><p>R1(ω)很大说明信号从终端反射回源端时也产生了较大幅度反射，在确定的时间段内，其最终值等于输入阶跃值；<br>——根据上面的栗子：R1(ω) &#x3D; (1000-50)&#x2F;(1000+50) &#x3D; 950&#x2F;1050 &#x3D; 0.9，注意：反射系数为0.9表示很大的反射（全反射的系数为1），如果反射系数为0表示没有反射，反射系数为-1表示全吸收。<br>如下图所示，我们可以得到这种阶跃非常像RC滤波的响应（缓慢的上升，类似于RC充电），阶跃响应的建立时间段与源阻抗和线上负载电容的乘积相近；由于高源端阻抗无匹配传输线阶跃响应与RC滤波的相似性，可以把传输线的输入看做容性负载，所以在线路匹配设计时，如果串入电阻过大时，现象是：无过冲，但边沿会变缓。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026095232139.png" alt="image-20241026095232139"></p>
+<h3 id="5-中间容性负载传输线"><a href="#5-中间容性负载传输线" class="headerlink" title="5.中间容性负载传输线"></a>5.<strong>中间容性负载传输线</strong></h3><p>​	容性负载不仅仅表现为接收器的输入电容，而且还表现在类似于容性结构的负载，如芯片引脚较宽的焊盘也类似于一个容性负载，对于低速信号，过孔也可以粗略地看作是一个容性负载。</p>
+<p>​	当容负载处于传输线中间时，从电容两端看向电路的其他部分，可等效成下图所示的形式。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026102601214.png"></p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026102611336.png"></p>
+<p>​	如果两侧传输线阻抗都是Z0 &#x3D;50Ω，则信号到达电容时相当于通过一个25Ω电阻对其充电。假设入射电压最大值为U，电容两端电压为<br>$$<br> V_c &#x3D; U \left( 1 - e^{-\frac{t}{\tau}} \right)<br>$$<br>​	下图显示了电容两端的电压和通过电容的电流曲线。曲线形式与传输线末端电容类似，只不过这里的时间常数为$\tau &#x3D; \frac{Z_0}{2} C &#x3D; (25 \times 8) , \text{ps} &#x3D; 200 , \text{ps}, ; t &#x3D; 1 , \text{ns}$时信号到达电容，开始对电容充电，经过τ&#x3D;200ps电容电压上升到632 mV，是其终值电压的63.2%。下图为电容阻抗曲线，电容经过τ·ln2&#x3D;138.6ps后达到等效阻抗25Ω。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026102938048.png"></p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026103350003.png"></p>
+<h3 id="6，等间隔容性负载传输线"><a href="#6，等间隔容性负载传输线" class="headerlink" title="6，等间隔容性负载传输线"></a>6，等间隔容性负载传输线</h3><p>​	有一种电路模型，与原来的模型相比有相同的电感和电阻，但有不同的电容值；一驱多的DDR&#x2F;Nand Flash 拓扑结构，每片DDR&#x2F;Nand Flash颗粒相当于增加了一个容性负载；我们将这个容性负载值加到现存传输线的单位长度电容上，得到新的传输线模型电容值。<br>​	如下图所示，此时得到一个重要的结论：等间距多容性负载新模型的传输线阻抗会变小，传输延时会增加，在阻抗匹配和时序设计时要另外考虑。<br>​	——传输线上信号传播速度和特征阻抗取决于在传输过程中受到感抗和容抗的组合： Z &#x3D; LC，介电常数和磁导率只是这两个参数的另外一种方式的呈现，所以虽然介电常数和磁导率不变，如果还有其它外部条件改变了信号传播过程中的感抗和容抗，那么还是会影响到其传播速度和传输线阻抗。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026104506059.png"></p>
+<h3 id="7，直角转弯传输线"><a href="#7，直角转弯传输线" class="headerlink" title="7，直角转弯传输线"></a>7，直角转弯传输线</h3><p>​	当走线是直角时：直角弯曲导线的有效宽度增大了，从而产生了不需要的额外寄生电容，就像是附在传输线上的一个容性负载。有了这个容性负载传输线的瞬时阻抗将会发生变化（产生阻抗不连续点），根据中间容性负载传输线章节所述，在此会产生一个反射，影响信号质量。</p>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026104630487.png"></p>
+<p>​	如上图所示，解决传输线直角的问题，有两种解决方案：</p>
+<ol>
+<li><p>将直角做成圆角，是的传输线的宽度保持固定，改善信号反射以及信号上升沿时间的不良影响；</p>
+</li>
+<li><p>对直角进行斜切（45°），计算上升沿时间常数（如右下图），这个上升时间的值很小，可以满足上升沿大于100ps（差不多对应10GH以内的信号）的高速信号应用。</p>
+</li>
+</ol>
+<h2 id="传输线阻抗匹配"><a href="#传输线阻抗匹配" class="headerlink" title="传输线阻抗匹配"></a>传输线阻抗匹配</h2><p>要使信号从源端完整的传输到终端，那么有三种方式：</p>
+<ol>
+<li>短线模式传输函数：Sshort(ω)&#x3D; ZL&#x2F;(ZL+Zs)；</li>
+<li>源端匹配传输函数：S<strong>源端</strong> &#x3D; Hx(ω)；</li>
+<li>终端匹配传输函数：S<strong>终端</strong> &#x3D; A(ω)*Hx(ω)；</li>
+</ol>
+<h3 id="1，源端匹配"><a href="#1，源端匹配" class="headerlink" title="1，源端匹配"></a>1，源端匹配</h3><p>源端匹配的意思是：Zs &#x3D; Z0，即源端串联电阻后使得阻抗等于传输线特征阻抗。那这样有什么好处呢？</p>
+<ol>
+<li><p>阻抗分压：A(ω) &#x3D; Z0(ω)&#x2F;[ Zs(ω)+Z0(ω)] &#x3D; 1&#x2F;2，信号从源端发出来幅度减半；</p>
+</li>
+<li><p>假设终端负载阻抗ZL为高阻（即∞），那么可得到终端反射系数：R2(ω) &#x3D; [ZL(ω)-Z0(ω)]&#x2F; [ZL(ω)+Z0(ω)] &#x3D; 1，即全反射，信号幅度是输入到终端信号幅度的2倍，算上源端发出来的1&#x2F;2，刚好是输出的信号幅度；</p>
+</li>
+<li><p>源端阻抗的反射系数：R1(ω) &#x3D;  [Zs(ω)-Z0(ω)]&#x2F; [Zs(ω)+Z0(ω)] &#x3D; 0，即，当信号从终端反射回到源端时，信号被全部吸收；<br>——信号从终端反射回来后，将不会再被反射到终端去，信号传输过程结束。</p>
+</li>
+<li><p>传输线的传输函数：S源端 &#x3D; A(ω)$\times$Hx(ω)$\times$[ R2(ω)+1]；将A(ω)&#x3D;1&#x2F;2， R2(ω)&#x3D;2代入传输线的传输函数；所以得到传输函数：S源端 &#x3D; Hx(ω)。<br>——从信号的传输函数可以看到，终端接收到的信号相比于源端只是传输线本身的衰减，不会由于阻抗不连续而产生过冲等。</p>
+</li>
+</ol>
+<h4 id="关于源端匹配的问题："><a href="#关于源端匹配的问题：" class="headerlink" title="关于源端匹配的问题："></a>关于源端匹配的问题：</h4><p>​	我们是否需要等待信号传输以及反射流程全部走完（2T），才能发起下次的信号传输？<br>​	从传输线的定义：传输线传播的只是信号的边沿，即，只有信号边沿所在位置的导线才是传输线；所以一旦信号边沿离开了源端，那么靠近源端的部分导线处于空闲状态，就可以马上发起下一次的信号传输，两者不会相互干涉；</p>
+<p>​	那从终端反射回来的1&#x2F;2幅值信号边沿，是否会影响到下一个传输的信号呢？<br>​	第二个信号与反射回的信号在相遇时会产生叠加，但是他们传播的方向不同，叠加后会相互穿越，之后还是各自保持原先的信号幅值继续传播。</p>
+<h3 id="2，终端匹配"><a href="#2，终端匹配" class="headerlink" title="2，终端匹配"></a>2，终端匹配</h3><h4 id="（1）终端并联匹配"><a href="#（1）终端并联匹配" class="headerlink" title="（1）终端并联匹配"></a>（1）终端并联匹配</h4><p>并联匹配如下图所示有如下特点：</p>
+<ol>
+<li><p>假设源端输出阻抗很小(Zs≈0，A(ω)≈1),那么在传输线上是全幅值传播；<br>——源端串联匹配的第一次传输是半幅值，但若Zs很小时，第一次传输的信号基本上就是全幅值。</p>
+</li>
+<li><p>所有反射波形在终端被并联匹配电阻抑制（R1&#x3D;Z0）；<br>——如上分析，当线路阻抗匹配时，则不会产生反射。</p>
+</li>
+<li><p>接收端电压 &#x3D; 发送端电压，只有传输线延时。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026110715304.png"></p>
+<p>​	从上述分析，终端并联匹配的信号传输模型更简单，传输线上所有位置的信号相等（不会出现半高电平），同时传输线充电常数比源端匹配小一半，简直就是完美的匹配拓扑。但为什么我们在实际应用中，却使用源端匹配更多呢？<br>​	假设输出LVTTL电平（3.3V），传输线阻抗为50ohm，所以需要在终端匹配：50ohm电阻至GND；那么在输出3.3V高电平时，在50ohm电阻上流过的电流是：3.3V&#x2F;50 &#x3D; 66mA，且终端匹配电阻上消耗功率P &#x3D; 3.3 *0.066&#x3D; 0.22W；这将导致如下3个问题：</p>
+<ol>
+<li><p>TTL&#x2F;CMOS管脚输出电流一般支持不了66mA，输出端芯片负载太大；</p>
+</li>
+<li><p>如果选用陶瓷贴片电阻，则至少需要1206以上封装；</p>
+</li>
+<li><p>一个信号线匹配需要0.22W，那么100个信号线匹配就要会浪费22W无用损耗。</p>
+</li>
+</ol>
+<h4 id="（2）终端戴维南匹配"><a href="#（2）终端戴维南匹配" class="headerlink" title="（2）终端戴维南匹配"></a>（2）终端戴维南匹配</h4><p>​	戴维南匹配（分离式端接匹配），如下图所示； R1和R2电阻比值控制着高低电平驱动电流的相对比例，而且R1和R2电阻值的选择，有三个约束条件：</p>
+<ol>
+<li><p>R1和R2并联阻值等于Z0；</p>
+</li>
+<li><p>输出电流不能大于Iohmax（最大高电平输出电流）；</p>
+</li>
+<li><p>输出电流不能大于Iolmax（最大低电平输出电流）。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/LILONGXIN178/img/master/image-20241026111010196.png"></p>
+<p>​	我们常见的DDR的ADDR&#x2F;CMD线匹配，是戴维南终端匹配；可以从VDDQ电源电压分压终端端接，也可以通过VTT电源电压直接端接到ADDR&#x2F;CMD上。</p>
+<h3 id="3，总结"><a href="#3，总结" class="headerlink" title="3，总结"></a>3，总结</h3><p>我们再来所一个总结；</p>
+<ol>
+<li>源端串联匹配特点：</li>
+</ol>
+<ul>
+<li><p>传输线拓扑损耗（匹配电阻损耗）相对并联匹配较小，直流电压无损耗；</p>
+</li>
+<li><p>传输线最末端的信号是最好的，随着距离末端越远，信号边沿的台阶越明显。</p>
+</li>
+</ul>
+<ol start="2">
+<li>源端串联匹配应用场景：</li>
+</ol>
+<ul>
+<li>1驱1传输线拓扑；</li>
+<li>1驱N传输线拓扑，走线延时相对信号边沿较短，或则终端负载集中在传输线的末端，其反射信号不足以到之后信号边沿出现明显的台阶；</li>
+<li>1驱N传输线拓扑，走线很长，信号速率很低，边沿就算出现较明显的边沿，也不会影响数据的传输；例如：IIC。</li>
+</ul>
+<ol start="3">
+<li>终端并联匹配特点：</li>
+</ol>
+<ul>
+<li><p>传输线拓扑损耗（匹配电阻损耗）大；</p>
+</li>
+<li><p>传输线所有位置的信号等于输出端信号，传输线上不存在反射；</p>
+</li>
+<li><p>信号上升RC充电延时相对较小；</p>
+</li>
+<li><p>终端并联匹配电阻必须放在传输线的末端。</p>
+</li>
+</ul>
+<ol start="4">
+<li>终端并联匹配应用场景：</li>
+</ol>
+<ul>
+<li><p>适用1驱N传输线拓扑，信号速率高、摆幅低（较小损耗），对负载分布无要求，适用于单向1驱N的信号；例如：DDR总线ADDR&#x2F;CMD信号；</p>
+</li>
+<li><p>差分信号（后面章节具体分析）。</p>
+</li>
+</ul>
+<p>​	</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">工程小李</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://lilongxin178.github.io/2024/06/28/%E4%BF%A1%E5%8F%B7%E5%AE%8C%E6%95%B4%E6%80%A7%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/">https://lilongxin178.github.io/2024/06/28/%E4%BF%A1%E5%8F%B7%E5%AE%8C%E6%95%B4%E6%80%A7%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">工程小李</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BF%A1%E5%8F%B7%E5%AE%8C%E6%95%B4%E6%80%A7/">
+                                    <span class="chip bg-color">信号完整性</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '90MkdDM0NOZLbCcjFKa2dQlK-gzGzoHsz',
+        appKey: '9PYHQdW1prEoFgpqz2VQdGtG',
+        serverURLs: '',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/08/15/%E6%99%B6%E6%8C%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="晶振基础知识">
+                        
+                        <span class="card-title">晶振基础知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            晶振基础知识
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">小知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/06/28/%E9%98%BB%E5%AE%B9%E6%84%9F%E5%9F%BA%E7%A1%80----%E7%94%B5%E6%84%9F%E4%B8%93%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="阻容感基础----电感专题">
+                        
+                        <span class="card-title">阻容感基础----电感专题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            阻容感基础----电感专题
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6%E6%8E%A2%E8%AE%A8/" class="post-category">
+                                    硬件探讨
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%99%A8%E4%BB%B6%E7%B1%BB/">
+                        <span class="chip bg-color">器件类</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 小李工作站<br />'
+            + '文章作者: 工程小李<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2134665182"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">工程小李</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "11";
+                        var startDate = "25";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:lilongxin178@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+</html>
